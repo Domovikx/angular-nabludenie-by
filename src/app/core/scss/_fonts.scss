@@ -1,11 +1,8 @@
-// font: 15px/1.5 Arial, sans-serif; - p
-// font: 700 16px/1 "Pt Sans", sans-serif; - a
-// font: 15px/1.5 Arial, sans-serif; - a
-// font: 600 14px 'PT Sans', sans-serif; - li
-// font-family: 'Oswald', Arial, sans-serif; - h2
-
-// font: 15px/2em 'Gudea', Arial, sans-serif !important; - footer a
-
-
 @import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
-$font__family--p: 'PT Sans', sans-serif;
+$font_family__pt_sans: 'PT Sans', 'sans-serif';
+
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+$font_family__oswald: 'Oswald', 'Arial', 'sans-serif';
+
+@import url('https://fonts.googleapis.com/css?family=Gudea&display=swap');
+$font_family__gudea: 'Gudea', 'Arial', 'sans-serif';
