@@ -1,1 +1,10 @@
-@import "app/core/scss/rest";
+@import 'app/core/scss/rest';
+@import 'app/core/scss/fonts';
+
+body {
+  font-family: $font_family__pt_sans;
+}
+
+h2 {
+  font-family: font_family__oswald;
+}
