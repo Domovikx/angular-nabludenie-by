@@ -1,4 +1,11 @@
-:host{
-    display: block;
-    background: yellow;
+:host {
+  display: block;
+//   background: yellow;
+}
+
+.header__address {
+  img {
+      width: 22px;
+      height: 22px;
+  }
 }

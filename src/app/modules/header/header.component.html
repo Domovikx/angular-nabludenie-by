@@ -1,15 +1,65 @@
-<p>
-  header works!
-</p>
+<header>
+  <h1 hidden>ДМД Cистемс</h1>
+  <div class="header__container">
+    <div class="header__telephones">
+      <img src="../../../assets/svg/headsets-with-microphone.svg" width="36" height="36" alt="" />
+      <ul>
+        <li><a href="tel:+375293373030">+375 29 337-30-30</a></li>
+        <li><a href="tel:+375297372023">+375 29 737-20-23</a></li>
+        <li><a href="tel:+375172410808">+375 17 241-08-08</a></li>
+      </ul>
+    </div>
 
-<nav>
-  <ul>
-    <li><a [routerLink]="['/']">Главная</a></li>
-    <li><a [routerLink]="['/catalog']">КАТАЛОГ</a></li>
-    <li><a [routerLink]="['/about']">О КОМПАНИИ</a></li>
-    <li><a [routerLink]="['/support']">КЛИЕНТЫ</a></li>
-    <li><a [routerLink]="['/clients']">СТАТЬИ</a></li>
-    <li><a [routerLink]="['/brands']">БРЕНДЫ</a></li>
-    <li><a [routerLink]="['/contacts']">КОНТАКТЫ</a></li>
-  </ul>
-</nav>
+    <div class="header__logo">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/img/dmd-logo.png" alt="" />
+      </a>
+    </div>
+
+    <div class="header__address">
+      <ul>
+        <li>
+          <a href="skype:mihail.dam?chat">
+            <img src="../../../assets/svg/skype-logo.svg" alt="" />
+            mihail.dam
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:info@nabludenie.by">
+            <img src="../../../assets/svg/black-back-closed-envelope-shape.svg" alt="" />
+            info@nabludenie.by
+          </a>
+        </li>
+
+        <li>
+          <a [routerLink]="['/contacts']">
+            <img src="../../../assets/svg/location-pin.svg" alt="" />
+            ул.Бирюзова 4, 3-й этаж
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="header__container--fixed">
+    <nav class="header__navigation">
+      <ul>
+        <li><a [routerLink]="['/']">Главная</a></li>
+        <li><a [routerLink]="['/catalog']">КАТАЛОГ</a></li>
+        <li><a [routerLink]="['/about']">О КОМПАНИИ</a></li>
+        <li><a [routerLink]="['/support']">КЛИЕНТЫ</a></li>
+        <li><a [routerLink]="['/clients']">СТАТЬИ</a></li>
+        <li><a [routerLink]="['/brands']">БРЕНДЫ</a></li>
+        <li><a [routerLink]="['/contacts']">КОНТАКТЫ</a></li>
+      </ul>
+    </nav>
+
+    <button>прайс</button>
+
+    <form>
+      <input type="search" />
+      <button>search</button>
+    </form>
+  </div>
+</header>
