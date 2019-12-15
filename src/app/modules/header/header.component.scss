@@ -1,10 +1,57 @@
+@import '../../core/scss/fonts';
+@import '../../core/scss/colors';
+
 :host {
   display: block;
 }
 
+.header {
+  padding-top: 10px;
+  border-top: 4px solid $border__color--n1;
+}
+
+.header__container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center center;
+
+  max-width: 1200px;
+  width: 100%;
+}
+
+.header__telephones {
+  display: grid;
+  align-items: end;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(2, auto);
+}
+
+.header__logo {
+  img {
+    width: 255px;
+  }
+}
+
 .header__address {
   img {
-      width: 22px;
-      height: 22px;
+    width: 22px;
+    height: 22px;
   }
+}
+
+.address__link {
+  display: grid;
+  align-items: center;
+  grid-column-gap: 5px;
+  margin: 3px 0;
+  grid-template-columns: repeat(2, min-content);
+
+  //   color: $button__color_second;
+  //   font-family: $font_family__arial;
+  //   font-size: 14px;
+  //   line-height: 18px;
+}
+
+.header__container--fixed {
 }
