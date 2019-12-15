@@ -4,14 +4,12 @@
 
 <nav>
   <ul>
-    <li><a routerLink="">Главная</a></li>
-    <li><a routerLink="/catalog">КАТАЛОГ</a></li>
-    <li><a routerLink="/about">О КОМПАНИИ</a></li>
-    <li><a routerLink="/support">КЛИЕНТЫ</a></li>
-    <li><a routerLink="/clients">СТАТЬИ</a></li>
-    <li><a routerLink="/brands">БРЕНДЫ</a></li>
-    <li><a routerLink="/contacts">КОНТАКТЫ</a></li>
+    <li><a [routerLink]="['/']">Главная</a></li>
+    <li><a [routerLink]="['/catalog']">КАТАЛОГ</a></li>
+    <li><a [routerLink]="['/about']">О КОМПАНИИ</a></li>
+    <li><a [routerLink]="['/support']">КЛИЕНТЫ</a></li>
+    <li><a [routerLink]="['/clients']">СТАТЬИ</a></li>
+    <li><a [routerLink]="['/brands']">БРЕНДЫ</a></li>
+    <li><a [routerLink]="['/contacts']">КОНТАКТЫ</a></li>
   </ul>
 </nav>
-
-<router-outlet></router-outlet>
