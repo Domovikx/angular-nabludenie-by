@@ -8,3 +8,15 @@ body {
 h2 {
   font-family: font_family__oswald;
 }
+
+a,
+button,
+.button {
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: pre;
+  text-decoration: none;
+}
