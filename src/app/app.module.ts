@@ -6,20 +6,29 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './modules/navigation/navigation.component';
 import { PageAboutModule } from './pages/page-about/page-about.module';
 import { PageHomeModule } from './pages/page-home/page-home.module';
+import { PageArticlesModule } from './pages/page-articles/page-articles.module';
+import { PageBrandsModule } from './pages/page-brands/page-brands.module';
+import { PageCatalogModule } from './pages/page-catalog/page-catalog.module';
+import { PageClientsModule } from './pages/page-clients/page-clients.module';
+import { PageContactsModule } from './pages/page-contacts/page-contacts.module';
+import { PageSupportModule } from './pages/page-support/page-support.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent
-  ],
+  declarations: [AppComponent, NavigationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
 
     PageAboutModule,
-    PageHomeModule
+    PageArticlesModule,
+    PageBrandsModule,
+    PageCatalogModule,
+    PageClientsModule,
+    PageContactsModule,
+    PageHomeModule,
+    PageSupportModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
