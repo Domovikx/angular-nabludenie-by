@@ -1,6 +1,7 @@
 @import 'app/core/scss/rest';
 @import 'app/core/scss/fonts';
 @import 'app/core/scss/colors';
+@import 'app/core/scss/buttons';
 
 body {
   font-family: $font_family__pt_sans;
@@ -8,24 +9,4 @@ body {
 
 h2 {
   font-family: font_family__oswald;
-}
-
-a,
-button,
-.button {
-  color: inherit;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  white-space: pre;
-  text-decoration: none;
-
-  color: $button__color;
-
-  transition: 0.2s;
-
-  &:hover {
-    color: $button__color--hover;
-  }
 }

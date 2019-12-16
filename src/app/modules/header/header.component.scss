@@ -1,8 +1,17 @@
 @import '../../core/scss/fonts';
 @import '../../core/scss/colors';
+@import '../../core/scss/buttons';
 
 :host {
   display: block;
+}
+
+.telephones__link,
+.address__link {
+  color: $button__color_second;
+  font-family: $font_family__arial;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .header {

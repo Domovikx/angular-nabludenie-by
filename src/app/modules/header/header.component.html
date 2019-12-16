@@ -4,9 +4,15 @@
     <div class="header__telephones telephones">
       <img src="../../../assets/svg/headsets-with-microphone.svg" width="36" height="36" alt="" />
       <ul class="telephones__list">
-        <li><a href="tel:+375293373030">+375 29 337-30-30</a></li>
-        <li><a href="tel:+375297372023">+375 29 737-20-23</a></li>
-        <li><a href="tel:+375172410808">+375 17 241-08-08</a></li>
+        <li>
+          <a class="telephones__link" href="tel:+375293373030">+375 29 337-30-30</a>
+        </li>
+        <li>
+          <a class="telephones__link" href="tel:+375297372023">+375 29 737-20-23</a>
+        </li>
+        <li>
+          <a class="telephones__link" href="tel:+375172410808">+375 17 241-08-08</a>
+        </li>
       </ul>
     </div>
 
@@ -19,21 +25,21 @@
     <div class="header__address address">
       <ul class="address__list">
         <li>
-          <a href="skype:mihail.dam?chat" class="address__link">
+          <a class="address__link" href="skype:mihail.dam?chat" class="address__link">
             <img src="../../../assets/svg/skype-logo.svg" alt="" />
             mihail.dam
           </a>
         </li>
 
         <li>
-          <a href="mailto:info@nabludenie.by" class="address__link">
+          <a class="address__link" href="mailto:info@nabludenie.by" class="address__link">
             <img src="../../../assets/svg/black-back-closed-envelope-shape.svg" alt="" />
             info@nabludenie.by
           </a>
         </li>
 
         <li>
-          <a [routerLink]="['/contacts']" class="address__link">
+          <a class="address__link" [routerLink]="['/contacts']" class="address__link">
             <img src="../../../assets/svg/location-pin.svg" alt="" />
             ул.Бирюзова 4, 3-й этаж
           </a>
