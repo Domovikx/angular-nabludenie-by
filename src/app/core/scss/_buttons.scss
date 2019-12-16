@@ -1,0 +1,26 @@
+// @import 'colors';
+
+a,
+button,
+.button {
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: pre;
+  text-decoration: none;
+  outline: none;
+
+  color: $button__color;
+
+  transition: 0.2s;
+
+  &:hover {
+    color: $button__color--hover;
+  }
+}
+
+input {
+  outline: none; 
+}

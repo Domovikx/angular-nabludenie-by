@@ -1,17 +1,87 @@
-<p>
-  header works!
-</p>
+<header class="header">
+  <h1 hidden>ДМД Cистемс</h1>
+  <div class="header__container--top">
+    <div class="header__telephones telephones">
+      <img src="../../../assets/svg/headsets-with-microphone.svg" width="36" height="36" alt="" />
+      <ul class="telephones__list">
+        <li>
+          <a class="telephones__link" href="tel:+375293373030">+375 29 337-30-30</a>
+        </li>
+        <li>
+          <a class="telephones__link" href="tel:+375297372023">+375 29 737-20-23</a>
+        </li>
+        <li>
+          <a class="telephones__link" href="tel:+375172410808">+375 17 241-08-08</a>
+        </li>
+      </ul>
+    </div>
 
-<nav>
-  <ul>
-    <li><a routerLink="">Главная</a></li>
-    <li><a routerLink="/catalog">КАТАЛОГ</a></li>
-    <li><a routerLink="/about">О КОМПАНИИ</a></li>
-    <li><a routerLink="/support">КЛИЕНТЫ</a></li>
-    <li><a routerLink="/clients">СТАТЬИ</a></li>
-    <li><a routerLink="/brands">БРЕНДЫ</a></li>
-    <li><a routerLink="/contacts">КОНТАКТЫ</a></li>
-  </ul>
-</nav>
+    <div class="header__logo">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/img/dmd-logo.png" alt="" />
+      </a>
+    </div>
 
-<router-outlet></router-outlet>
+    <div class="header__address address">
+      <ul class="address__list">
+        <li>
+          <a class="address__link" href="skype:mihail.dam?chat" class="address__link">
+            <img src="../../../assets/svg/skype-logo.svg" alt="" />
+            mihail.dam
+          </a>
+        </li>
+
+        <li>
+          <a class="address__link" href="mailto:info@nabludenie.by" class="address__link">
+            <img src="../../../assets/svg/black-back-closed-envelope-shape.svg" alt="" />
+            info@nabludenie.by
+          </a>
+        </li>
+
+        <li>
+          <a class="address__link" [routerLink]="['/contacts']" class="address__link">
+            <img src="../../../assets/svg/location-pin.svg" alt="" />
+            ул.Бирюзова 4, 3-й этаж
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="header__bottom_box">
+    <div class="header__container--bottom">
+      <nav class="header__navigation navigation">
+        <ul class="navigation__list">
+          <li>
+            <a class="navigation__links" [routerLink]="['/']">Главная</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/catalog']">КАТАЛОГ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/about']">О КОМПАНИИ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/support']">КЛИЕНТЫ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/clients']">СТАТЬИ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/brands']">БРЕНДЫ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/contacts']">КОНТАКТЫ</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="button header__button--price">прайс</button>
+
+      <form class="header__form form">
+        <input class="form__input" type="search" placeholder="Поиск продукции"/>
+        <button class="form__button button">btn</button>
+      </form>
+    </div>
+  </div>
+</header>
