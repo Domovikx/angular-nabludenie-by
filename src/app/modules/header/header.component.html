@@ -1,6 +1,6 @@
 <header class="header">
   <h1 hidden>ДМД Cистемс</h1>
-  <div class="header__container">
+  <div class="header__container--top">
     <div class="header__telephones telephones">
       <img src="../../../assets/svg/headsets-with-microphone.svg" width="36" height="36" alt="" />
       <ul class="telephones__list">
@@ -48,24 +48,40 @@
     </div>
   </div>
 
-  <div class="header__container--fixed">
-    <nav class="header__navigation">
-      <ul>
-        <li><a [routerLink]="['/']">Главная</a></li>
-        <li><a [routerLink]="['/catalog']">КАТАЛОГ</a></li>
-        <li><a [routerLink]="['/about']">О КОМПАНИИ</a></li>
-        <li><a [routerLink]="['/support']">КЛИЕНТЫ</a></li>
-        <li><a [routerLink]="['/clients']">СТАТЬИ</a></li>
-        <li><a [routerLink]="['/brands']">БРЕНДЫ</a></li>
-        <li><a [routerLink]="['/contacts']">КОНТАКТЫ</a></li>
-      </ul>
-    </nav>
+  <div class="header__bottom_box">
+    <div class="header__container--bottom">
+      <nav class="header__navigation navigation">
+        <ul class="navigation__list">
+          <li>
+            <a class="navigation__links" [routerLink]="['/']">Главная</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/catalog']">КАТАЛОГ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/about']">О КОМПАНИИ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/support']">КЛИЕНТЫ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/clients']">СТАТЬИ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/brands']">БРЕНДЫ</a>
+          </li>
+          <li>
+            <a class="navigation__links" [routerLink]="['/contacts']">КОНТАКТЫ</a>
+          </li>
+        </ul>
+      </nav>
 
-    <button class="button header__button--price">прайс</button>
+      <button class="button header__button--price">прайс</button>
 
-    <form class="header__form form">
-      <input class="form__input" type="search" />
-      <button class="form__button button">search</button>
-    </form>
+      <form class="header__form form">
+        <input class="form__input" type="search" placeholder="Поиск продукции"/>
+        <button class="form__button button">btn</button>
+      </form>
+    </div>
   </div>
 </header>

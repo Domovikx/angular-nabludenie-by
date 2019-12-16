@@ -3,6 +3,10 @@
 @import 'app/core/scss/colors';
 @import 'app/core/scss/buttons';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $font_family__pt_sans;
 }
