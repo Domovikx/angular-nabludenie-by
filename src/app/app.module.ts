@@ -13,11 +13,12 @@ import { PageClientsModule } from './pages/page-clients/page-clients.module';
 import { PageContactsModule } from './pages/page-contacts/page-contacts.module';
 import { PageSupportModule } from './pages/page-support/page-support.module';
 
-import { FooterComponent } from './modules/footer/footer.component';
-import { HeaderComponent } from './modules/header/header.component';
+import { SvgSpriteModule } from './modules/svg-sprite/svg-sprite.module';
+import { HeaderModule } from './modules/header/header.module';
+import { FooterModule } from './modules/footer/footer.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,9 +30,14 @@ import { HeaderComponent } from './modules/header/header.component';
     PageClientsModule,
     PageContactsModule,
     PageHomeModule,
-    PageSupportModule
+    PageSupportModule,
+
+    SvgSpriteModule,
+    FooterModule,
+    HeaderModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule {}

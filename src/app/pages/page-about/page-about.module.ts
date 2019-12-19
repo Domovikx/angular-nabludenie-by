@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PageAboutComponent } from './page-about.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [PageAboutComponent]
 })
-export class PageAboutModule { }
+export class PageAboutModule {}
