@@ -1,11 +1,13 @@
 <footer>
-  <section id="footer-top-line"></section>
-  <section id="cont_container">
+  <div class="footer-top-line"></div>
+  <section class="cont_container">
     <ul>
       <li>
-        <a href="tel:+375 17 241-08-08"
-          ><img class="img" src="../../../assets/svg/skype-logo.svg" alt=""
-        /></a>
+        <a href="tel:+375 17 241-08-08">
+          <svg class="svg img">
+            <use xlink:href="#svg__skype_logo"></use>
+          </svg>
+        </a>
       </li>
       <li><a href="tel:+375 17 241-08-08">+375 17 241-08-08</a></li>
       <li><a href="tel:+375 17 337-08-08">+375 17 337-08-08</a></li>
@@ -24,6 +26,7 @@
           info@nabludenie.by
         </a>
       </li>
+
       <li>
         <a href="skype:mihail.dam?chat">
           <img class="img" src="../../../assets/svg/skype-logo.svg" alt="" />
@@ -58,5 +61,6 @@
       <li><a [routerLink]="['/catalog']">Бренды</a></li>
     </ul>
   </section>
-  <section id="footer-bottom"></section>
+
+  <section class="footer-bottom"></section>
 </footer>

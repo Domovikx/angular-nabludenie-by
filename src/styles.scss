@@ -1,6 +1,5 @@
 @import 'app/core/scss/rest';
-@import 'app/core/scss/fonts';
-@import 'app/core/scss/colors';
+@import 'app/core/scss/variables';
 @import 'app/core/scss/buttons';
 
 * {
@@ -8,9 +7,14 @@
 }
 
 body {
-  font-family: $font_family__pt_sans;
+  font-family: $font__pt_sans;
 }
 
 h2 {
-  font-family: font_family__oswald;
+  font-family: font__oswald;
+}
+
+.svg {
+  width: 36px;
+  height: 36px;
 }

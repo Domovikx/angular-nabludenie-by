@@ -1,8 +1,11 @@
 <header class="header">
   <h1 hidden>ДМД Cистемс</h1>
-  <div class="header__container--top">
+  <div class="header__container__top">
     <div class="header__telephones telephones">
-      <img src="../../../assets/svg/headsets-with-microphone.svg" width="36" height="36" alt="" />
+      <svg class="svg__headsets_with_microphone svg">
+        <use xlink:href="#svg__headsets_with_microphone"></use>
+      </svg>
+
       <ul class="telephones__list">
         <li>
           <a class="telephones__link" href="tel:+375293373030">+375 29 337-30-30</a>
@@ -26,21 +29,33 @@
       <ul class="address__list">
         <li>
           <a class="address__link" href="skype:mihail.dam?chat" class="address__link">
-            <img src="../../../assets/svg/skype-logo.svg" alt="" />
+            <!-- <img src="../../../assets/svg/skype-logo.svg" alt="" /> -->
+
+            <svg class="svg__skype_logo svg">
+              <use xlink:href="#svg__skype_logo"></use>
+            </svg>
             mihail.dam
           </a>
         </li>
 
         <li>
           <a class="address__link" href="mailto:info@nabludenie.by" class="address__link">
-            <img src="../../../assets/svg/black-back-closed-envelope-shape.svg" alt="" />
+            <!-- <img src="../../../assets/svg/black-back-closed-envelope-shape.svg" alt="" /> -->
+
+            <svg class="svg__letter svg">
+              <use xlink:href="#svg__letter"></use>
+            </svg>
             info@nabludenie.by
           </a>
         </li>
 
         <li>
           <a class="address__link" [routerLink]="['/contacts']" class="address__link">
-            <img src="../../../assets/svg/location-pin.svg" alt="" />
+            <!-- <img src="../../../assets/svg/location-pin.svg" alt="" /> -->
+
+            <svg class="svg__location_pin svg">
+              <use xlink:href="#svg__location_pin"></use>
+            </svg>
             ул.Бирюзова 4, 3-й этаж
           </a>
         </li>
@@ -49,7 +64,7 @@
   </div>
 
   <div class="header__bottom_box">
-    <div class="header__container--bottom">
+    <div class="header__container__bottom">
       <nav class="header__navigation navigation">
         <ul class="navigation__list">
           <li>
@@ -76,7 +91,7 @@
         </ul>
       </nav>
 
-      <button class="button header__button--price">прайс</button>
+      <button class="button header__button__price">прайс</button>
 
       <form class="header__form form">
         <input class="form__input" type="search" placeholder="Поиск продукции" />
