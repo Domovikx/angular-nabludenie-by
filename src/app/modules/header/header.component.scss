@@ -9,6 +9,7 @@
   fill: $color__red;
   width: 22px;
   height: 22px;
+  transition: 0.6s;
 }
 
 .telephones__link,
@@ -164,8 +165,16 @@
   background-color: $color__red;
   border: none;
 
+  .svg {
+    fill: $color__white;
+    transition: 0.6s;
+  }
+
   &:hover {
     background-size: 24px;
-    background-color: $color__gray__dark;
+    background-color: $color__gray__darkest;
+    .svg {
+      fill: $color__red;
+    }
   }
 }

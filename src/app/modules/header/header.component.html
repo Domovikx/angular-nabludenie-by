@@ -29,8 +29,6 @@
       <ul class="address__list">
         <li>
           <a class="address__link" href="skype:mihail.dam?chat" class="address__link">
-            <!-- <img src="../../../assets/svg/skype-logo.svg" alt="" /> -->
-
             <svg class="svg__skype_logo svg">
               <use xlink:href="#svg__skype_logo"></use>
             </svg>
@@ -40,8 +38,6 @@
 
         <li>
           <a class="address__link" href="mailto:info@nabludenie.by" class="address__link">
-            <!-- <img src="../../../assets/svg/black-back-closed-envelope-shape.svg" alt="" /> -->
-
             <svg class="svg__letter svg">
               <use xlink:href="#svg__letter"></use>
             </svg>
@@ -51,8 +47,6 @@
 
         <li>
           <a class="address__link" [routerLink]="['/contacts']" class="address__link">
-            <!-- <img src="../../../assets/svg/location-pin.svg" alt="" /> -->
-
             <svg class="svg__location_pin svg">
               <use xlink:href="#svg__location_pin"></use>
             </svg>
@@ -95,7 +89,11 @@
 
       <form class="header__form form">
         <input class="form__input" type="search" placeholder="Поиск продукции" />
-        <button class="form__button button">btn</button>
+        <button class="form__button button">
+          <svg class="svg__magnifying_search_lenses_tool svg">
+            <use xlink:href="#svg__magnifying_search_lenses_tool"></use>
+          </svg>
+        </button>
       </form>
     </div>
   </div>
