@@ -1,16 +1,19 @@
 <footer class="footer">
-  <div class="footer-top-line"></div>
-  <section class="cont_container">
-    <ul>
+  <div class="footer__top_line"></div>
+
+  <section class="footer__container container">
+    <ul class="container__contacts">
       <li>
         <a href="tel:+375 17 241-08-08">
           <svg class="svg__skype_logo svg">
             <use xlink:href="assets/svg/sprite.svg#svg__skype_logo"></use>
           </svg>
         </a>
+        <ul>
+          <li><a href="tel:+375 17 241-08-08">+375 17 241-08-08</a></li>
+          <li><a href="tel:+375 17 337-08-08">+375 17 337-08-08</a></li>
+        </ul>
       </li>
-      <li><a href="tel:+375 17 241-08-08">+375 17 241-08-08</a></li>
-      <li><a href="tel:+375 17 337-08-08">+375 17 337-08-08</a></li>
 
       <li>
         <a href="tel:+375 29 337-30-30">
@@ -18,9 +21,11 @@
             <use xlink:href="assets/svg/sprite.svg#svg__skype_logo"></use>
           </svg>
         </a>
+        <ul>
+          <li><a href="tel:+375 29 337-30-30">+375 29 337-30-30</a></li>
+          <li><a href="tel:+375 29 737-20-23">+375 29 737-20-23</a></li>
+        </ul>
       </li>
-      <li><a href="tel:+375 29 337-30-30">+375 29 337-30-30</a></li>
-      <li><a href="tel:+375 29 737-20-23">+375 29 737-20-23</a></li>
 
       <li>
         <a href="mailto:info@nabludenie.by">
@@ -50,7 +55,7 @@
       </li>
     </ul>
 
-    <ul>
+    <ul class="container__catalog_list">
       <li><a [routerLink]="['/catalog']">IP-камеры</a></li>
       <li><a [routerLink]="['/catalog']">AHD камеры</a></li>
       <li><a [routerLink]="['/catalog']">Видеодомофоны</a></li>
@@ -70,5 +75,10 @@
     </ul>
   </section>
 
-  <section class="footer-bottom"></section>
+  <section class="footer__bottom">
+    <div class="bottom__wrapper">
+      <p>© 2013- 2020. Все права защищены.</p>
+      <p>Разработка сайта-каталога – MoonWay Studio</p>
+    </div>
+  </section>
 </footer>
