@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageHomeComponent } from './page-home.component';
-import { SliderSmComponent } from 'src/app/modules/slider-sm/slider-sm.component';
-import { BrandsSmComponent } from 'src/app/modules/brands-sm/brands-sm.component';
+import { BrandsSmModule } from 'src/app/modules/brands-sm/brands-sm.module';
+import { SliderSmModule } from 'src/app/modules/slider-sm/slider-sm.module';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [PageHomeComponent, SliderSmComponent, BrandsSmComponent]
+  imports: [CommonModule, BrandsSmModule, SliderSmModule],
+  declarations: [PageHomeComponent]
 })
 export class PageHomeModule {}

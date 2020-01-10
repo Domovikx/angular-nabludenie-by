@@ -1,5 +1,9 @@
 @import 'src/app/core/scss/variables';
 
+* {
+  box-sizing: border-box;
+}
+
 .title-bg {
   position: relative;
 }
@@ -26,4 +30,32 @@
   font-size: 16px;
   font-family: $font__arial;
   color: #494940;
+}
+
+img {
+  max-width: 230px;
+  width: 100%;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  margin-bottom: 30px;
+
+  li {
+    display: grid;
+    align-content: center;
+    padding: 10px;
+
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    box-shadow: inset 0 1px 1px #fff;
+
+    transition: 0.5s;
+    &:hover {
+      border: 1px solid $color__red;
+      transform: scale(1.03);
+    }
+  }
 }

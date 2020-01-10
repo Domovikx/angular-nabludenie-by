@@ -33,6 +33,8 @@ import { FooterModule } from './modules/footer/footer.module';
 
     FooterModule,
     HeaderModule
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
