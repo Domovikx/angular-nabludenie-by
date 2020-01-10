@@ -1,25 +1,30 @@
-@import '../../core/scss/fonts';
-@import '../../core/scss/colors';
+@import '../../core/scss/variables';
 @import '../../core/scss/buttons';
 
 :host {
   display: block;
 }
 
+.svg {
+  fill: $color__red;
+  width: 22px;
+  height: 22px;
+  transition: 0.6s;
+}
+
 .telephones__link,
 .address__link {
-  color: $button__color_second;
-  font-family: $font_family__arial;
+  color: $color__gray;
   font-size: 14px;
   line-height: 18px;
 }
 
 .header {
   padding-top: 10px;
-  border-top: 4px solid $border__color--n1;
+  border-top: 4px solid $color__red;
 }
 
-.header__container--top {
+.header__container__top {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -29,7 +34,7 @@
   width: 100%;
 }
 
-.header__container--top {
+.header__container__top {
   height: 100px;
 }
 
@@ -38,6 +43,20 @@
   align-items: end;
   grid-column-gap: 10px;
   grid-template-columns: repeat(2, auto);
+}
+
+.telephones__link__svg {
+  .svg {
+    width: 36px;
+    height: 36px;
+    transition: 0.6s;
+  }
+
+  &:hover {
+    .svg {
+      fill: $color__red__dark;
+    }
+  }
 }
 
 .header__logo {
@@ -59,6 +78,11 @@
   grid-column-gap: 5px;
   margin: 3px 0;
   grid-template-columns: repeat(2, min-content);
+  &:hover {
+    .svg {
+      fill: $color__red__dark;
+    }
+  }
 }
 
 .header__bottom_box {
@@ -68,7 +92,7 @@
   box-shadow: 0px -3px 7px -2px rgba(40, 53, 55, 0.3);
 }
 
-.header__container--bottom {
+.header__container__bottom {
   display: flex;
   padding: 0 15px;
   margin: 0 auto;
@@ -77,26 +101,23 @@
   align-items: center;
 }
 
-.header__navigation {
-}
-
 .navigation__list {
   display: flex;
   text-transform: uppercase;
 }
 
 .navigation__links {
-  font: $font_family__pt_sans;
+  font-size: 13px;
   font-weight: 600;
   padding: 13px 10px;
 }
 
-.header__button--price {
-  margin-left: 10px;
+.header__button__price {
+  margin: 0 10px;
   border: 1px dashed;
   text-transform: uppercase;
-  color: $palette__color--01;
-  background: $palette__color--04;
+  color: $color__red;
+  background: $color__white;
   font-size: 18px;
   font-weight: 600;
   padding: 5px 20px;
@@ -104,12 +125,11 @@
   outline: none;
 
   &:hover {
-    margin: 1px 1px 1px 11px;
-    border: 1px dashed $palette__color--04;
-    color: $palette__color--04;
+    border: 1px dashed $color__white;
+    color: $color__white;
     font-size: 18px;
     border-radius: 10px;
-    background: $palette__color--01;
+    background: $color__red;
   }
 }
 
@@ -120,11 +140,11 @@
 .form__input {
   height: 35px;
   padding: 8px 15px;
-  color: $palette__color--02;
+  color: $color__gray__darkest;
   font-size: 13px;
   line-height: 20px;
   background-color: transparent;
-  border: 1px solid $palette__color--06;
+  border: 1px solid $color__gray__lighten;
   border-radius: 0;
   box-shadow: none;
 }
@@ -141,15 +161,23 @@
   width: 35px;
   height: 35px;
   font-size: 0;
-  background-image: url('../../../assets/svg/magnifying-search-lenses-tool.svg');
+
   background-size: 23px;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: $palette__color--01;
+  background-color: $color__red;
   border: none;
+
+  .svg {
+    fill: $color__white;
+    transition: 0.6s;
+  }
 
   &:hover {
     background-size: 24px;
-    background-color: $palette__color--02;
+    background-color: $color__gray__darkest;
+    .svg {
+      fill: $color__red;
+    }
   }
 }

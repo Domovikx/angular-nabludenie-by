@@ -13,7 +13,6 @@ import { PageClientsModule } from './pages/page-clients/page-clients.module';
 import { PageContactsModule } from './pages/page-contacts/page-contacts.module';
 import { PageSupportModule } from './pages/page-support/page-support.module';
 
-import { SvgSpriteModule } from './modules/svg-sprite/svg-sprite.module';
 import { HeaderModule } from './modules/header/header.module';
 import { FooterModule } from './modules/footer/footer.module';
 
@@ -32,7 +31,6 @@ import { FooterModule } from './modules/footer/footer.module';
     PageHomeModule,
     PageSupportModule,
 
-    SvgSpriteModule,
     FooterModule,
     HeaderModule
   ],

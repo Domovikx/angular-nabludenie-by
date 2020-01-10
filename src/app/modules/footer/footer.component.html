@@ -1,45 +1,61 @@
-<footer>
-  <section id="footer-top-line"></section>
-  <section id="cont_container">
-    <ul>
-      <li>
-        <a href="tel:+375 17 241-08-08"
-          ><img class="img" src="../../../assets/svg/skype-logo.svg" alt=""
-        /></a>
-      </li>
-      <li><a href="tel:+375 17 241-08-08">+375 17 241-08-08</a></li>
-      <li><a href="tel:+375 17 337-08-08">+375 17 337-08-08</a></li>
+<footer class="footer">
+  <div class="footer__top_line"></div>
 
-      <li>
-        <a href="tel:+375 29 337-30-30"
-          ><img class="img" src="../../../assets/svg/skype-logo.svg" alt=""
-        /></a>
+  <section class="footer__container container">
+    <ul class="container__contacts contacts">
+      <li class="contacts__item item">
+        <a class="item__svg_box" href="tel:+375 17 241-08-08">
+          <svg class="svg__phone svg">
+            <use xlink:href="assets/svg/sprite.svg#svg__phone"></use>
+          </svg>
+        </a>
+        <ul>
+          <li><a href="tel:+375 17 241-08-08">+375 17 241-08-08</a></li>
+          <li><a href="tel:+375 17 337-08-08">+375 17 337-08-08</a></li>
+        </ul>
       </li>
-      <li><a href="tel:+375 29 337-30-30">+375 29 337-30-30</a></li>
-      <li><a href="tel:+375 29 737-20-23">+375 29 737-20-23</a></li>
 
-      <li>
-        <a href="mailto:info@nabludenie.by">
-          <img class="img" src="../../../assets/svg/skype-logo.svg" alt="" />
-          info@nabludenie.by
+      <li class="contacts__item item">
+        <a class="item__svg_box" href="tel:+375 29 337-30-30">
+          <svg class="svg__skype_logo svg">
+            <use xlink:href="assets/svg/sprite.svg#svg__mobile"></use>
+          </svg>
+        </a>
+        <ul>
+          <li><a href="tel:+375 29 337-30-30">+375 29 337-30-30</a></li>
+          <li><a href="tel:+375 29 737-20-23">+375 29 737-20-23</a></li>
+        </ul>
+      </li>
+
+      <li class="contacts__item item">
+        <a class="item__svg_box" href="mailto:info@nabludenie.by">
+          <svg class="svg__letter svg">
+            <use xlink:href="assets/svg/sprite.svg#svg__letter"></use>
+          </svg>
+          <span>info@nabludenie.by</span>
         </a>
       </li>
-      <li>
-        <a href="skype:mihail.dam?chat">
-          <img class="img" src="../../../assets/svg/skype-logo.svg" alt="" />
-          mihail.dam
+
+      <li class="contacts__item item">
+        <a class="item__svg_box" href="skype:mihail.dam?chat">
+          <svg class="svg__skype_logo svg">
+            <use xlink:href="assets/svg/sprite.svg#svg__skype_logo"></use>
+          </svg>
+          <span>mihail.dam</span>
         </a>
       </li>
 
-      <li>
-        <a [routerLink]="['/contacts']">
-          <img class="img" src="../../../assets/svg/skype-logo.svg" alt="" />
-          ул. Бирюзова 4, 3-й этаж
+      <li class="contacts__item item">
+        <a class="item__svg_box" [routerLink]="['/contacts']">
+          <svg class="svg__location_pin svg">
+            <use xlink:href="assets/svg/sprite.svg#svg__location_pin"></use>
+          </svg>
+          <span>ул. Бирюзова 4, 3-й этаж</span>
         </a>
       </li>
     </ul>
 
-    <ul>
+    <ul class="container__catalog_list">
       <li><a [routerLink]="['/catalog']">IP-камеры</a></li>
       <li><a [routerLink]="['/catalog']">AHD камеры</a></li>
       <li><a [routerLink]="['/catalog']">Видеодомофоны</a></li>
@@ -58,5 +74,11 @@
       <li><a [routerLink]="['/catalog']">Бренды</a></li>
     </ul>
   </section>
-  <section id="footer-bottom"></section>
+
+  <section class="footer__bottom">
+    <div class="bottom__wrapper">
+      <p>© 2013- 2020. Все права защищены.</p>
+      <p>Разработка сайта-каталога – MoonWay Studio</p>
+    </div>
+  </section>
 </footer>
