@@ -1,0 +1,29 @@
+@import 'src/app/core/scss/variables';
+
+.title-bg {
+  position: relative;
+}
+
+.title-bg:after {
+  content: '';
+  background: #dcdcdc;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -0.5px;
+  display: block;
+  width: 100%;
+  height: 1px;
+  z-index: -1;
+}
+
+.text {
+  background: white;
+  margin: 15px 20px;
+  padding: 0 10px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: $font__arial;
+  color: #494940;
+}
