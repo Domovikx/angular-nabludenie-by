@@ -15,7 +15,6 @@
 .telephones__link,
 .address__link {
   color: $color__gray;
-  // font-family: $font__arial;
   font-size: 14px;
   line-height: 18px;
 }
@@ -102,16 +101,12 @@
   align-items: center;
 }
 
-.header__navigation {
-}
-
 .navigation__list {
   display: flex;
   text-transform: uppercase;
 }
 
 .navigation__links {
-  // font-family: $font__arial;
   font-size: 13px;
   font-weight: 600;
   padding: 13px 10px;
@@ -130,7 +125,6 @@
   outline: none;
 
   &:hover {
-    margin: 1px 1px 1px 11px;
     border: 1px dashed $color__white;
     color: $color__white;
     font-size: 18px;
