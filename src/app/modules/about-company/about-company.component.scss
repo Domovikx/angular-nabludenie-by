@@ -58,3 +58,9 @@
   margin: 0 0 0 20px;
   padding: 0;
 }
+
+.content__img {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
