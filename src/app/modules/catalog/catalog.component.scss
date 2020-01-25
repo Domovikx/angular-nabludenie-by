@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.brands-sm {
+.section {
   max-width: 1200px;
   margin: 0 auto 20px;
 }
@@ -41,7 +41,7 @@ img {
   width: 100%;
 }
 
-ul {
+.catalog_list {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
@@ -59,9 +59,9 @@ ul {
     width: fit-content;
   }
 
-  li {
+  .item {
     display: grid;
-    align-content: center;
+    // align-content: center;
     padding: 10px;
 
     background-color: #fafafa;
@@ -74,6 +74,17 @@ ul {
     &:hover {
       border: 1px solid $color__red;
       transform: scale(1.03);
+    }
+    .link {
+      display: grid;
+      justify-items: center;
+    }
+    p {
+      align-self: end;
+      justify-self: center;
+    }
+    img {
+      align-self: center;
     }
   }
 }
