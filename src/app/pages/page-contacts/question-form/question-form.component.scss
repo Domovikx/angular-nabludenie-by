@@ -1,0 +1,19 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
+
+  .title {
+    grid-column: 1 / span 2;
+  }
+
+  .item--fieldset {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .item--message {
+    grid-column: 2;
+  }
+}

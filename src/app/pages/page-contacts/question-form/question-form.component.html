@@ -1,0 +1,19 @@
+<form [formGroup]="formQuestion" class="form">
+  <h2 class="form__title title">ЗАДАЙТЕ ВОПРОСЫ</h2>
+
+  <div class="form__item item item--fieldset">
+    <label>Имя</label>
+    <input type="text" formControlName="formName" placeholder="Имя *" required />
+
+    <label>Email</label>
+    <input type="email" formControlName="formEmail" placeholder="Email *" required />
+
+    <label>Тема</label>
+    <input type="text" formControlName="formTopic" placeholder="Тема *" required />
+  </div>
+
+  <div class="form__item item item--message">
+    <label>Ваше сообщение</label>
+    <input type="text" formControlName="formMessage" placeholder="Cообщение *" required />
+  </div>
+</form>
