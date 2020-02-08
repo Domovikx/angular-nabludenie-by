@@ -9,11 +9,11 @@
   margin: 0 auto 20px;
 }
 
-.title-bg {
+.title-wrapper {
   position: relative;
 }
 
-.title-bg:after {
+.title-wrapper:after {
   content: '';
   background: #dcdcdc;
   position: absolute;
