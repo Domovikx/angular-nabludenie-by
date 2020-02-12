@@ -65,6 +65,20 @@ li {
     a {
       margin-right: 10px;
     }
+
+    @media (max-width: 950px) {
+      max-height: 220px;
+    }
+    @media (max-width: 750px) {
+      max-height: unset;
+    }
+  }
+
+  @media (max-width: 540px) {
+    grid-template-columns: auto;
+    .container__catalog_list {
+      display: none;
+    }
   }
 }
 
