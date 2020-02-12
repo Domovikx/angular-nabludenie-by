@@ -7,13 +7,28 @@
 
   <form [formGroup]="formQuestion" class="form">
     <div class="form__item item item--fieldset">
-      <label>Имя</label>
+      <label>
+        <svg class="svg__user svg">
+          <use xlink:href="assets/svg/sprite.svg#svg__user"></use>
+        </svg>
+        Имя
+      </label>
       <input type="text" formControlName="formName" placeholder="Имя *" required />
 
-      <label>Email</label>
+      <label>
+        <svg class="svg__letter svg">
+          <use xlink:href="assets/svg/sprite.svg#svg__letter"></use>
+        </svg>
+        Email
+      </label>
       <input type="email" formControlName="formEmail" placeholder="Email *" required />
 
-      <label>Тема</label>
+      <label>
+        <svg class="svg__newspaper svg">
+          <use xlink:href="assets/svg/sprite.svg#svg__newspaper"></use>
+        </svg>
+        Тема
+      </label>
       <input type="text" formControlName="formTopic" placeholder="Тема *" required />
     </div>
 
