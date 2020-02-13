@@ -14,6 +14,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+- деплой делаем так:  
+  \$ ng build --prod --build-optimizer --base-href ./
+
 деплой - https://progtask.ru/deploy-angular-github-pages/
 деплой как я делал
 
@@ -36,6 +39,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - опять белый экран, возможно всё работает, просто надо подождать - гита...  
   https://domovikx.github.io/angular-nabludenie-by/dist/angular-nabludenie-by/  
   должно работать отсюда
+- получилось запустить когда поставил вручную указал путь
+  <base href="./"> в файле index.html   
+  $ ng build --prod --build-optimizer --base-href ./
+  теперь не работают картинки, всё остальное работает   
+  нужно поменять пути во всех картинках с относительного на абсолютные !
+
+ng build --prod --build-optimizer --base-href /test/
 
 ## Running unit tests
 

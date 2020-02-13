@@ -11491,7 +11491,7 @@
               [
                 ['alt', ''],
                 ['class', 'slider-sm__img'],
-                ['src', '../../../assets/img/Banner4.jpg']
+                ['src', 'assets/img/Banner4.jpg']
               ],
               null,
               null,
@@ -11570,7 +11570,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/dahua_kaliningrad.png']
+                ['src', 'assets/img/brend/dahua_kaliningrad.png']
               ],
               null,
               null,
@@ -11590,7 +11590,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/el.png']
+                ['src', 'assets/img/brend/el.png']
               ],
               null,
               null,
@@ -11610,7 +11610,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/ez_ip.jpg']
+                ['src', 'assets/img/brend/ez_ip.jpg']
               ],
               null,
               null,
@@ -11630,7 +11630,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/hikvision_kaliningrad.png']
+                ['src', 'assets/img/brend/hikvision_kaliningrad.png']
               ],
               null,
               null,
@@ -11650,7 +11650,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/hiwatch-kaliningrad.png']
+                ['src', 'assets/img/brend/hiwatch-kaliningrad.png']
               ],
               null,
               null,
@@ -11670,7 +11670,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/logo-CTV.png']
+                ['src', 'assets/img/brend/logo-CTV.png']
               ],
               null,
               null,
@@ -11690,7 +11690,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/optimus.png']
+                ['src', 'assets/img/brend/optimus.png']
               ],
               null,
               null,
@@ -11710,7 +11710,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/brend/tantos.png']
+                ['src', 'assets/img/brend/tantos.png']
               ],
               null,
               null,
@@ -11954,7 +11954,7 @@
               [
                 ['alt', ''],
                 ['class', 'content__img'],
-                ['src', '../../../assets/img/about-company/1.png']
+                ['src', 'assets/img/about-company/1.png']
               ],
               null,
               null,
@@ -12533,7 +12533,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/cat1.png']
+                ['src', 'assets/img/catalog/cat1.png']
               ],
               null,
               null,
@@ -12576,7 +12576,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/domofon.png']
+                ['src', 'assets/img/catalog/domofon.png']
               ],
               null,
               null,
@@ -12619,7 +12619,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/videodomofon-monitor.png']
+                ['src', 'assets/img/catalog/videodomofon-monitor.png']
               ],
               null,
               null,
@@ -12662,7 +12662,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/cat4.png']
+                ['src', 'assets/img/catalog/cat4.png']
               ],
               null,
               null,
@@ -12705,7 +12705,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/cat5.png']
+                ['src', 'assets/img/catalog/cat5.png']
               ],
               null,
               null,
@@ -12748,7 +12748,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/logo.png']
+                ['src', 'assets/img/catalog/logo.png']
               ],
               null,
               null,
@@ -12788,7 +12788,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/gsm_signal_kateg.png']
+                ['src', 'assets/img/catalog/gsm_signal_kateg.png']
               ],
               null,
               null,
@@ -12831,7 +12831,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/rkit.png']
+                ['src', 'assets/img/catalog/rkit.png']
               ],
               null,
               null,
@@ -12874,7 +12874,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/catalog/photo.png']
+                ['src', 'assets/img/catalog/photo.png']
               ],
               null,
               null,
@@ -13650,7 +13650,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/001.jpg']
+                ['src', 'assets/img/customers/001.jpg']
               ],
               null,
               null,
@@ -13690,7 +13690,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/002.jpg']
+                ['src', 'assets/img/customers/002.jpg']
               ],
               null,
               null,
@@ -13733,7 +13733,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/003.jpg']
+                ['src', 'assets/img/customers/003.jpg']
               ],
               null,
               null,
@@ -13773,7 +13773,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/004.jpg']
+                ['src', 'assets/img/customers/004.jpg']
               ],
               null,
               null,
@@ -13813,7 +13813,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/005.jpg']
+                ['src', 'assets/img/customers/005.jpg']
               ],
               null,
               null,
@@ -13853,7 +13853,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/006.jpg']
+                ['src', 'assets/img/customers/006.jpg']
               ],
               null,
               null,
@@ -13896,7 +13896,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/007.jpg']
+                ['src', 'assets/img/customers/007.jpg']
               ],
               null,
               null,
@@ -13939,7 +13939,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/008.jpg']
+                ['src', 'assets/img/customers/008.jpg']
               ],
               null,
               null,
@@ -13980,7 +13980,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/009.jpg']
+                ['src', 'assets/img/customers/009.jpg']
               ],
               null,
               null,
@@ -14020,7 +14020,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/010.jpg']
+                ['src', 'assets/img/customers/010.jpg']
               ],
               null,
               null,
@@ -14063,7 +14063,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/011.jpg']
+                ['src', 'assets/img/customers/011.jpg']
               ],
               null,
               null,
@@ -14106,7 +14106,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/012.jpg']
+                ['src', 'assets/img/customers/012.jpg']
               ],
               null,
               null,
@@ -14147,7 +14147,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/013.jpg']
+                ['src', 'assets/img/customers/013.jpg']
               ],
               null,
               null,
@@ -14188,7 +14188,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/014.jpg']
+                ['src', 'assets/img/customers/014.jpg']
               ],
               null,
               null,
@@ -14228,7 +14228,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/015.jpg']
+                ['src', 'assets/img/customers/015.jpg']
               ],
               null,
               null,
@@ -14271,7 +14271,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/016.jpg']
+                ['src', 'assets/img/customers/016.jpg']
               ],
               null,
               null,
@@ -14311,7 +14311,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/017.jpg']
+                ['src', 'assets/img/customers/017.jpg']
               ],
               null,
               null,
@@ -14354,7 +14354,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/018.jpg']
+                ['src', 'assets/img/customers/018.jpg']
               ],
               null,
               null,
@@ -14397,7 +14397,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/019.jpg']
+                ['src', 'assets/img/customers/019.jpg']
               ],
               null,
               null,
@@ -14440,7 +14440,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/020.jpg']
+                ['src', 'assets/img/customers/020.jpg']
               ],
               null,
               null,
@@ -14483,7 +14483,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/021.jpg']
+                ['src', 'assets/img/customers/021.jpg']
               ],
               null,
               null,
@@ -14524,7 +14524,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/022.jpg']
+                ['src', 'assets/img/customers/022.jpg']
               ],
               null,
               null,
@@ -14564,7 +14564,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/023.jpg']
+                ['src', 'assets/img/customers/023.jpg']
               ],
               null,
               null,
@@ -14607,7 +14607,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/024.jpg']
+                ['src', 'assets/img/customers/024.jpg']
               ],
               null,
               null,
@@ -14650,7 +14650,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/025.jpg']
+                ['src', 'assets/img/customers/025.jpg']
               ],
               null,
               null,
@@ -14690,7 +14690,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/026.jpg']
+                ['src', 'assets/img/customers/026.jpg']
               ],
               null,
               null,
@@ -14733,7 +14733,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/027.jpg']
+                ['src', 'assets/img/customers/027.jpg']
               ],
               null,
               null,
@@ -14776,7 +14776,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/028.jpg']
+                ['src', 'assets/img/customers/028.jpg']
               ],
               null,
               null,
@@ -14819,7 +14819,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/029.jpg']
+                ['src', 'assets/img/customers/029.jpg']
               ],
               null,
               null,
@@ -14862,7 +14862,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/030.jpg']
+                ['src', 'assets/img/customers/030.jpg']
               ],
               null,
               null,
@@ -14902,7 +14902,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/031.jpg']
+                ['src', 'assets/img/customers/031.jpg']
               ],
               null,
               null,
@@ -14942,7 +14942,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/032.jpg']
+                ['src', 'assets/img/customers/032.jpg']
               ],
               null,
               null,
@@ -14982,7 +14982,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/customers/033.jpg']
+                ['src', 'assets/img/customers/033.jpg']
               ],
               null,
               null,
@@ -15195,7 +15195,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/news/ip-video-1.jpg']
+                ['src', 'assets/img/news/ip-video-1.jpg']
               ],
               null,
               null,
@@ -15424,7 +15424,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/news/Screenshot_1.jpg']
+                ['src', 'assets/img/news/Screenshot_1.jpg']
               ],
               null,
               null,
@@ -18921,7 +18921,7 @@
               'img',
               [
                 ['alt', ''],
-                ['src', '../../../assets/img/dmd-logo.png']
+                ['src', 'assets/img/dmd-logo.png']
               ],
               null,
               null,
