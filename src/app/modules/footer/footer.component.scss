@@ -38,6 +38,13 @@ li {
 .footer__top_line {
   height: 45px;
   background: $color__red;
+
+  @media (max-width: 950px) {
+    height: 5px;
+  }
+  @media (max-width: 540px) {
+    display: none;
+  }
 }
 
 .footer__container {

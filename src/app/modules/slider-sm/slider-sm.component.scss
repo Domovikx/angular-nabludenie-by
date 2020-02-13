@@ -1,14 +1,20 @@
 :host {
   overflow: hidden;
+  padding: 0 10px;
 }
 
 .slider-sm {
   max-width: 1200px;
   margin: 0 auto 20px;
   text-align: center;
+  overflow: hidden;
 }
 
 .slider-sm__img {
-  width: 100%;
-  padding: 0 10px;
+  max-width: 100%;
+
+  @media (max-width: 540px) {
+    max-width: unset;
+    height: 200px;
+  }
 }
