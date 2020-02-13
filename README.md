@@ -29,8 +29,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 - ng add angular-cli-ghpages
 - ng deploy - ждем, файлы будут на гите
-  правильно сделать не получилось, план Б нам нужна папка DIST в ней файлы проекта  
+  правильно сделать не получилось, белый экран  
+  план Б нам нужна папка DIST в ней файлы проекта  
   .gitignore - удалить /DIST и закидываем
+- опять делаем ветку gh-pages
+- опять белый экран, возможно всё работает, просто надо подождать - гита...  
+  https://domovikx.github.io/angular-nabludenie-by/dist/angular-nabludenie-by/  
+  должно работать отсюда
 
 ## Running unit tests
 
