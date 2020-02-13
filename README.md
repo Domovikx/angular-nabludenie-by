@@ -15,6 +15,22 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 деплой - https://progtask.ru/deploy-angular-github-pages/
+деплой как я делал
+
+- проверить есть ли - ng -v  
+  не помогло - bash: ng: command not found  
+  решение ошибки - https://stackoverflow.com/questions/37227794/ng-command-not-found-while-creating-new-project-using-angular-cli  
+  надо переустановить - angular-cli
+- читаю тут про деплой  
+  https://xsltdev.ru/angular/tutorial/angular-deployment/  
+  https://github.com/angular-schule/angular-cli-ghpages  
+  https://progtask.ru/deploy-angular-github-pages/
+- запускаем - ng build --prod --build-optimizer
+
+- ng add angular-cli-ghpages
+- ng deploy - ждем, файлы будут на гите
+  правильно сделать не получилось, план Б нам нужна папка DIST в ней файлы проекта  
+  .gitignore - удалить /DIST и закидываем
 
 ## Running unit tests
 
