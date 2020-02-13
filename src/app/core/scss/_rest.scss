@@ -132,4 +132,28 @@ table {
 
 * {
   font-family: $font__arial;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+  color: #525252;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+p {
+  color: #525252;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: 600;
 }

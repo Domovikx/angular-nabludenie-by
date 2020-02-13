@@ -1,0 +1,102 @@
+@import '../../../core/scss/variables';
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+}
+
+.title-wrapper {
+  position: relative;
+}
+
+.title-wrapper:after {
+  content: '';
+  background: #dcdcdc;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -0.5px;
+  display: block;
+  width: 100%;
+  height: 1px;
+  z-index: -1;
+}
+
+.text {
+  background: white;
+  margin: 15px 20px;
+  padding: 0 10px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: $font__arial;
+  color: #494940;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.textarea {
+  resize: none;
+  min-height: 100px;
+  border-radius: 3px;
+  margin-top: 6px;
+  padding: 6px;
+}
+
+.button {
+  padding: 10px 20px;
+  margin: 10px 0 5px;
+  color: #fff;
+  background-color: #444;
+  border: 0;
+  border-radius: 3px;
+
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: #ff4800;
+    color: #fff;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
+
+  .title {
+    grid-column: 1 / span 2;
+  }
+
+  .item--fieldset {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 100px auto;
+    padding-left: 20px;
+  }
+
+  .item--message {
+    grid-column: 2;
+    display: grid;
+  }
+}
+
+input {
+  outline: none;
+  margin: 5px 0;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(169, 169, 169);
+  padding: 0 10px;
+}
+
+svg {
+  margin: 5px 10px;
+  width: 22px;
+  height: 22px;
+  fill: #444;
+}

@@ -1,0 +1,22 @@
+<section class="section">
+  <div class="title-wrapper">
+    <h2 class="title">
+      <span class="text">Схема расположения</span>
+    </h2>
+  </div>
+
+  <div class="map_container">
+    <angular-yandex-map [center]="[55.178214, 30.234987]" [zoom]="16" [clusterer]="clusterer">
+      <angular-yandex-placemark
+        [geometry]="[55.178214, 30.234987]"
+        [properties]="placemarkPropertiesVSTU"
+        [options]="placemarkOptions"
+      ></angular-yandex-placemark>
+
+      <angular-yandex-placemark
+        [geometry]="[53.915512, 27.513412]"
+        [options]="placemarkOptions"
+      ></angular-yandex-placemark>
+    </angular-yandex-map>
+  </div>
+</section>
