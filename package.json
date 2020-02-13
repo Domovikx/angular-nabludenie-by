@@ -25,6 +25,7 @@
     "@ngrx/store": "^8.5.2",
     "@ngrx/store-devtools": "^8.5.2",
     "@typescript-eslint/parser": "^2.12.0",
+    "angular-cli-ghpages": "^0.6.2",
     "angular8-yandex-maps": "^1.11.0",
     "date-fns": "^2.8.1",
     "normalizr": "^3.4.1",
