@@ -724,8 +724,8 @@ function _createClass(n, e, t) {
       }
       O.prototype = Object.create(Error.prototype);
       var E,
-        S = O,
-        P = (function(n) {
+        P = O,
+        S = (function(n) {
           function e(n, t) {
             var l;
             return (
@@ -771,7 +771,7 @@ function _createClass(n, e, t) {
           }
           return _inherits(e, n), e;
         })(g),
-        A =
+        M =
           (((E = (function(n) {
             function e() {
               var n;
@@ -800,14 +800,14 @@ function _createClass(n, e, t) {
                 {
                   key: 'lift',
                   value: function(n) {
-                    var e = new M(this, this);
+                    var e = new A(this, this);
                     return (e.operator = n), e;
                   }
                 },
                 {
                   key: 'next',
                   value: function(n) {
-                    if (this.closed) throw new S();
+                    if (this.closed) throw new P();
                     if (!this.isStopped)
                       for (var e = this.observers, t = e.length, l = e.slice(), r = 0; r < t; r++)
                         l[r].next(n);
@@ -816,7 +816,7 @@ function _createClass(n, e, t) {
                 {
                   key: 'error',
                   value: function(n) {
-                    if (this.closed) throw new S();
+                    if (this.closed) throw new P();
                     (this.hasError = !0), (this.thrownError = n), (this.isStopped = !0);
                     for (var e = this.observers, t = e.length, l = e.slice(), r = 0; r < t; r++)
                       l[r].error(n);
@@ -826,7 +826,7 @@ function _createClass(n, e, t) {
                 {
                   key: 'complete',
                   value: function() {
-                    if (this.closed) throw new S();
+                    if (this.closed) throw new P();
                     this.isStopped = !0;
                     for (var n = this.observers, e = n.length, t = n.slice(), l = 0; l < e; l++)
                       t[l].complete();
@@ -842,19 +842,19 @@ function _createClass(n, e, t) {
                 {
                   key: '_trySubscribe',
                   value: function(n) {
-                    if (this.closed) throw new S();
+                    if (this.closed) throw new P();
                     return _get(_getPrototypeOf(e.prototype), '_trySubscribe', this).call(this, n);
                   }
                 },
                 {
                   key: '_subscribe',
                   value: function(n) {
-                    if (this.closed) throw new S();
+                    if (this.closed) throw new P();
                     return this.hasError
                       ? (n.error(this.thrownError), d.EMPTY)
                       : this.isStopped
                       ? (n.complete(), d.EMPTY)
-                      : (this.observers.push(n), new P(this, n));
+                      : (this.observers.push(n), new S(this, n));
                   }
                 },
                 {
@@ -868,10 +868,10 @@ function _createClass(n, e, t) {
               e
             );
           })(w)).create = function(n, e) {
-            return new M(n, e);
+            return new A(n, e);
           }),
           E),
-        M = (function(n) {
+        A = (function(n) {
           function e(n, t) {
             var l;
             return (
@@ -917,7 +917,7 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(A);
+        })(M);
       function R(n) {
         return n && 'function' == typeof n.schedule;
       }
@@ -1581,7 +1581,7 @@ function _createClass(n, e, t) {
           );
         })(T);
       function on() {
-        return new A();
+        return new M();
       }
       function an(n, e, t) {
         var l = (function(n) {
@@ -1683,8 +1683,8 @@ function _createClass(n, e, t) {
           self instanceof WorkerGlobalScope &&
           self,
         En = 'undefined' != typeof global && global,
-        Sn = wn || En || xn || On,
-        Pn = (function() {
+        Pn = wn || En || xn || On,
+        Sn = (function() {
           function n(e, t) {
             _classCallCheck(this, n),
               (this._desc = e),
@@ -1711,9 +1711,9 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Tn = new Pn('INJECTOR', -1),
-        An = new Object(),
-        Mn = /\n/gm,
+        Tn = new Sn('INJECTOR', -1),
+        Mn = new Object(),
+        An = /\n/gm,
         Rn = pn({ provide: String, useValue: pn }),
         In = void 0;
       function Nn(n) {
@@ -1746,8 +1746,8 @@ function _createClass(n, e, t) {
               {
                 key: 'get',
                 value: function(n) {
-                  var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : An;
-                  if (e === An) {
+                  var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : Mn;
+                  if (e === Mn) {
                     var t = new Error('NullInjectorError: No provider for '.concat(yn(n), '!'));
                     throw ((t.name = 'NullInjectorError'), t);
                   }
@@ -1776,7 +1776,7 @@ function _createClass(n, e, t) {
           .concat(t)
           .concat(l ? '(' + l + ')' : '', '[')
           .concat(r, ']: ')
-          .concat(n.replace(Mn, '\n  '));
+          .concat(n.replace(An, '\n  '));
       }
       var Un = function n() {
           _classCallCheck(this, n);
@@ -1803,7 +1803,7 @@ function _createClass(n, e, t) {
         Bn = (
           ('undefined' != typeof requestAnimationFrame && requestAnimationFrame) ||
           setTimeout
-        ).bind(Sn);
+        ).bind(Pn);
       function Gn(n) {
         return n.ngDebugContext;
       }
@@ -2186,8 +2186,8 @@ function _createClass(n, e, t) {
           );
         })(),
         Ee = function() {},
-        Se = new Pn('The presence of this token marks an injector as being the root injector.'),
-        Pe = function(n, e, t) {
+        Pe = new Sn('The presence of this token marks an injector as being the root injector.'),
+        Se = function(n, e, t) {
           return new Ne(n, e, t);
         },
         Te = (function() {
@@ -2201,8 +2201,8 @@ function _createClass(n, e, t) {
                   key: 'create',
                   value: function(n, e) {
                     return Array.isArray(n)
-                      ? Pe(n, e, '')
-                      : Pe(n.providers, n.parent, n.name || '');
+                      ? Se(n, e, '')
+                      : Se(n.providers, n.parent, n.name || '');
                   }
                 }
               ]),
@@ -2210,7 +2210,7 @@ function _createClass(n, e, t) {
             );
           })();
           return (
-            (n.THROW_IF_NOT_FOUND = An),
+            (n.THROW_IF_NOT_FOUND = Mn),
             (n.NULL = new jn()),
             (n.ngInjectableDef = vn({
               token: n,
@@ -2223,11 +2223,11 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Ae = function(n) {
+        Me = function(n) {
           return n;
         },
-        Me = [],
-        Re = Ae,
+        Ae = [],
+        Re = Me,
         Ie = function() {
           return Array.prototype.slice.call(arguments);
         },
@@ -2237,8 +2237,8 @@ function _createClass(n, e, t) {
               l = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null;
             _classCallCheck(this, n), (this.parent = t), (this.source = l);
             var r = (this._records = new Map());
-            r.set(Te, { token: Te, fn: Ae, deps: Me, value: this, useNew: !1 }),
-              r.set(Tn, { token: Tn, fn: Ae, deps: Me, value: this, useNew: !1 }),
+            r.set(Te, { token: Te, fn: Me, deps: Ae, value: this, useNew: !1 }),
+              r.set(Tn, { token: Tn, fn: Me, deps: Ae, value: this, useNew: !1 }),
               (function n(e, t) {
                 if (t)
                   if ((t = bn(t)) instanceof Array) for (var l = 0; l < t.length; l++) n(e, t[l]);
@@ -2249,7 +2249,7 @@ function _createClass(n, e, t) {
                     var r = bn(t.provide),
                       i = (function(n) {
                         var e = (function(n) {
-                            var e = Me,
+                            var e = Ae,
                               t = n.deps;
                             if (t && t.length) {
                               e = [];
@@ -2274,8 +2274,8 @@ function _createClass(n, e, t) {
                             else if (!(t || Rn in n)) throw De("'deps' required", n);
                             return e;
                           })(n),
-                          t = Ae,
-                          l = Me,
+                          t = Me,
+                          l = Ae,
                           r = !1,
                           i = bn(n.provide);
                         if (Rn in n) l = n.useValue;
@@ -2299,7 +2299,7 @@ function _createClass(n, e, t) {
                       } else
                         e.set(
                           r,
-                          (u = { token: t.provide, deps: [], useNew: !1, fn: Ie, value: Me })
+                          (u = { token: t.provide, deps: [], useNew: !1, fn: Ie, value: Ae })
                         );
                       (r = t), u.deps.push({ token: r, options: 6 });
                     }
@@ -2325,12 +2325,12 @@ function _createClass(n, e, t) {
                           if (!t || u & dn.SkipSelf) u & dn.Self || (o = r.get(e, i, dn.Default));
                           else {
                             if ((o = t.value) == Re) throw Error('\u0275Circular dependency');
-                            if (o === Me) {
+                            if (o === Ae) {
                               t.value = Re;
                               var a = t.useNew,
                                 s = t.fn,
                                 c = t.deps,
-                                h = Me;
+                                h = Ae;
                               if (c.length) {
                                 h = [];
                                 for (var f = 0; f < c.length; f++) {
@@ -2359,7 +2359,7 @@ function _createClass(n, e, t) {
                       } catch (o) {
                         throw (o instanceof Error || (o = new Error(o)),
                         (o.ngTempTokenPath = o.ngTempTokenPath || []).unshift(e),
-                        t && t.value == Re && (t.value = Me),
+                        t && t.value == Re && (t.value = Ae),
                         o);
                       }
                     })(n, l, this._records, this.parent, e, t);
@@ -2397,11 +2397,11 @@ function _createClass(n, e, t) {
       function De(n, e) {
         return new Error(Ln(n, e, 'StaticInjectorError'));
       }
-      var je = new Pn('AnalyzeForEntryComponents'),
+      var je = new Sn('AnalyzeForEntryComponents'),
         Le = null;
       function Ue() {
         if (!Le) {
-          var n = Sn.Symbol;
+          var n = Pn.Symbol;
           if (n && n.iterator) Le = n.iterator;
           else
             for (var e = Object.getOwnPropertyNames(Map.prototype), t = 0; t < e.length; ++t) {
@@ -3496,13 +3496,13 @@ function _createClass(n, e, t) {
           };
           return (
             (n.__NG_ELEMENT_ID__ = function() {
-              return St(n, tt);
+              return Pt(n, tt);
             }),
             n
           );
         })(),
-        St = et;
-      function Pt(n, e, t, l) {
+        Pt = et;
+      function St(n, e, t, l) {
         var r = "ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: '"
           .concat(e, "'. Current value: '")
           .concat(t, "'.");
@@ -3519,10 +3519,10 @@ function _createClass(n, e, t) {
       function Tt(n, e) {
         (n.ngDebugContext = e), (n.ngErrorLogger = e.logError.bind(e));
       }
-      function At(n) {
+      function Mt(n) {
         return new Error('ViewDestroyedError: Attempt to use a destroyed view: '.concat(n));
       }
-      function Mt(n, e, t) {
+      function At(n, e, t) {
         var l = n.state,
           r = 1792 & l;
         return r === e ? ((n.state = (-1793 & l) | t), (n.initIndex = -1), !0) : r === t;
@@ -3589,7 +3589,7 @@ function _createClass(n, e, t) {
         var r = n.oldValues[e.bindingIndex + t];
         if (1 & n.state || !ze(r, l)) {
           var i = e.bindings[t].name;
-          throw Pt(
+          throw St(
             Lt.createDebugContext(n, e.nodeIndex),
             ''.concat(i, ': ').concat(r),
             ''.concat(i, ': ').concat(l),
@@ -3889,9 +3889,9 @@ function _createClass(n, e, t) {
       }
       var Ol = new Object();
       function El(n, e, t, l, r, i) {
-        return new Sl(n, e, t, l, r, i);
+        return new Pl(n, e, t, l, r, i);
       }
-      var Sl = (function(n) {
+      var Pl = (function(n) {
           function e(n, t, l, r, i, u) {
             var o;
             return (
@@ -3918,7 +3918,7 @@ function _createClass(n, e, t) {
                     o = Vt(u, i).instance;
                   return (
                     t && u.renderer.setAttribute(Nt(u, 0).renderElement, 'ng-version', at.full),
-                    new Pl(u, new Rl(u), o)
+                    new Sl(u, new Rl(u), o)
                   );
                 }
               },
@@ -3944,7 +3944,7 @@ function _createClass(n, e, t) {
             e
           );
         })(Ze),
-        Pl = (function(n) {
+        Sl = (function(n) {
           function e(n, t, l) {
             var r;
             return (
@@ -4003,9 +4003,9 @@ function _createClass(n, e, t) {
           })()
         );
       function Tl(n, e, t) {
-        return new Al(n, e, t);
+        return new Ml(n, e, t);
       }
-      var Al = (function() {
+      var Ml = (function() {
         function n(e, t, l) {
           _classCallCheck(this, n),
             (this._view = e),
@@ -4170,7 +4170,7 @@ function _createClass(n, e, t) {
           n
         );
       })();
-      function Ml(n) {
+      function Al(n) {
         return new Rl(n);
       }
       var Rl = (function() {
@@ -4749,7 +4749,7 @@ function _createClass(n, e, t) {
                 if (e.element.template) return Nt(o, e.nodeIndex).template;
                 break;
               case Wl:
-                return Ml(or(o, e, t));
+                return Al(or(o, e, t));
               case Zl:
               case Ql:
                 return Vl(o, e);
@@ -4819,7 +4819,7 @@ function _createClass(n, e, t) {
             131072 & t && i.ngOnDestroy());
         }
       }
-      var fr = new Pn('SCHEDULER_TOKEN', {
+      var fr = new Sn('SCHEDULER_TOKEN', {
           providedIn: 'root',
           factory: function() {
             return Bn;
@@ -5020,7 +5020,7 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(A);
+        })(M);
       function mr() {
         return this._results[Ue()]();
       }
@@ -5126,7 +5126,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Cr = new Pn('Application Initializer'),
+        Cr = new Sn('Application Initializer'),
         kr = (function() {
           function n(e) {
             var t = this;
@@ -5170,7 +5170,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        br = new Pn('AppId');
+        br = new Sn('AppId');
       function wr() {
         return ''
           .concat(xr())
@@ -5180,10 +5180,10 @@ function _createClass(n, e, t) {
       function xr() {
         return String.fromCharCode(97 + Math.floor(25 * Math.random()));
       }
-      var Or = new Pn('Platform Initializer'),
-        Er = new Pn('Platform ID'),
-        Sr = new Pn('appBootstrapListener'),
-        Pr = (function() {
+      var Or = new Sn('Platform Initializer'),
+        Er = new Sn('Platform ID'),
+        Pr = new Sn('appBootstrapListener'),
+        Sr = (function() {
           function n() {
             _classCallCheck(this, n);
           }
@@ -5205,16 +5205,16 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Tr = new Pn('LocaleId');
-      function Ar() {
+        Tr = new Sn('LocaleId');
+      function Mr() {
         throw new Error('Runtime compiler is not loaded');
       }
-      var Mr,
+      var Ar,
         Rr,
-        Ir = Ar,
-        Nr = Ar,
-        Vr = Ar,
-        Dr = Ar,
+        Ir = Mr,
+        Nr = Mr,
+        Vr = Mr,
+        Dr = Mr,
         jr = (function() {
           function n() {
             _classCallCheck(this, n),
@@ -5236,7 +5236,7 @@ function _createClass(n, e, t) {
           _classCallCheck(this, n);
         };
       var Ur,
-        Fr = !(!(Ur = Sn.wtf) || ((Mr = Ur.trace), !Mr) || ((Rr = Mr.events), 0));
+        Fr = !(!(Ur = Pn.wtf) || ((Ar = Ur.trace), !Ar) || ((Rr = Ar.events), 0));
       function zr(n, e) {
         return null;
       }
@@ -5250,7 +5250,7 @@ function _createClass(n, e, t) {
             },
         qr = Fr
           ? function(n, e) {
-              return Mr.leaveScope(n, e), e;
+              return Ar.leaveScope(n, e), e;
             }
           : function(n, e) {
               return e;
@@ -5660,14 +5660,14 @@ function _createClass(n, e, t) {
             n
           );
         })())(),
-        li = new Pn('AllowMultipleToken'),
+        li = new Sn('AllowMultipleToken'),
         ri = function n(e, t) {
           _classCallCheck(this, n), (this.name = e), (this.token = t);
         };
       function ii(n, e) {
         var t = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : [],
           l = 'Platform: '.concat(e),
-          r = new Pn(l);
+          r = new Sn(l);
         return function() {
           var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
             i = ui();
@@ -6050,7 +6050,7 @@ function _createClass(n, e, t) {
                       this.tick(),
                       this.components.push(n),
                       this._injector
-                        .get(Sr, [])
+                        .get(Pr, [])
                         .concat(this._bootstrapListeners)
                         .forEach(function(e) {
                           return e(n);
@@ -6330,7 +6330,7 @@ function _createClass(n, e, t) {
         { provide: Er, useValue: 'unknown' },
         { provide: oi, deps: [Te] },
         { provide: ei, deps: [] },
-        { provide: Pr, deps: [] }
+        { provide: Sr, deps: [] }
       ]);
       function xi() {
         return bt;
@@ -6341,7 +6341,7 @@ function _createClass(n, e, t) {
       function Ei(n) {
         return n || 'en-US';
       }
-      function Si(n) {
+      function Pi(n) {
         var e = [];
         return (
           n.onStable.subscribe(function() {
@@ -6352,7 +6352,7 @@ function _createClass(n, e, t) {
           }
         );
       }
-      var Pi = function n(e) {
+      var Si = function n(e) {
         _classCallCheck(this, n);
       };
       function Ti(n, e, t, l, r, i) {
@@ -6397,7 +6397,7 @@ function _createClass(n, e, t) {
           ngContent: null
         };
       }
-      function Ai(n, e, t, l, r, i) {
+      function Mi(n, e, t, l, r, i) {
         var u,
           o = arguments.length > 6 && void 0 !== arguments[6] ? arguments[6] : [],
           a = arguments.length > 7 ? arguments[7] : void 0,
@@ -6420,26 +6420,26 @@ function _createClass(n, e, t) {
             x = k[2],
             O = dl(w),
             E = _slicedToArray(O, 2),
-            S = E[0],
-            P = E[1],
+            P = E[0],
+            S = E[1],
             T = void 0,
-            A = void 0;
+            M = void 0;
           switch (15 & b) {
             case 4:
-              A = x;
+              M = x;
               break;
             case 1:
             case 8:
               T = x;
           }
-          y[C] = { flags: b, ns: S, name: P, nonMinifiedName: P, securityContext: T, suffix: A };
+          y[C] = { flags: b, ns: P, name: S, nonMinifiedName: S, securityContext: T, suffix: M };
         }
         s = s || [];
-        for (var M = new Array(s.length), R = 0; R < s.length; R++) {
+        for (var A = new Array(s.length), R = 0; R < s.length; R++) {
           var I = _slicedToArray(s[R], 2),
             N = I[0],
             V = I[1];
-          M[R] = { type: 0, target: N, eventName: V, propName: null };
+          A[R] = { type: 0, target: N, eventName: V, propName: null };
         }
         var D = (o = o || []).map(function(n) {
           var e = _slicedToArray(n, 2),
@@ -6478,7 +6478,7 @@ function _createClass(n, e, t) {
             childCount: r,
             bindings: y,
             bindingFlags: pl(y),
-            outputs: M,
+            outputs: A,
             element: {
               ns: _,
               name: m,
@@ -6498,7 +6498,7 @@ function _createClass(n, e, t) {
           }
         );
       }
-      function Mi(n, e, t) {
+      function Ai(n, e, t) {
         var l,
           r = t.element,
           i = n.root.selectorOrNode,
@@ -6988,7 +6988,7 @@ function _createClass(n, e, t) {
             u = void 0;
           switch ((Lt.setCurrentNode(n, r), 201347067 & i.flags)) {
             case 1:
-              var o = Mi(n, e, i),
+              var o = Ai(n, e, i),
                 a = void 0;
               if (33554432 & i.flags) {
                 var s = ul(i.element.componentView);
@@ -7046,20 +7046,20 @@ function _createClass(n, e, t) {
       }
       function eu(n) {
         1 & n.state ? ((n.state &= -2), (n.state |= 2)) : (n.state &= -3),
-          Mt(n, 0, 256),
+          At(n, 0, 256),
           lu(n),
           Lt.updateDirectives(n, 0),
           su(n, ou.CheckAndUpdate),
           fu(n, 67108864, 536870912, 0);
-        var e = Mt(n, 256, 512);
+        var e = At(n, 256, 512);
         sr(n, 2097152 | (e ? 1048576 : 0)),
           Lt.updateRenderer(n, 0),
           au(n, ou.CheckAndUpdate),
           fu(n, 134217728, 536870912, 0),
-          sr(n, 8388608 | ((e = Mt(n, 512, 768)) ? 4194304 : 0)),
+          sr(n, 8388608 | ((e = At(n, 512, 768)) ? 4194304 : 0)),
           2 & n.def.flags && (n.state &= -9),
           (n.state &= -97),
-          Mt(n, 768, 1024);
+          At(n, 768, 1024);
       }
       function tu(n, e, t, l, r, i, u, o, a, s, c, h, f) {
         return 0 === t
@@ -7336,7 +7336,7 @@ function _createClass(n, e, t) {
       }
       function iu(n, e) {
         if (jt(n, e.nodeIndex).dirty)
-          throw Pt(
+          throw St(
             Lt.createDebugContext(n, e.nodeIndex),
             'Query '.concat(e.query.id, ' not dirty'),
             'Query '.concat(e.query.id, ' dirty'),
@@ -7599,21 +7599,21 @@ function _createClass(n, e, t) {
           }
         }
       }
-      function Su(n, e, t, l, r, i, u, o, a, s, c, h, f) {
+      function Pu(n, e, t, l, r, i, u, o, a, s, c, h, f) {
         var d = n.def.nodes[e];
         return tu(n, d, t, l, r, i, u, o, a, s, c, h, f), 224 & d.flags ? Dt(n, e).value : void 0;
       }
-      function Pu(n, e, t, l, r, i, u, o, a, s, c, h, f) {
+      function Su(n, e, t, l, r, i, u, o, a, s, c, h, f) {
         var d = n.def.nodes[e];
         return ru(n, d, t, l, r, i, u, o, a, s, c, h, f), 224 & d.flags ? Dt(n, e).value : void 0;
       }
       function Tu(n) {
         return Ku(Vu.detectChanges, eu, null, [n]);
       }
-      function Au(n) {
+      function Mu(n) {
         return Ku(Vu.checkNoChanges, nu, null, [n]);
       }
-      function Mu(n) {
+      function Au(n) {
         return Ku(Vu.destroy, uu, null, [n]);
       }
       var Ru,
@@ -7637,7 +7637,7 @@ function _createClass(n, e, t) {
         return Du(n, e), Ku(Vu.handleEvent, n.def.handleEvent, null, [n, e, t, l]);
       }
       function Lu(n, e) {
-        if (128 & n.state) throw At(Vu[Ru]);
+        if (128 & n.state) throw Mt(Vu[Ru]);
         return (
           Du(n, Hu(n, 0)),
           n.def.updateDirectives(function(n, t, l) {
@@ -7656,7 +7656,7 @@ function _createClass(n, e, t) {
         );
       }
       function Uu(n, e) {
-        if (128 & n.state) throw At(Vu[Ru]);
+        if (128 & n.state) throw Mt(Vu[Ru]);
         return (
           Du(n, qu(n, 0)),
           n.def.updateRenderer(function(n, t, l) {
@@ -8112,8 +8112,8 @@ function _createClass(n, e, t) {
                             overrideComponentView: xu,
                             clearOverrides: Ou,
                             checkAndUpdateView: Tu,
-                            checkNoChangesView: Au,
-                            destroyView: Mu,
+                            checkNoChangesView: Mu,
+                            destroyView: Au,
                             createDebugContext: function(n, e) {
                               return new Bu(n, e);
                             },
@@ -8140,10 +8140,10 @@ function _createClass(n, e, t) {
                               return n.def.handleEvent(n, e, t, l);
                             },
                             updateDirectives: function(n, e) {
-                              return n.def.updateDirectives(0 === e ? Su : Pu, n);
+                              return n.def.updateDirectives(0 === e ? Pu : Su, n);
                             },
                             updateRenderer: function(n, e) {
-                              return n.def.updateRenderer(0 === e ? Su : Pu, n);
+                              return n.def.updateRenderer(0 === e ? Pu : Su, n);
                             }
                           };
                       (Lt.setCurrentNode = n.setCurrentNode),
@@ -8199,11 +8199,11 @@ function _createClass(n, e, t) {
         Xu = function n() {
           _classCallCheck(this, n);
         },
-        no = new Pn('Location Initialized'),
+        no = new Sn('Location Initialized'),
         eo = function n() {
           _classCallCheck(this, n);
         },
-        to = new Pn('appBaseHref'),
+        to = new Sn('appBaseHref'),
         lo = (function() {
           function n(e, t) {
             var l = this;
@@ -8527,7 +8527,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        ao = new Pn('UseV4Plurals'),
+        ao = new Sn('UseV4Plurals'),
         so = function n() {
           _classCallCheck(this, n);
         },
@@ -8657,7 +8657,7 @@ function _createClass(n, e, t) {
         go = function n() {
           _classCallCheck(this, n);
         },
-        _o = new Pn('DocumentToken'),
+        _o = new Sn('DocumentToken'),
         mo =
           (((vo = function n() {
             _classCallCheck(this, n);
@@ -8812,7 +8812,7 @@ function _createClass(n, e, t) {
               key: 'getValue',
               value: function() {
                 if (this.hasError) throw this.thrownError;
-                if (this.closed) throw new S();
+                if (this.closed) throw new P();
                 return this._value;
               }
             },
@@ -8831,7 +8831,7 @@ function _createClass(n, e, t) {
           ]),
           e
         );
-      })(A);
+      })(M);
       function Oo() {
         return (
           Error.call(this),
@@ -8842,8 +8842,8 @@ function _createClass(n, e, t) {
       }
       Oo.prototype = Object.create(Error.prototype);
       var Eo = Oo,
-        So = {},
-        Po = (function() {
+        Po = {},
+        So = (function() {
           function n(e) {
             _classCallCheck(this, n), (this.resultSelector = e);
           }
@@ -8880,7 +8880,7 @@ function _createClass(n, e, t) {
               {
                 key: '_next',
                 value: function(n) {
-                  this.values.push(So), this.observables.push(n);
+                  this.values.push(Po), this.observables.push(n);
                 }
               },
               {
@@ -8908,7 +8908,7 @@ function _createClass(n, e, t) {
                 key: 'notifyNext',
                 value: function(n, e, t, l, r) {
                   var i = this.values,
-                    u = this.toRespond ? (i[t] === So ? --this.toRespond : this.toRespond) : 0;
+                    u = this.toRespond ? (i[t] === Po ? --this.toRespond : this.toRespond) : 0;
                   (i[t] = e),
                     0 === u &&
                       (this.resultSelector
@@ -8932,7 +8932,7 @@ function _createClass(n, e, t) {
             e
           );
         })(q);
-      function Ao(n) {
+      function Mo(n) {
         return new w(function(e) {
           var t;
           try {
@@ -8943,7 +8943,7 @@ function _createClass(n, e, t) {
           return (t ? Z(t) : ko()).subscribe(e);
         });
       }
-      function Mo() {
+      function Ao() {
         return X(1);
       }
       function Ro(n, e) {
@@ -9699,9 +9699,9 @@ function _createClass(n, e, t) {
           '\x90': 'NumLock'
         },
         ya = (function() {
-          if (Sn.Node)
+          if (Pn.Node)
             return (
-              Sn.Node.prototype.contains ||
+              Pn.Node.prototype.contains ||
               function(n) {
                 return !!(16 & this.compareDocumentPosition(n));
               }
@@ -10587,7 +10587,7 @@ function _createClass(n, e, t) {
       function ba() {
         return !!window.history.pushState;
       }
-      var wa = new Pn('TRANSITION_ID'),
+      var wa = new Sn('TRANSITION_ID'),
         xa = [
           {
             provide: Cr,
@@ -10621,21 +10621,21 @@ function _createClass(n, e, t) {
                 {
                   key: 'addToWindow',
                   value: function(n) {
-                    (Sn.getAngularTestability = function(e) {
+                    (Pn.getAngularTestability = function(e) {
                       var t = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],
                         l = n.findTestabilityInTree(e, t);
                       if (null == l) throw new Error('Could not find testability for element.');
                       return l;
                     }),
-                      (Sn.getAllAngularTestabilities = function() {
+                      (Pn.getAllAngularTestabilities = function() {
                         return n.getAllTestabilities();
                       }),
-                      (Sn.getAllAngularRootElements = function() {
+                      (Pn.getAllAngularRootElements = function() {
                         return n.getAllRootElements();
                       }),
-                      Sn.frameworkStabilizers || (Sn.frameworkStabilizers = []),
-                      Sn.frameworkStabilizers.push(function(n) {
-                        var e = Sn.getAllAngularTestabilities(),
+                      Pn.frameworkStabilizers || (Pn.frameworkStabilizers = []),
+                      Pn.frameworkStabilizers.push(function(n) {
+                        var e = Pn.getAllAngularTestabilities(),
                           t = e.length,
                           l = !1,
                           r = function(e) {
@@ -10676,14 +10676,14 @@ function _createClass(n, e, t) {
           );
         })();
       function Ea(n, e) {
-        ('undefined' != typeof COMPILED && COMPILED) || ((Sn.ng = Sn.ng || {})[n] = e);
+        ('undefined' != typeof COMPILED && COMPILED) || ((Pn.ng = Pn.ng || {})[n] = e);
       }
-      var Sa = { ApplicationRef: ci, NgZone: Kr };
-      function Pa(n) {
+      var Pa = { ApplicationRef: ci, NgZone: Kr };
+      function Sa(n) {
         return ki(n);
       }
-      var Ta = new Pn('EventManagerPlugins'),
-        Aa = (function() {
+      var Ta = new Sn('EventManagerPlugins'),
+        Ma = (function() {
           function n(e, t) {
             var l = this;
             _classCallCheck(this, n),
@@ -10730,7 +10730,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Ma = (function() {
+        Aa = (function() {
           function n(e) {
             _classCallCheck(this, n), (this._doc = e);
           }
@@ -11316,7 +11316,7 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(Ma),
+        })(Aa),
         Xa = {
           pan: !0,
           panstart: !0,
@@ -11348,8 +11348,8 @@ function _createClass(n, e, t) {
           swipedown: !0,
           tap: !0
         },
-        ns = new Pn('HammerGestureConfig'),
-        es = new Pn('HammerLoader'),
+        ns = new Sn('HammerGestureConfig'),
+        es = new Sn('HammerLoader'),
         ts = (function() {
           function n() {
             _classCallCheck(this, n), (this.events = []), (this.overrides = {});
@@ -11462,7 +11462,7 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(Ma),
+        })(Aa),
         rs = ['alt', 'control', 'meta', 'shift'],
         is = {
           alt: function(n) {
@@ -11569,7 +11569,7 @@ function _createClass(n, e, t) {
             ),
             e
           );
-        })(Ma),
+        })(Aa),
         os = function n() {
           _classCallCheck(this, n);
         },
@@ -12246,7 +12246,7 @@ function _createClass(n, e, t) {
             e
           );
         })(ms),
-        Ss = (function(n) {
+        Ps = (function(n) {
           function e(n, t, l, r) {
             var i;
             return (
@@ -12276,7 +12276,7 @@ function _createClass(n, e, t) {
             e
           );
         })(ms),
-        Ps = (function() {
+        Ss = (function() {
           function n(e) {
             _classCallCheck(this, n), (this.route = e);
           }
@@ -12308,7 +12308,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        As = (function() {
+        Ms = (function() {
           function n(e) {
             _classCallCheck(this, n), (this.snapshot = e);
           }
@@ -12327,7 +12327,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Ms = (function() {
+        As = (function() {
           function n(e) {
             _classCallCheck(this, n), (this.snapshot = e);
           }
@@ -13187,7 +13187,7 @@ function _createClass(n, e, t) {
           return (
             _classCallCheck(this, e),
             ((l = _possibleConstructorReturn(this, _getPrototypeOf(e).call(this, n))).snapshot = t),
-            Pc(_assertThisInitialized(l), n),
+            Sc(_assertThisInitialized(l), n),
             l
           );
         }
@@ -13207,7 +13207,7 @@ function _createClass(n, e, t) {
       function wc(n, e) {
         var t = (function(n, e) {
             var t = new Ec([], {}, {}, '', {}, 'primary', e, null, n.root, -1, {});
-            return new Sc('', new Cc(t, []));
+            return new Pc('', new Cc(t, []));
           })(n, e),
           l = new xo([new Xs('', {})]),
           r = new xo({}),
@@ -13415,13 +13415,13 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Sc = (function(n) {
+        Pc = (function(n) {
           function e(n, t) {
             var l;
             return (
               _classCallCheck(this, e),
               ((l = _possibleConstructorReturn(this, _getPrototypeOf(e).call(this, t))).url = n),
-              Pc(_assertThisInitialized(l), t),
+              Sc(_assertThisInitialized(l), t),
               l
             );
           }
@@ -13438,17 +13438,17 @@ function _createClass(n, e, t) {
             e
           );
         })(_c);
-      function Pc(n, e) {
+      function Sc(n, e) {
         (e.value._routerState = n),
           e.children.forEach(function(e) {
-            return Pc(n, e);
+            return Sc(n, e);
           });
       }
       function Tc(n) {
         var e = n.children.length > 0 ? ' { '.concat(n.children.map(Tc).join(', '), ' } ') : '';
         return ''.concat(n.value).concat(e);
       }
-      function Ac(n) {
+      function Mc(n) {
         if (n.snapshot) {
           var e = n.snapshot,
             t = n._futureSnapshot;
@@ -13464,7 +13464,7 @@ function _createClass(n, e, t) {
             Gs(e.data, t.data) || n.data.next(t.data);
         } else (n.snapshot = n._futureSnapshot), n.data.next(n._futureSnapshot.data);
       }
-      function Mc(n, e) {
+      function Ac(n, e) {
         var t, l;
         return (
           Gs(n.params, e.params) &&
@@ -13473,7 +13473,7 @@ function _createClass(n, e, t) {
             return Gs(n.parameters, l[e].parameters);
           }) &&
           !(!n.parent != !e.parent) &&
-          (!n.parent || Mc(n.parent, e.parent))
+          (!n.parent || Ac(n.parent, e.parent))
         );
       }
       function Rc(n) {
@@ -13655,7 +13655,7 @@ function _createClass(n, e, t) {
                 var e = this.futureState._root,
                   t = this.currState ? this.currState._root : null;
                 this.deactivateChildRoutes(e, t, n),
-                  Ac(this.futureState.root),
+                  Mc(this.futureState.root),
                   this.activateChildRoutes(e, t, n);
               }
             },
@@ -13733,7 +13733,7 @@ function _createClass(n, e, t) {
                   l.activateRoutes(n, r[n.value.outlet], t),
                     l.forwardEvent(new Is(n.value.snapshot));
                 }),
-                  n.children.length && this.forwardEvent(new Ms(n.value.snapshot));
+                  n.children.length && this.forwardEvent(new As(n.value.snapshot));
               }
             },
             {
@@ -13741,7 +13741,7 @@ function _createClass(n, e, t) {
               value: function(n, e, t) {
                 var l = n.value,
                   r = e ? e.value : null;
-                if ((Ac(l), l === r))
+                if ((Mc(l), l === r))
                   if (l.component) {
                     var i = t.getOrCreateContext(l.outlet);
                     this.activateChildRoutes(n, e, i.children);
@@ -13780,7 +13780,7 @@ function _createClass(n, e, t) {
         );
       })();
       function Bc(n) {
-        Ac(n.value), n.children.forEach(Bc);
+        Mc(n.value), n.children.forEach(Bc);
       }
       function Gc(n) {
         return 'function' == typeof n;
@@ -13915,7 +13915,7 @@ function _createClass(n, e, t) {
                       'primary' === r ? i.push(c) : u.push(c);
                     }),
                     wo.apply(null, i.concat(u)).pipe(
-                      Mo(),
+                      Ao(),
                       Zo(),
                       B(function() {
                         return o;
@@ -13938,7 +13938,7 @@ function _createClass(n, e, t) {
                       })
                     );
                   }),
-                  Mo(),
+                  Ao(),
                   ea(function(n) {
                     return !!n;
                   }),
@@ -14170,7 +14170,7 @@ function _createClass(n, e, t) {
                                 })
                               )
                               .pipe(
-                                Mo(),
+                                Ao(),
                                 ((l = function(n) {
                                   return !0 === n;
                                 }),
@@ -14382,7 +14382,7 @@ function _createClass(n, e, t) {
               R(e[e.length - 1]) && (r = e.pop()),
               'function' == typeof e[e.length - 1] && (l = e.pop()),
               1 === e.length && a(e[0]) && (e = e[0]),
-              W(e, r).lift(new Po(l))
+              W(e, r).lift(new So(l))
             );
           }
             .apply(
@@ -14399,7 +14399,7 @@ function _createClass(n, e, t) {
                         R(t) ? e.pop() : (t = null);
                         var l = e.length;
                         return (function() {
-                          return Mo()(wo.apply(void 0, arguments));
+                          return Ao()(wo.apply(void 0, arguments));
                         })(1 !== l || t ? (l > 0 ? W(e, t) : ko(t)) : bo(e[0]), n);
                       };
                     })(oh)
@@ -14433,14 +14433,14 @@ function _createClass(n, e, t) {
         return null !== n && e && e(new Rs(n)), wo(!0);
       }
       function ch(n, e) {
-        return null !== n && e && e(new As(n)), wo(!0);
+        return null !== n && e && e(new Ms(n)), wo(!0);
       }
       function hh(n, e, t) {
         var l = e.routeConfig ? e.routeConfig.canActivate : null;
         return l && 0 !== l.length
           ? wo(
               l.map(function(l) {
-                return Ao(function() {
+                return Mo(function() {
                   var r,
                     i = ih(l, e, t);
                   if (
@@ -14474,7 +14474,7 @@ function _createClass(n, e, t) {
               return null !== n;
             })
             .map(function(e) {
-              return Ao(function() {
+              return Mo(function() {
                 return wo(
                   e.guards.map(function(r) {
                     var i,
@@ -14532,7 +14532,7 @@ function _createClass(n, e, t) {
                         {}
                       ),
                       l = new Cc(t, e),
-                      r = new Sc(this.url, l);
+                      r = new Pc(this.url, l);
                     return this.inheritParamsAndData(r._root), wo(r);
                   } catch (i) {
                     return new w(function(n) {
@@ -14895,8 +14895,8 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Eh = new Pn('ROUTES'),
-        Sh = (function() {
+        Eh = new Sn('ROUTES'),
+        Ph = (function() {
           function n(e, t, l, r) {
             _classCallCheck(this, n),
               (this.loader = e),
@@ -14939,7 +14939,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Ph = function n() {
+        Sh = function n() {
           _classCallCheck(this, n);
         },
         Th = (function() {
@@ -14970,10 +14970,10 @@ function _createClass(n, e, t) {
             n
           );
         })();
-      function Ah(n) {
+      function Mh(n) {
         throw n;
       }
-      function Mh(n, e, t) {
+      function Ah(n, e, t) {
         return e.parse('/');
       }
       function Rh(n, e) {
@@ -14992,9 +14992,9 @@ function _createClass(n, e, t) {
               (this.currentNavigation = null),
               (this.navigationId = 0),
               (this.isNgZoneEnabled = !1),
-              (this.events = new A()),
-              (this.errorHandler = Ah),
-              (this.malformedUriErrorHandler = Mh),
+              (this.events = new M()),
+              (this.errorHandler = Mh),
+              (this.malformedUriErrorHandler = Ah),
               (this.navigated = !1),
               (this.lastSuccessfulId = -1),
               (this.hooks = { beforePreactivation: Rh, afterPreactivation: Rh }),
@@ -15005,18 +15005,18 @@ function _createClass(n, e, t) {
               (this.urlUpdateStrategy = 'deferred'),
               (this.relativeLinkResolution = 'legacy'),
               (this.ngModule = i.get(Un)),
-              (this.console = i.get(Pr));
+              (this.console = i.get(Sr));
             var c = i.get(Kr);
             (this.isNgZoneEnabled = c instanceof Kr),
               this.resetConfig(a),
               (this.currentUrlTree = new $s(new Js([], {}), {}, null)),
               (this.rawUrlTree = this.currentUrlTree),
               (this.browserUrlTree = this.currentUrlTree),
-              (this.configLoader = new Sh(
+              (this.configLoader = new Ph(
                 u,
                 o,
                 function(n) {
-                  return s.triggerEvent(new Ps(n));
+                  return s.triggerEvent(new Ss(n));
                 },
                 function(n) {
                   return s.triggerEvent(new Ts(n));
@@ -15287,10 +15287,10 @@ function _createClass(n, e, t) {
                                             case 'always':
                                               return !0;
                                             case 'paramsOrQueryParamsChange':
-                                              return !Mc(n, e) || !Gs(n.queryParams, e.queryParams);
+                                              return !Ac(n, e) || !Gs(n.queryParams, e.queryParams);
                                             case 'paramsChange':
                                             default:
-                                              return !Mc(n, e);
+                                              return !Ac(n, e);
                                           }
                                         })(o, u, u.routeConfig.runGuardsAndResolvers);
                                         s
@@ -15386,7 +15386,7 @@ function _createClass(n, e, t) {
                                                     fh(n, e.path, t),
                                                     hh(n, e.route, t)
                                                   ]).pipe(
-                                                    Mo(),
+                                                    Ao(),
                                                     ea(function(n) {
                                                       return !0 !== n;
                                                     }, !0)
@@ -15526,7 +15526,7 @@ function _createClass(n, e, t) {
                                 );
                               }),
                               Fo(function(n) {
-                                var t = new Ss(
+                                var t = new Ps(
                                   n.id,
                                   e.serializeUrl(n.extractedUrl),
                                   e.serializeUrl(n.urlAfterRedirects),
@@ -16387,11 +16387,11 @@ function _createClass(n, e, t) {
               (this.router = e),
               (this.injector = r),
               (this.preloadingStrategy = i),
-              (this.loader = new Sh(
+              (this.loader = new Ph(
                 t,
                 l,
                 function(n) {
-                  return e.triggerEvent(new Ps(n));
+                  return e.triggerEvent(new Ss(n));
                 },
                 function(n) {
                   return e.triggerEvent(new Ts(n));
@@ -16560,15 +16560,15 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Gh = new Pn('ROUTER_CONFIGURATION'),
-        Kh = new Pn('ROUTER_FORROOT_GUARD'),
+        Gh = new Sn('ROUTER_CONFIGURATION'),
+        Kh = new Sn('ROUTER_FORROOT_GUARD'),
         Wh = [
           lo,
           { provide: tc, useClass: lc },
           {
             provide: Ih,
             useFactory: nf,
-            deps: [ci, tc, jh, lo, Te, fi, jr, Eh, Gh, [Ph, new cn()], [xh, new cn()]]
+            deps: [ci, tc, jh, lo, Te, fi, jr, Eh, Gh, [Sh, new cn()], [xh, new cn()]]
           },
           jh,
           { provide: xc, useFactory: ef, deps: [Ih] },
@@ -16608,7 +16608,7 @@ function _createClass(n, e, t) {
                       tf,
                       { provide: Cr, multi: !0, useFactory: lf, deps: [tf] },
                       { provide: uf, useFactory: rf, deps: [tf] },
-                      { provide: Sr, multi: !0, useExisting: uf }
+                      { provide: Pr, multi: !0, useExisting: uf }
                     ]
                   ]
                 };
@@ -16681,7 +16681,7 @@ function _createClass(n, e, t) {
           _classCallCheck(this, n),
             (this.injector = e),
             (this.initNavigation = !1),
-            (this.resultOfPreactivationDone = new A());
+            (this.resultOfPreactivationDone = new M());
         }
         return (
           _createClass(n, [
@@ -16760,14 +16760,14 @@ function _createClass(n, e, t) {
       function rf(n) {
         return n.bootstrapListener.bind(n);
       }
-      var uf = new Pn('Router Initializer'),
+      var uf = new Sn('Router Initializer'),
         of = Ht({ encapsulation: 2, styles: [], data: {} });
       function af(n) {
         return Gi(
           0,
           [
             (n()(),
-            Ai(0, 16777216, null, null, 1, 'router-outlet', [], null, null, null, null, null)),
+            Mi(0, 16777216, null, null, 1, 'router-outlet', [], null, null, null, null, null)),
             Yl(1, 212992, null, 0, Lh, [jh, Et, Je, [8, null], Oe], null, null)
           ],
           function(n, e) {
@@ -16783,7 +16783,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'ng-component', [], null, null, null, af, of)),
+                (n()(), Mi(0, 0, null, null, 1, 'ng-component', [], null, null, null, af, of)),
                 Yl(1, 49152, null, 0, Vs, [], null, null)
               ],
               null,
@@ -16804,7 +16804,7 @@ function _createClass(n, e, t) {
           encapsulation: 0,
           styles: [
             [
-              '[_nghost-%COMP%]{overflow:hidden}.slider-sm[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px;text-align:center}.slider-sm__img[_ngcontent-%COMP%]{width:100%;padding:0 10px}'
+              '[_nghost-%COMP%]{overflow:hidden;padding:0 10px}.slider-sm[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px;text-align:center;overflow:hidden}.slider-sm__img[_ngcontent-%COMP%]{max-width:100%}@media (max-width:540px){.slider-sm__img[_ngcontent-%COMP%]{max-width:unset;height:200px}}'
             ]
           ],
           data: {}
@@ -16814,7 +16814,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -16829,7 +16829,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -16862,7 +16862,7 @@ function _createClass(n, e, t) {
           encapsulation: 0,
           styles: [
             [
-              '*[_ngcontent-%COMP%]{box-sizing:border-box}.brands-sm[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px}.title-wrapper[_ngcontent-%COMP%]{position:relative}.title-wrapper[_ngcontent-%COMP%]:after{content:"";background:#dcdcdc;position:absolute;left:0;top:50%;margin-top:-.5px;display:block;width:100%;height:1px;z-index:-1}.text[_ngcontent-%COMP%]{background:#fff;margin:15px 20px;padding:0 10px;display:inline-block;text-transform:uppercase;font-family:Arial,sans-serif;color:#494940}img[_ngcontent-%COMP%]{max-width:230px;width:100%}ul[_ngcontent-%COMP%]{display:grid;grid-template-columns:repeat(4,auto);grid-gap:10px;padding:0 10px}@media (max-width:1200px){ul[_ngcontent-%COMP%]{grid-template-columns:repeat(3,auto)}}@media (max-width:800px){ul[_ngcontent-%COMP%]{grid-template-columns:repeat(2,auto)}}@media (max-width:560px){ul[_ngcontent-%COMP%]{grid-template-columns:repeat(1,auto);margin:0 auto;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}}ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{display:grid;align-content:center;padding:10px;background-color:#fafafa;border:1px solid #e0e0e0;box-shadow:inset 0 1px 1px #fff;border-radius:5px;-webkit-transition:.5s;transition:.5s}ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover{border:1px solid #ff4800;-webkit-transform:scale(1.03);transform:scale(1.03)}'
+              '*[_ngcontent-%COMP%]{box-sizing:border-box}.brands-sm[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px}.title-wrapper[_ngcontent-%COMP%]{position:relative}.title-wrapper[_ngcontent-%COMP%]:after{content:"";background:#dcdcdc;position:absolute;left:0;top:50%;margin-top:-.5px;display:block;width:100%;height:1px;z-index:-1}.text[_ngcontent-%COMP%]{background:#fff;margin:15px 20px;padding:0 10px;display:inline-block;text-transform:uppercase;font-family:Arial,sans-serif;color:#494940}img[_ngcontent-%COMP%]{max-width:230px;width:100%}ul[_ngcontent-%COMP%]{display:grid;grid-template-columns:repeat(4,auto);grid-gap:10px;padding:0 10px}@media (max-width:1200px){ul[_ngcontent-%COMP%]{grid-template-columns:repeat(3,auto)}}@media (max-width:800px){ul[_ngcontent-%COMP%]{grid-template-columns:repeat(2,auto)}}ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{display:grid;align-content:center;padding:10px;background-color:#fafafa;border:1px solid #e0e0e0;box-shadow:inset 0 1px 1px #fff;border-radius:5px;-webkit-transition:.5s;transition:.5s}ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover{border:1px solid #ff4800;-webkit-transform:scale(1.03);transform:scale(1.03)}'
             ]
           ],
           data: {}
@@ -16872,7 +16872,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -16887,7 +16887,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -16902,16 +16902,16 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, ['\u041d\u0430\u0448\u0438 \u0431\u0440\u0435\u043d\u0434\u044b'])),
-            (n()(), Ai(5, 0, null, null, 24, 'ul', [], null, null, null, null, null)),
-            (n()(), Ai(6, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(7, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(5, 0, null, null, 24, 'ul', [], null, null, null, null, null)),
+            (n()(), Mi(6, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(7, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               8,
               0,
               null,
@@ -16928,10 +16928,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(9, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(10, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(9, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(10, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               11,
               0,
               null,
@@ -16948,10 +16948,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(12, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(13, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(12, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(13, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               14,
               0,
               null,
@@ -16968,10 +16968,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(15, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(16, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(15, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(16, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               17,
               0,
               null,
@@ -16988,10 +16988,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(18, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(19, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(18, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(19, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               20,
               0,
               null,
@@ -17008,10 +17008,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(21, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(22, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(21, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(22, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               23,
               0,
               null,
@@ -17028,10 +17028,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(24, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(25, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(24, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(25, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               26,
               0,
               null,
@@ -17048,10 +17048,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(27, 0, null, null, 2, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(28, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(27, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(28, 0, null, null, 1, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               29,
               0,
               null,
@@ -17092,19 +17092,19 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 21, 'div', [], null, null, null, null, null)),
-            (n()(), Ai(1, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(0, 0, null, null, 21, 'div', [], null, null, null, null, null)),
+            (n()(), Mi(1, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041f\u0440\u0435\u0436\u0434\u0435 \u0447\u0435\u043c \u043a\u0443\u043f\u0438\u0442\u044c \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f, \u0436\u0435\u043b\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u043f\u0440\u043e\u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u0441\u043e \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442\u0430\u043c\u0438. \u0420\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0438 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438 \u041e\u041e\u041e \xab\u0414\u041c\u0414 \u0441\u0438\u0441\u0442\u0435\u043c\u0441\xbb \u0434\u0430\u0434\u0443\u0442 \u0441\u043e\u0432\u0435\u0442\u044b \u0438 \u043f\u043e\u043c\u043e\u0433\u0443\u0442 \u043f\u043e\u0434\u043e\u0431\u0440\u0430\u0442\u044c \u0430\u043f\u043f\u0430\u0440\u0430\u0442\u0443\u0440\u0443. \u042d\u043a\u0441\u043f\u0435\u0440\u0442\u044b \u043f\u0440\u043e\u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0438\u0440\u0443\u044e\u0442 \u0438\u043d\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0434\u0445\u043e\u0434 \u043a \u043a\u0430\u0436\u0434\u043e\u043c\u0443 \u043a\u043b\u0438\u0435\u043d\u0442\u0443. '
             ])),
-            (n()(), Ai(3, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(3, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0430\u044f \u0441 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0435\u0439 \u041e\u041e\u041e \xab\u0414\u041c\u0414 \u0441\u0438\u0441\u0442\u0435\u043c\u0441\xbb, \u0432\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u0442\u0430\u043a\u0438\u0435 \u043f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u0430: '
             ])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -17118,42 +17118,42 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(6, 0, null, null, 1, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(6, 0, null, null, 1, 'li', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430;'
             ])),
-            (n()(), Ai(8, 0, null, null, 1, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(8, 0, null, null, 1, 'li', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u043d\u0430\u043b\u0438\u0447\u0438\u0435 \u043e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u044c\u043d\u043e\u0439 \u0442\u0435\u0445\u043d\u0438\u043a\u0438;'
             ])),
-            (n()(), Ai(10, 0, null, null, 1, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(10, 0, null, null, 1, 'li', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u043d\u0435\u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u043d\u044b\u0439 \u0432\u044b\u0431\u043e\u0440 \u0430\u043f\u043f\u0430\u0440\u0430\u0442\u0443\u0440\u044b;'
             ])),
-            (n()(), Ai(12, 0, null, null, 1, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(12, 0, null, null, 1, 'li', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0433\u0430\u0440\u0430\u043d\u0442\u0438\u044f \u0438 \u0441\u0435\u0440\u0432\u0438\u0441.'
             ])),
-            (n()(), Ai(14, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(14, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0421\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u0437\u0430\u0432\u0438\u0441\u0438\u0442 \u043e\u0442 \u043c\u043e\u0434\u0435\u043b\u0438 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f. \u041a\u043b\u0438\u0435\u043d\u0442\u0443 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0430\u0442 \u043f\u0440\u0438\u043e\u0431\u0440\u0435\u0441\u0442\u0438 \u0430\u043f\u043f\u0430\u0440\u0430\u0442\u0443\u0440\u0443, \u0441\u043e\u0437\u0434\u0430\u043d\u043d\u0443\u044e \u0441 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435\u043c \u0441\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0445 \u0446\u0438\u0444\u0440\u043e\u0432\u044b\u0445 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0439. '
             ])),
-            (n()(), Ai(16, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(16, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043b\u044f \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u043e\u0442\u043b\u0438\u0447\u0430\u0435\u0442\u0441\u044f \u043f\u0440\u043e\u0441\u0442\u043e\u0442\u043e\u0439 \u044d\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0438\u0438. \u0427\u0435\u043b\u043e\u0432\u0435\u043a\u0443 \u043d\u0435 \u043f\u043e\u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u043c\u043d\u043e\u0433\u043e \u0432\u0440\u0435\u043c\u0435\u043d\u0438, \u0447\u0442\u043e\u0431\u044b \u043d\u0430\u0443\u0447\u0438\u0442\u044c\u0441\u044f \u0435\u0433\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c. \u041a\u0430\u0436\u0434\u0430\u044f \u043a\u0430\u043c\u0435\u0440\u0430 \u0438\u043c\u0435\u0435\u0442 \u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0443\u044e \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044e, \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u043d\u0443\u044e \u043d\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e\u043c \u044f\u0437\u044b\u043a\u0435. '
             ])),
-            (n()(), Ai(18, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(18, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0420\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0438 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438 \u041e\u041e\u041e \xab\u0414\u041c\u0414 \u0441\u0438\u0441\u0442\u0435\u043c\u0441\xbb \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u044b \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u0440\u043e\u0435\u043a\u0442 \u043e\u0445\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0441\u0430 \u0434\u043b\u044f \u043b\u044e\u0431\u043e\u0439 \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u0438. \u041f\u0440\u0438 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0438 \u0437\u0430\u0434\u0430\u043d\u0438\u044f \u043c\u0430\u0441\u0442\u0435\u0440\u0430 \u0443\u0447\u0438\u0442\u044b\u0432\u0430\u044e\u0442 \u0441\u043f\u0435\u0446\u0438\u0444\u0438\u043a\u0443 \u043e\u0431\u044a\u0435\u043a\u0442\u0430. \u041d\u0430\u0448\u0438 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u044b \u043f\u043e\u0434\u0431\u0435\u0440\u0443\u0442 \u043f\u043e\u0434\u0445\u043e\u0434\u044f\u0449\u0435\u0435 \u043c\u0435\u0441\u0442\u043e, \u0447\u0442\u043e\u0431\u044b \u0440\u0430\u0441\u043f\u043e\u043b\u043e\u0436\u0438\u0442\u044c \u043a\u0430\u043c\u0435\u0440\u044b. '
             ])),
-            (n()(), Ai(20, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(20, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0412\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435 \u043f\u043e\u0434 \u043a\u043b\u044e\u0447 \u0443\u0434\u0438\u0432\u0438\u0442 \u0432\u0430\u0441 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e\u0441\u0442\u044c\u044e \u0446\u0435\u043d. '
@@ -17168,7 +17168,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -17183,7 +17183,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -17198,9 +17198,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               3,
               0,
               null,
@@ -17216,7 +17216,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, ['\u041e \u041a\u043e\u043c\u043f\u0430\u043d\u0438\u0438'])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -17231,7 +17231,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               6,
               0,
               null,
@@ -17245,27 +17245,27 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(7, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(7, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u041e\u041e "\u0414\u041c\u0414 \u0441\u0438\u0441\u0442\u0435\u043c\u044f" \u0434\u0438\u043d\u0430\u043c\u0438\u0447\u043d\u043e \u0440\u0430\u0437\u0432\u0438\u0432\u0430\u044e\u0449\u0430\u044f\u0441\u044f \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f. \u041c\u044b \u0440\u0430\u0434\u044b \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u0442\u044c \u0412\u0430\u043c \u0448\u0438\u0440\u043e\u043a\u0438\u0439 \u0441\u043f\u0435\u043a\u0442\u0440 \u043e\u0445\u0440\u0430\u043d\u043d\u044b\u0445 \u0441\u0438\u0441\u0442\u0435\u043c, \u0430 \u0442\u0430\u043a \u0436\u0435 \u0432\u0435\u0441\u044c \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0447\u0435\u043d\u044c \u0443\u0441\u043b\u0443\u0433. \u041f\u043e\u0437\u0432\u043e\u043d\u0438\u0432 \u043d\u0430\u043c \u0412\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u0443\u044e \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e, \u0438\u043d\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0434\u0445\u043e\u0434 \u0438 \u0433\u0438\u0431\u043a\u0443\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u0441\u043a\u0438\u0434\u043e\u043a. '
             ])),
-            (n()(), Ai(9, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(9, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041f\u043e\u043a\u0443\u043f\u043a\u0430 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u0432 \u041c\u0438\u043d\u0441\u043a\u0435'
             ])),
-            (n()(), Ai(11, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(11, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0427\u0442\u043e\u0431\u044b \u043a\u0443\u043f\u0438\u0442\u044c \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0435 \u0432 \u041c\u0438\u043d\u0441\u043a\u0435, \u0433\u043e\u0440\u043e\u0436\u0430\u043d\u0435 \u043e\u0431\u0440\u0430\u0449\u0430\u044e\u0442\u0441\u044f \u043a \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u0435\u043b\u044f\u043c \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438 \u041e\u041e\u041e \xab\u0414\u041c\u0414 \u0441\u0438\u0441\u0442\u0435\u043c\u0441\xbb. \u0414\u0430\u043d\u043d\u0430\u044f \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u0440\u043e\u0434\u0430\u0435\u0442 \u0438 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u0435\u0442 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u044b\u0435 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438. \u041a\u043e\u043c\u043f\u0430\u043d\u0438\u044f \u041e\u041e\u041e \xab\u0414\u041c\u0414 \u0441\u0438\u0441\u0442\u0435\u043c\u0441\xbb \u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0441\u044f \u0431\u043e\u043b\u044c\u0448\u0438\u043c \u0443\u0432\u0430\u0436\u0435\u043d\u0438\u0435\u043c \u0441\u0442\u043e\u043b\u0438\u0447\u043d\u044b\u0445 \u0436\u0438\u0442\u0435\u043b\u0435\u0439. \u0411\u043b\u0430\u0433\u043e\u0434\u0430\u0440\u044f \u0440\u0430\u0431\u043e\u0442\u0435 \u044d\u0442\u043e\u0439 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438, \u0443 \u043b\u044e\u0434\u0435\u0439 \u043f\u043e\u044f\u0432\u0438\u043b\u0441\u044f \u0448\u0430\u043d\u0441 \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044c \u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u043e \u043e\u0442 \u0437\u043b\u043e\u0443\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u0438\u043a\u043e\u0432. '
             ])),
-            (n()(), Ai(13, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(13, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u0441\u0438\u0441\u0442\u0435\u043c \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f '
             ])),
-            (n()(), Ai(15, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(15, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0421\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0435 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430 \u0434\u043b\u044f \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u043f\u0440\u0438\u043c\u0435\u043d\u044f\u044e\u0442\u0441\u044f \u0432\u043e \u0432\u0441\u0435\u0445 \u0441\u0444\u0435\u0440\u0430\u0445 \u0434\u0435\u044f\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438. \u041a\u0430\u043c\u0435\u0440\u044b \u0443\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u044e\u0442\u0441\u044f \u043d\u0430 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c\u043d\u044b\u0445 \u0441\u0442\u043e\u044f\u043d\u043a\u0430\u0445 \u0438 \u0434\u0430\u0447\u043d\u044b\u0445 \u0443\u0447\u0430\u0441\u0442\u043a\u0430\u0445. \u042d\u0442\u043e \u043f\u043e\u043c\u043e\u0433\u0430\u0435\u0442 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0442\u044c \u0434\u0435\u043d\u0435\u0436\u043d\u044b\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430. \u0412\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u044b \u0441\u0443\u043f\u0435\u0440\u043c\u0430\u0440\u043a\u0435\u0442\u043e\u0432 \u0443\u043c\u0435\u043d\u044c\u0448\u0430\u044e\u0442 \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a\u043e\u0432 \u043f\u043e\u0441\u043b\u0435 \u043f\u043e\u043a\u0443\u043f\u043a\u0438 \u043e\u0445\u0440\u0430\u043d\u043d\u043e\u0433\u043e \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f. \u041f\u0440\u0435\u0434\u043f\u0440\u0438\u043d\u0438\u043c\u0430\u0442\u0435\u043b\u044f\u043c \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435 \u043f\u0440\u0438\u0434\u0435\u0442\u0441\u044f \u043d\u0430\u0434\u0435\u044f\u0442\u044c\u0441\u044f \u043d\u0430 \u0447\u0435\u0441\u0442\u043d\u043e\u0441\u0442\u044c \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u043e\u0432. \u041a\u0430\u043c\u0435\u0440\u0430 \u0431\u0443\u0434\u0435\u0442 \u0444\u0438\u043a\u0441\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043f\u0440\u043e\u0438\u0441\u0445\u043e\u0434\u044f\u0449\u0438\u0435 \u043d\u0430 \u043e\u0431\u044a\u0435\u043a\u0442\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f. \u041d\u0438 \u043e\u0434\u0438\u043d \u0447\u0435\u043b\u043e\u0432\u0435\u043a, \u043f\u0440\u043e\u043d\u0438\u043a\u0448\u0438\u0439 \u043d\u0430 \u043e\u0445\u0440\u0430\u043d\u044f\u0435\u043c\u0443\u044e \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u044e, \u043d\u0435 \u043e\u0441\u0442\u0430\u043d\u0435\u0442\u0441\u044f \u043d\u0435\u0437\u0430\u043c\u0435\u0447\u0435\u043d\u043d\u044b\u043c. ... '
@@ -17273,7 +17273,7 @@ function _createClass(n, e, t) {
             (n()(), Ti(16777216, null, null, 1, null, mf)),
             Yl(18, 16384, null, 0, ho, [Et, xt], { ngIf: [0, 'ngIf'] }, null),
             (n()(),
-            Ai(
+            Mi(
               19,
               0,
               null,
@@ -17296,7 +17296,7 @@ function _createClass(n, e, t) {
               '\u043f\u043e\u043a\u0430\u0437\u0430\u0442\u044c / \u0441\u043a\u0440\u044b\u0442\u044c'
             ])),
             (n()(),
-            Ai(
+            Mi(
               21,
               0,
               null,
@@ -17331,7 +17331,7 @@ function _createClass(n, e, t) {
           encapsulation: 0,
           styles: [
             [
-              '*[_ngcontent-%COMP%]{box-sizing:border-box}.section[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px}.title-wrapper[_ngcontent-%COMP%]{position:relative}.title-wrapper[_ngcontent-%COMP%]:after{content:"";background:#dcdcdc;position:absolute;left:0;top:50%;margin-top:-.5px;display:block;width:100%;height:1px;z-index:-1}.title__text[_ngcontent-%COMP%]{background:#fff;margin:15px 20px;padding:0 10px;display:inline-block;text-transform:uppercase;font-family:Arial,sans-serif;color:#494940}.content__list[_ngcontent-%COMP%]{padding:0 10px;display:grid;grid-template-columns:repeat(4,auto);-webkit-column-gap:10px;-moz-column-gap:10px;column-gap:10px}.item[_ngcontent-%COMP%]{text-align:center;display:grid;padding:20px 10px 0;border:1px solid #fff;border-radius:5px}.item[_ngcontent-%COMP%]   .item__title[_ngcontent-%COMP%]{grid-row:2;margin:20px 0 10px}.item[_ngcontent-%COMP%]   .item__svg[_ngcontent-%COMP%]{grid-row:1;display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;width:124px;height:124px;border:2px solid #e9e9e9;border-radius:50%;margin:0 auto;background-color:#f4f4f4}.item[_ngcontent-%COMP%]   .svg[_ngcontent-%COMP%]{width:60px;height:60px;fill:#494940}.item[_ngcontent-%COMP%]:hover{-webkit-transition:1s;transition:1s;background-color:#fafafa;border:1px solid #e0e0e0}.item[_ngcontent-%COMP%]:hover   .item__svg[_ngcontent-%COMP%]{-webkit-transition:.25s;transition:.25s;background-color:#fff4ef;border:2px solid #ff8352}.item[_ngcontent-%COMP%]:hover   .svg[_ngcontent-%COMP%]{-webkit-transition:.25s;transition:.25s;fill:#c23801}'
+              '*[_ngcontent-%COMP%]{box-sizing:border-box}.section[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px}.title-wrapper[_ngcontent-%COMP%]{position:relative}.title-wrapper[_ngcontent-%COMP%]:after{content:"";background:#dcdcdc;position:absolute;left:0;top:50%;margin-top:-.5px;display:block;width:100%;height:1px;z-index:-1}.title__text[_ngcontent-%COMP%]{background:#fff;margin:15px 20px;padding:0 10px;display:inline-block;text-transform:uppercase;font-family:Arial,sans-serif;color:#494940}.content__list[_ngcontent-%COMP%]{padding:0 10px;display:grid;grid-template-columns:repeat(4,auto);-webkit-column-gap:10px;-moz-column-gap:10px;column-gap:10px}@media (max-width:760px){.content__list[_ngcontent-%COMP%]{grid-template-columns:repeat(2,auto)}}@media (max-width:450px){.content__list[_ngcontent-%COMP%]{grid-template-columns:1fr}}.item[_ngcontent-%COMP%]{text-align:center;display:grid;padding:20px 10px 0;border:1px solid #fff;border-radius:5px}.item[_ngcontent-%COMP%]   .item__title[_ngcontent-%COMP%]{grid-row:2;margin:20px 0 10px}.item[_ngcontent-%COMP%]   .item__svg[_ngcontent-%COMP%]{grid-row:1;display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;width:124px;height:124px;border:2px solid #e9e9e9;border-radius:50%;margin:0 auto;background-color:#f4f4f4}.item[_ngcontent-%COMP%]   .svg[_ngcontent-%COMP%]{width:60px;height:60px;fill:#494940}.item[_ngcontent-%COMP%]:hover{-webkit-transition:1s;transition:1s;background-color:#fafafa;border:1px solid #e0e0e0}.item[_ngcontent-%COMP%]:hover   .item__svg[_ngcontent-%COMP%]{-webkit-transition:.25s;transition:.25s;background-color:#fff4ef;border:2px solid #ff8352}.item[_ngcontent-%COMP%]:hover   .svg[_ngcontent-%COMP%]{-webkit-transition:.25s;transition:.25s;fill:#c23801}'
             ]
           ],
           data: {}
@@ -17341,7 +17341,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -17356,7 +17356,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -17371,9 +17371,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               3,
               0,
               null,
@@ -17392,7 +17392,7 @@ function _createClass(n, e, t) {
               '\u0421\u0438\u0441\u0442\u0435\u043c\u044b \u043e\u0445\u0440\u0430\u043d\u044b \u0438 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438'
             ])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -17407,7 +17407,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               6,
               0,
               null,
@@ -17422,7 +17422,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               7,
               0,
               null,
@@ -17437,9 +17437,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(8, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(8, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               9,
               0,
               null,
@@ -17458,7 +17458,7 @@ function _createClass(n, e, t) {
               '\u0411\u043e\u043b\u044c\u0448\u043e\u0439 \u0430\u0441\u0441\u043e\u0440\u0442\u0438\u043c\u0435\u043d\u0442'
             ])),
             (n()(),
-            Ai(
+            Mi(
               11,
               0,
               null,
@@ -17473,7 +17473,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               12,
               0,
               null,
@@ -17488,7 +17488,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               13,
               0,
               null,
@@ -17503,15 +17503,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(14, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
+            Mi(14, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u043e\u0435 \u043d\u0430\u043b\u0438\u0447\u0438\u0435 \u0448\u0438\u0440\u043e\u043a\u043e\u0433\u043e \u0430\u0441\u0441\u043e\u0440\u0442\u0438\u043c\u0435\u043d\u0442\u0430 \u043d\u0430 \u0441\u043a\u043b\u0430\u0434\u0435, \u0430 \u0442\u0430\u043a\u0436\u0435 \u0441\u0432\u043e\u0435\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u0443\u044e \u043f\u043e\u0441\u0442\u0430\u0432\u043a\u0443 \u043f\u043e\u0434 \u0437\u0430\u043a\u0430\u0437. '
             ])),
             (n()(),
-            Ai(16, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(16, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               17,
               0,
               null,
@@ -17530,7 +17530,7 @@ function _createClass(n, e, t) {
               '\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430'
             ])),
             (n()(),
-            Ai(
+            Mi(
               19,
               0,
               null,
@@ -17545,7 +17545,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               20,
               0,
               null,
@@ -17560,7 +17560,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               21,
               0,
               null,
@@ -17575,15 +17575,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(22, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
+            Mi(22, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u043f\u0442\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u0435 \u0440\u0435\u0448\u0435\u043d\u0438\u044f \u043f\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044e \u0441\u0438\u0441\u0442\u0435\u043c \u043e\u0445\u0440\u0430\u043d\u044b \u043d\u0430 \u043e\u0431\u044a\u0435\u043a\u0442\u0435 \u043b\u044e\u0431\u043e\u0439 \u0441\u043b\u043e\u0436\u043d\u043e\u0441\u0442\u0438. '
             ])),
             (n()(),
-            Ai(24, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(24, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               25,
               0,
               null,
@@ -17602,7 +17602,7 @@ function _createClass(n, e, t) {
               '\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u0438'
             ])),
             (n()(),
-            Ai(
+            Mi(
               27,
               0,
               null,
@@ -17617,7 +17617,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               28,
               0,
               null,
@@ -17632,7 +17632,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               29,
               0,
               null,
@@ -17647,15 +17647,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(30, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
+            Mi(30, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0418\u043d\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0434\u0445\u043e\u0434 \u0438 \u0434\u0435\u0442\u0430\u043b\u044c\u043d\u0443\u044e \u043f\u0440\u043e\u0440\u0430\u0431\u043e\u0442\u043a\u0443 \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0437\u0430\u0434\u0430\u043d\u0438\u044f \u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u0430. '
             ])),
             (n()(),
-            Ai(32, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(32, 0, null, null, 7, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               33,
               0,
               null,
@@ -17674,7 +17674,7 @@ function _createClass(n, e, t) {
               '\u0413\u0430\u0440\u0430\u043d\u0442\u0438\u044f \u0438 \u0441\u0435\u0440\u0432\u0438\u0441'
             ])),
             (n()(),
-            Ai(
+            Mi(
               35,
               0,
               null,
@@ -17689,7 +17689,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               36,
               0,
               null,
@@ -17704,7 +17704,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               37,
               0,
               null,
@@ -17719,7 +17719,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(38, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
+            Mi(38, 0, null, null, 1, 'p', [['class', 'item__text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0421\u0435\u0440\u0432\u0438\u0441\u043d\u043e\u0435 \u0438 \u0433\u0430\u0440\u0430\u043d\u0442\u0438\u0439\u043d\u043e\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u0435 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0434\u043b\u044f \u043e\u0445\u0440\u0430\u043d\u043d\u044b\u0445 \u0441\u0438\u0441\u0442\u0435\u043c. '
@@ -17748,15 +17748,15 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 8, null, null, null, null, null, null, null)),
-            (n()(), Ai(1, 0, null, null, 1, 'app-slider-sm', [], null, null, null, ff, hf)),
+            (n()(), Mi(0, 0, null, null, 8, null, null, null, null, null, null, null)),
+            (n()(), Mi(1, 0, null, null, 1, 'app-slider-sm', [], null, null, null, ff, hf)),
             Yl(2, 114688, null, 0, cf, [], null, null),
-            (n()(), Ai(3, 0, null, null, 1, 'app-brands-sm', [], null, null, null, vf, pf)),
+            (n()(), Mi(3, 0, null, null, 1, 'app-brands-sm', [], null, null, null, vf, pf)),
             Yl(4, 114688, null, 0, df, [], null, null),
-            (n()(), Ai(5, 0, null, null, 1, 'app-about-company', [], null, null, null, yf, _f)),
+            (n()(), Mi(5, 0, null, null, 1, 'app-about-company', [], null, null, null, yf, _f)),
             Yl(6, 114688, null, 0, gf, [], null, null),
             (n()(),
-            Ai(
+            Mi(
               7,
               0,
               null,
@@ -17785,7 +17785,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-home', [], null, null, null, Of, xf)),
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-home', [], null, null, null, Of, xf)),
                 Yl(1, 114688, null, 0, wf, [], null, null)
               ],
               function(n, e) {
@@ -17798,13 +17798,13 @@ function _createClass(n, e, t) {
           {},
           []
         ),
-        Sf = (function() {
+        Pf = (function() {
           function n() {
             _classCallCheck(this, n);
           }
           return _createClass(n, [{ key: 'ngOnInit', value: function() {} }]), n;
         })(),
-        Pf = Ht({
+        Sf = Ht({
           encapsulation: 0,
           styles: [
             [
@@ -17818,7 +17818,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -17833,7 +17833,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -17848,12 +17848,12 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u041a\u0430\u0442\u0430\u043b\u043e\u0433'])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -17868,9 +17868,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(6, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(6, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               7,
               0,
               null,
@@ -17888,7 +17888,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               8,
               0,
               null,
@@ -17905,15 +17905,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(9, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(9, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0421\u0438\u0441\u0442\u0435\u043c\u044b \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f'
             ])),
             (n()(),
-            Ai(11, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(11, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               12,
               0,
               null,
@@ -17931,7 +17931,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               13,
               0,
               null,
@@ -17948,15 +17948,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(14, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(14, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u0438 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u043e\u0441\u0442\u0443\u043f\u043e\u043c'
             ])),
             (n()(),
-            Ai(16, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(16, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               17,
               0,
               null,
@@ -17974,7 +17974,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               18,
               0,
               null,
@@ -17991,15 +17991,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(19, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(19, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0412\u0438\u0434\u0435\u043e\u0434\u043e\u043c\u043e\u0444\u043e\u043d\u044b'
             ])),
             (n()(),
-            Ai(21, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(21, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               22,
               0,
               null,
@@ -18017,7 +18017,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               23,
               0,
               null,
@@ -18034,15 +18034,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(24, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(24, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0421\u0435\u0442\u0435\u0432\u043e\u0435 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435'
             ])),
             (n()(),
-            Ai(26, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(26, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               27,
               0,
               null,
@@ -18060,7 +18060,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               28,
               0,
               null,
@@ -18077,15 +18077,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(29, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(29, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a\u0438 \u043f\u0438\u0442\u0430\u043d\u0438\u044f'
             ])),
             (n()(),
-            Ai(31, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(31, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               32,
               0,
               null,
@@ -18103,7 +18103,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               33,
               0,
               null,
@@ -18120,12 +18120,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(34, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(34, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u0423\u043c\u043d\u044b\u0439 \u0434\u043e\u043c'])),
             (n()(),
-            Ai(36, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(36, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               37,
               0,
               null,
@@ -18143,7 +18143,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               38,
               0,
               null,
@@ -18160,15 +18160,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(39, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(39, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               'GSM \u0441\u0438\u0433\u043d\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f'
             ])),
             (n()(),
-            Ai(41, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(41, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               42,
               0,
               null,
@@ -18186,7 +18186,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               43,
               0,
               null,
@@ -18203,15 +18203,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(44, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(44, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0423\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430 \u0440\u0430\u0434\u0438\u043e\u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f'
             ])),
             (n()(),
-            Ai(46, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(46, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               47,
               0,
               null,
@@ -18229,7 +18229,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               48,
               0,
               null,
@@ -18246,7 +18246,7 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(49, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(49, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0410\u043a\u0441\u0435\u0441\u0441\u0443\u0430\u0440\u044b \u0438 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b'
@@ -18256,19 +18256,19 @@ function _createClass(n, e, t) {
           null
         );
       }
-      var Af = (function() {
+      var Mf = (function() {
           function n() {
             _classCallCheck(this, n);
           }
           return _createClass(n, [{ key: 'ngOnInit', value: function() {} }]), n;
         })(),
-        Mf = Ht({ encapsulation: 0, styles: [['']], data: {} });
+        Af = Ht({ encapsulation: 0, styles: [['']], data: {} });
       function Rf(n) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 1, 'app-catalog', [], null, null, null, Tf, Pf)),
-            Yl(1, 114688, null, 0, Sf, [], null, null)
+            (n()(), Mi(0, 0, null, null, 1, 'app-catalog', [], null, null, null, Tf, Sf)),
+            Yl(1, 114688, null, 0, Pf, [], null, null)
           ],
           function(n, e) {
             n(e, 1, 0);
@@ -18278,13 +18278,13 @@ function _createClass(n, e, t) {
       }
       var If = El(
           'app-page-catalog',
-          Af,
+          Mf,
           function(n) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-catalog', [], null, null, null, Rf, Mf)),
-                Yl(1, 114688, null, 0, Af, [], null, null)
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-catalog', [], null, null, null, Rf, Af)),
+                Yl(1, 114688, null, 0, Mf, [], null, null)
               ],
               function(n, e) {
                 n(e, 1, 0);
@@ -18307,10 +18307,10 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 1, 'app-about-company', [], null, null, null, yf, _f)),
+            (n()(), Mi(0, 0, null, null, 1, 'app-about-company', [], null, null, null, yf, _f)),
             Yl(1, 114688, null, 0, gf, [], null, null),
             (n()(),
-            Ai(
+            Mi(
               2,
               0,
               null,
@@ -18339,7 +18339,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-about', [], null, null, null, Df, Vf)),
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-about', [], null, null, null, Df, Vf)),
                 Yl(1, 114688, null, 0, Nf, [], null, null)
               ],
               function(n, e) {
@@ -18362,7 +18362,7 @@ function _createClass(n, e, t) {
           encapsulation: 0,
           styles: [
             [
-              '*[_ngcontent-%COMP%]{box-sizing:border-box}.section[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px}.title-wrapper[_ngcontent-%COMP%]{position:relative}.title-wrapper[_ngcontent-%COMP%]:after{content:"";background:#dcdcdc;position:absolute;left:0;top:50%;margin-top:-.5px;display:block;width:100%;height:1px;z-index:-1}.text[_ngcontent-%COMP%]{background:#fff;margin:15px 20px;padding:0 10px;display:inline-block;text-transform:uppercase;font-family:Arial,sans-serif;color:#494940}img[_ngcontent-%COMP%]{max-width:230px;width:100%}.svg[_ngcontent-%COMP%]{margin:5px 10px;width:50px;height:50px;fill:currentColor}.catalog_list[_ngcontent-%COMP%]{display:grid;grid-template-columns:repeat(4,auto);grid-gap:10px;padding:0 10px}@media (max-width:1200px){.catalog_list[_ngcontent-%COMP%]{grid-template-columns:repeat(3,auto)}}@media (max-width:800px){.catalog_list[_ngcontent-%COMP%]{grid-template-columns:repeat(2,auto)}}@media (max-width:560px){.catalog_list[_ngcontent-%COMP%]{grid-template-columns:repeat(1,auto);margin:0 auto;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]{display:grid;padding:10px;background-color:#fafafa;border:1px solid #e0e0e0;box-shadow:inset 0 1px 1px #fff;border-radius:5px;-webkit-transition:.5s;transition:.5s}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]:hover{border:1px solid #ff4800;-webkit-transform:scale(1.03);transform:scale(1.03)}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .link[_ngcontent-%COMP%]{display:grid;justify-items:center}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{align-self:end;justify-self:center}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{align-self:center}.box[_ngcontent-%COMP%]{padding:0 10px;display:grid;grid-template-columns:auto 300px}.box_guaranty[_ngcontent-%COMP%]{padding:0 10px;color:#525252}.list_options[_ngcontent-%COMP%]{display:-webkit-box;display:flex;flex-flow:wrap}.list_options[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{margin-right:10px}.list_aside[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center}.list_aside[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{margin:0}'
+              '.section[_ngcontent-%COMP%]{max-width:1200px;margin:0 auto 20px}.title-wrapper[_ngcontent-%COMP%]{position:relative}.title-wrapper[_ngcontent-%COMP%]:after{content:"";background:#dcdcdc;position:absolute;left:0;top:50%;margin-top:-.5px;display:block;width:100%;height:1px;z-index:-1}.text[_ngcontent-%COMP%]{background:#fff;margin:15px 20px;padding:0 10px;display:inline-block;text-transform:uppercase;font-family:Arial,sans-serif;color:#494940}img[_ngcontent-%COMP%]{max-width:230px;width:100%}.svg[_ngcontent-%COMP%]{margin:5px 10px;width:50px;height:50px;fill:currentColor}.catalog_list[_ngcontent-%COMP%]{display:grid;grid-template-columns:repeat(4,auto);grid-gap:10px;padding:0 10px}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]{display:grid;padding:10px;background-color:#fafafa;border:1px solid #e0e0e0;box-shadow:inset 0 1px 1px #fff;border-radius:5px;-webkit-transition:.5s;transition:.5s}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]:hover{border:1px solid #ff4800;-webkit-transform:scale(1.03);transform:scale(1.03)}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .link[_ngcontent-%COMP%]{display:grid;justify-items:center}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{align-self:end;justify-self:center}.catalog_list[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{align-self:center}.box[_ngcontent-%COMP%]{padding:0 10px;display:grid;grid-template-columns:auto 300px}@media (max-width:600px){.box[_ngcontent-%COMP%]{grid-template-columns:auto}}.box_guaranty[_ngcontent-%COMP%]{padding:0 10px;color:#525252}.list_options[_ngcontent-%COMP%]{display:-webkit-box;display:flex;flex-flow:wrap}.list_options[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{margin-right:10px}@media (max-width:800px){.list_options[_ngcontent-%COMP%]{-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-align:center;align-items:center}}.list_aside[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center}.list_aside[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{margin:0}@media (max-width:800px){.list_aside[_ngcontent-%COMP%]{display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-align:center;align-items:center}.list_aside[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}}'
             ]
           ],
           data: {}
@@ -18372,7 +18372,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -18387,7 +18387,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -18402,17 +18402,17 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0442\u0435\u0445.\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430'
             ])),
             (n()(),
-            Ai(5, 0, null, null, 50, 'div', [['class', 'box']], null, null, null, null, null)),
+            Mi(5, 0, null, null, 50, 'div', [['class', 'box']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               6,
               0,
               null,
@@ -18426,10 +18426,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(7, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(8, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(7, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(8, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               9,
               0,
               null,
@@ -18444,7 +18444,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               10,
               0,
               null,
@@ -18458,15 +18458,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(11, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(11, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f \u043f\u043e \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0435'
             ])),
-            (n()(), Ai(13, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(14, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(13, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(14, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               15,
               0,
               null,
@@ -18481,7 +18481,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               16,
               0,
               null,
@@ -18495,15 +18495,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(17, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(17, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041f\u0440\u043e\u0448\u0438\u0432\u043a\u0438 \u0438 \u041f\u041e \u0441\u043a\u0430\u0447\u0430\u0442\u044c \u0441 FTP'
             ])),
-            (n()(), Ai(19, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(20, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(19, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(20, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               21,
               0,
               null,
@@ -18518,7 +18518,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               22,
               0,
               null,
@@ -18532,15 +18532,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(23, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(23, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0413\u0430\u0440\u0430\u043d\u0442\u0438\u044f \u0438 \u0440\u0435\u043c\u043e\u043d\u0442'
             ])),
-            (n()(), Ai(25, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(26, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(25, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(26, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               27,
               0,
               null,
@@ -18555,7 +18555,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               28,
               0,
               null,
@@ -18569,15 +18569,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(29, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(29, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b \u0442\u0435\u0445\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438'
             ])),
-            (n()(), Ai(31, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(32, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(31, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(32, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               33,
               0,
               null,
@@ -18592,7 +18592,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               34,
               0,
               null,
@@ -18606,13 +18606,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(35, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(35, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0414\u0435\u043a\u043b\u0430\u0440\u0430\u0446\u0438\u044f \u043e \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438'
             ])),
             (n()(),
-            Ai(
+            Mi(
               37,
               0,
               null,
@@ -18626,10 +18626,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(38, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(39, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(38, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(39, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               40,
               0,
               null,
@@ -18644,7 +18644,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               41,
               0,
               null,
@@ -18658,15 +18658,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(42, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(42, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440\u044b'
             ])),
-            (n()(), Ai(44, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(45, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(44, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(45, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               46,
               0,
               null,
@@ -18681,7 +18681,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               47,
               0,
               null,
@@ -18695,15 +18695,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(48, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(48, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043a\u0430\u0442\u0430\u043b\u043e\u0433 \u043f\u0440\u043e\u0434\u0443\u043a\u0446\u0438\u0438'
             ])),
-            (n()(), Ai(50, 0, null, null, 5, 'li', [], null, null, null, null, null)),
-            (n()(), Ai(51, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
+            (n()(), Mi(50, 0, null, null, 5, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(51, 0, null, null, 4, 'a', [['href', '']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               52,
               0,
               null,
@@ -18718,7 +18718,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               53,
               0,
               null,
@@ -18732,13 +18732,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(54, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(54, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043f\u0440\u0430\u0439\u0441-\u043b\u0438\u0441\u0442'
             ])),
             (n()(),
-            Ai(
+            Mi(
               56,
               0,
               null,
@@ -18753,7 +18753,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               57,
               0,
               null,
@@ -18768,15 +18768,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(58, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(58, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(59, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(59, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0413\u0430\u0440\u0430\u043d\u0442\u0438\u044f \u0438 \u0440\u0435\u043c\u043e\u043d\u0442'
             ])),
             (n()(),
-            Ai(
+            Mi(
               61,
               0,
               null,
@@ -18790,128 +18790,128 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(62, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(62, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u0432 \u0440\u0435\u043c\u043e\u043d\u0442'
             ])),
-            (n()(), Ai(64, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(64, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u0440\u0435\u043c\u043e\u043d\u0442 (\u0432 \u0442\u043e\u043c \u0447\u0438\u0441\u043b\u0435 \u0433\u0430\u0440\u0430\u043d\u0442\u0438\u0439\u043d\u044b\u0439) \u043e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u0430 \u0441\u0447\u0435\u0442 \u041a\u043b\u0438\u0435\u043d\u0442\u0430. \u041e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u0437\u0430 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0443 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u0421\u0435\u0440\u0432\u0438\u0441\u043d\u044b\u0439 \u0446\u0435\u043d\u0442\u0440 Optimus \u043d\u0435\u0441\u0435\u0442 \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u0435\u043b\u044c. '
             ])),
-            (n()(), Ai(66, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(66, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u0438 \u0432\u043b\u043e\u0436\u0438\u0442\u044c \u0410\u043a\u0442 \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0438 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u0440\u0435\u043c\u043e\u043d\u0442. '
             ])),
-            (n()(), Ai(68, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(68, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u043d\u0438\u043c\u0430\u0435\u0442\u0441\u044f \u0432 \u0447\u0438\u0441\u0442\u043e\u043c \u0432\u0438\u0434\u0435 \u0441 \u0443\u043a\u0430\u0437\u0430\u043d\u0438\u0435\u043c: '
             ])),
-            (n()(), Ai(70, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(70, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' - \u0434\u0435\u0444\u0435\u043a\u0442\u043e\u0432 \u0438 \u0443\u0441\u043b\u043e\u0432\u0438\u0439 \u0438\u0445 \u043f\u0440\u043e\u044f\u0432\u043b\u0435\u043d\u0438\u044f; '
             ])),
-            (n()(), Ai(72, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(72, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' - \u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0442\u043d\u043e\u0441\u0442\u044c \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f; '
             ])),
-            (n()(), Ai(74, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(74, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' - \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u043d\u043e\u0435 \u043b\u0438\u0446\u043e \u0441 \u043d\u043e\u043c\u0435\u0440\u043e\u043c \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u0430. '
             ])),
-            (n()(), Ai(76, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(76, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041f\u0440\u0438 \u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u0438 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u0434\u0435\u0444\u0435\u043a\u0442\u0430\u0445 \u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0426\u0435\u043d\u0442\u0440 \u0432\u043f\u0440\u0430\u0432\u0435 \u043e\u0442\u043a\u0430\u0437\u0430\u0442\u044c \u0432 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u0438 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f. \u0422\u0430\u043a\u0436\u0435 \u043d\u0435 \u0433\u0430\u0440\u0430\u043d\u0442\u0438\u0440\u0443\u0435\u0442\u0441\u044f \u0440\u0435\u043c\u043e\u043d\u0442 \u043d\u0435\u0438\u0441\u043f\u0440\u0430\u0432\u043d\u043e\u0441\u0442\u0435\u0439 \u043d\u0435 \u0443\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0445 \u0432 \u0430\u043a\u0442\u0435. '
             ])),
-            (n()(), Ai(78, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(78, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u0430 \u043a\u0430\u043a \u0447\u0435\u0440\u0435\u0437 \u0434\u0438\u043b\u0435\u0440\u0430, \u0443 \u043a\u043e\u0442\u043e\u0440\u043e\u0433\u043e \u0431\u044b\u043b\u043e \u043f\u0440\u0438\u043e\u0431\u0440\u0435\u0442\u0435\u043d\u043e \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435, \u0442\u0430\u043a \u0438 \u0441\u0430\u043c\u043e\u0441\u0442\u043e\u044f\u0442\u0435\u043b\u044c\u043d\u043e, \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0422\u041a. '
             ])),
-            (n()(), Ai(80, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(80, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u043e:'
             ])),
-            (n()(), Ai(82, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(82, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0413\u0430\u0440\u0430\u043d\u0442\u0438\u044f \u043d\u0430 \u0432\u0441\u0435 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 Optimus 37 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 '
             ])),
-            (n()(), Ai(84, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(84, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043d\u0430\u0445\u043e\u0434\u044f\u0442\u0441\u044f \u0432 \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0430\u0445 \u0442\u043e\u0432\u0430\u0440\u043e\u0432 \u043d\u0430 \u0432\u043a\u043b\u0430\u0434\u043a\u0435 \u0424\u0430\u0439\u043b\u044b \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u043a\u0430\u0442\u0430\u043b\u043e\u0433\u0435 \u0441\u0430\u0439\u0442\u0430 '
             ])),
-            (n()(), Ai(86, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(86, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u0440\u0435\u043c\u043e\u043d\u0442 (\u0432 \u0442\u043e\u043c \u0447\u0438\u0441\u043b\u0435 \u0433\u0430\u0440\u0430\u043d\u0442\u0438\u0439\u043d\u044b\u0439) \u043e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u0430 \u0441\u0447\u0435\u0442 \u041a\u043b\u0438\u0435\u043d\u0442\u0430. \u041e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u0437\u0430 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0443 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u0421\u0435\u0440\u0432\u0438\u0441\u043d\u044b\u0439 \u0446\u0435\u043d\u0442\u0440 Optimus \u043d\u0435\u0441\u0435\u0442 \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u0435\u043b\u044c. '
             ])),
-            (n()(), Ai(88, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(88, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041f\u043e \u0432\u043e\u043f\u0440\u043e\u0441\u0430\u043c \u0440\u0435\u043c\u043e\u043d\u0442\u0430 (\u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0430, \u043f\u0440\u043e\u0434\u0435\u043b\u0430\u043d\u043d\u043e\u0433\u043e \u0440\u0435\u043c\u043e\u043d\u0442\u0430) \u0438 \u0433\u0430\u0440\u0430\u043d\u0442\u0438\u0439\u043d\u043e\u0433\u043e \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u043e\u0431\u0440\u0430\u0442\u0438\u0442\u0435\u0441\u044c \u0432 \u0441\u0435\u0440\u0432\u0438\u0441\u043d\u044b\u0439 \u0446\u0435\u043d\u0442\u0440: '
             ])),
-            (n()(), Ai(90, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(90, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041d\u0430 \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u0438 \u0420\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0438 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u044c:'
             ])),
-            (n()(), Ai(92, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(92, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0427\u041f \u201c\u041c\u043e\u0431\u0438\u041b\u0410\u0411 \u0421\u0426\u201d, \u0433. \u041c\u0438\u043d\u0441\u043a'
             ])),
-            (n()(), Ai(94, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(94, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u041f\u043e\u0447\u0442\u0430: info@mobilab.by'])),
-            (n()(), Ai(96, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(96, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u0421\u0430\u0439\u0442: www.mobilab.by'])),
-            (n()(), Ai(98, 0, null, null, 23, 'strong', [], null, null, null, null, null)),
-            (n()(), Ai(99, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(98, 0, null, null, 23, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(99, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0426\u0435\u043d\u0442\u0440 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446 \u0438 \u0418\u041f(\u0442\u043e\u0440\u0433\u0443\u044e\u0449\u0438\u0435 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438) \u0422\u0435\u043b\u0435\u0444\u043e\u043d: '
             ])),
-            (n()(), Ai(101, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(101, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, [' +375 (17) 362 76 84 (\u0433\u043e\u0440.) '])),
             (n()(), Hi(-1, null, [' +375 (33) 333 23 23 (\u041c\u0422\u0421) '])),
-            (n()(), Ai(104, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(104, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, [' +375 (44) 7 751 751 (Velcom) '])),
-            (n()(), Ai(106, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(106, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0410\u0434\u0440\u0435\u0441: \u041c\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d \u041d\u043e\u0432\u043e\u0434\u0432\u043e\u0440\u0441\u043a\u0438\u0439 \u0441/\u0441 33/1-8, \u0440\u0430\u0439\u043e\u043d \u0434. \u0411\u043e\u043b\u044c\u0448\u043e\u0435 \u0421\u0442\u0438\u043a\u043b\u0435\u0432\u043e '
             ])),
-            (n()(), Ai(108, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(108, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0412\u0440\u0435\u043c\u044f \u0440\u0430\u0431\u043e\u0442\u044b \u0441 9 \u0434\u043e 18.30 \u043f\u043e \u043c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u043e\u043c\u0443 \u0432\u0440\u0435\u043c\u0435\u043d\u0438 \u0432 \u0440\u0430\u0431\u043e\u0447\u0438\u0435 \u0434\u043d\u0438 '
             ])),
-            (n()(), Ai(110, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(110, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0426\u0435\u043d\u0442\u0440 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446(\u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u0438) '
             ])),
-            (n()(), Ai(112, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(112, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, [' \u0422\u0435\u043b\u0435\u0444\u043e\u043d: '])),
-            (n()(), Ai(114, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(114, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, [' +375 (29) 272 22 21 (\u041c\u0422\u0421) '])),
-            (n()(), Ai(116, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(116, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, [' +375 (29) 136 66 69 (Velcom) '])),
-            (n()(), Ai(118, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(118, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0410\u0434\u0440\u0435\u0441: \u043f\u0440. \u041d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0441\u0442\u0438, \u0434. 46 \u0411, \u043f\u043e\u043c. 1-\u041d '
             ])),
-            (n()(), Ai(120, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(120, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0412\u0440\u0435\u043c\u044f \u0440\u0430\u0431\u043e\u0442\u044b \u0441 10 \u0434\u043e 19 \u043f\u043e \u043c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u043e\u043c\u0443 \u0432\u0440\u0435\u043c\u0435\u043d\u0438 \u0432 \u0440\u0430\u0431\u043e\u0447\u0438\u0435 \u0434\u043d\u0438 '
@@ -18928,7 +18928,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-support', [], null, null, null, Ff, Uf)),
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-support', [], null, null, null, Ff, Uf)),
                 Yl(1, 114688, null, 0, Lf, [], null, null)
               ],
               function(n, e) {
@@ -18961,7 +18961,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -18976,7 +18976,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -18991,12 +18991,12 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u041a\u043b\u0438\u0435\u043d\u0442\u044b'])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -19011,9 +19011,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(6, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(6, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               7,
               0,
               null,
@@ -19031,7 +19031,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               8,
               0,
               null,
@@ -19048,12 +19048,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(9, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(9, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['WebStudio MoonWay'])),
             (n()(),
-            Ai(11, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(11, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               12,
               0,
               null,
@@ -19071,7 +19071,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               13,
               0,
               null,
@@ -19088,15 +19088,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(14, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(14, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0422\u0438\u043f\u043e\u0433\u0440\u0430\u0444\u0438\u044f "\u0423\u0441\u043b\u0443\u0433\u0438"'
             ])),
             (n()(),
-            Ai(16, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(16, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               17,
               0,
               null,
@@ -19114,7 +19114,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               18,
               0,
               null,
@@ -19131,12 +19131,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(19, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(19, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['ColoritPak'])),
             (n()(),
-            Ai(21, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(21, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               22,
               0,
               null,
@@ -19154,7 +19154,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               23,
               0,
               null,
@@ -19171,12 +19171,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(24, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(24, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['Mercedes-Benz'])),
             (n()(),
-            Ai(26, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(26, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               27,
               0,
               null,
@@ -19194,7 +19194,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               28,
               0,
               null,
@@ -19211,12 +19211,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(29, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(29, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['Natusana'])),
             (n()(),
-            Ai(31, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(31, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               32,
               0,
               null,
@@ -19234,7 +19234,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               33,
               0,
               null,
@@ -19251,15 +19251,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(34, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(34, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0422\u0426 "\u041d\u0430 \u0413\u043e\u043b\u043e\u0434\u0435\u0434\u0430"'
             ])),
             (n()(),
-            Ai(36, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(36, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               37,
               0,
               null,
@@ -19277,7 +19277,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               38,
               0,
               null,
@@ -19294,15 +19294,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(39, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(39, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u0438\u0432\u0421\u0442\u0440\u043e\u0439'
             ])),
             (n()(),
-            Ai(41, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(41, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               42,
               0,
               null,
@@ -19320,7 +19320,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               43,
               0,
               null,
@@ -19337,13 +19337,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(44, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(44, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, ['\u041e\u0442\u0435\u043b\u044c "\u041c\u0438\u043d\u0441\u043a"'])),
             (n()(),
-            Ai(46, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(46, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               47,
               0,
               null,
@@ -19361,7 +19361,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               48,
               0,
               null,
@@ -19378,12 +19378,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(49, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(49, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['Natusana'])),
             (n()(),
-            Ai(51, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(51, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               52,
               0,
               null,
@@ -19401,7 +19401,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               53,
               0,
               null,
@@ -19418,15 +19418,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(54, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(54, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0422\u0426 "\u041d\u0430 \u0413\u043e\u043b\u043e\u0434\u0435\u0434\u0430"'
             ])),
             (n()(),
-            Ai(56, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(56, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               57,
               0,
               null,
@@ -19444,7 +19444,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               58,
               0,
               null,
@@ -19461,15 +19461,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(59, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(59, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u0438\u0432\u0421\u0442\u0440\u043e\u0439'
             ])),
             (n()(),
-            Ai(61, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(61, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               62,
               0,
               null,
@@ -19487,7 +19487,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               63,
               0,
               null,
@@ -19504,13 +19504,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(64, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(64, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, ['\u041e\u0442\u0435\u043b\u044c "\u041c\u0438\u043d\u0441\u043a"'])),
             (n()(),
-            Ai(66, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(66, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               67,
               0,
               null,
@@ -19528,7 +19528,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               68,
               0,
               null,
@@ -19545,13 +19545,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(69, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(69, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, ['\u0410\u0442\u043b\u0430\u0441 \u0422\u0435\u0445\u043d\u043e'])),
             (n()(),
-            Ai(71, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(71, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               72,
               0,
               null,
@@ -19569,7 +19569,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               73,
               0,
               null,
@@ -19586,12 +19586,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(74, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(74, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u0416\u0421\u041f\u041a \u2116832'])),
             (n()(),
-            Ai(76, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(76, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               77,
               0,
               null,
@@ -19609,7 +19609,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               78,
               0,
               null,
@@ -19626,15 +19626,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(79, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(79, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0416\u041a\u0425 \u0412\u0438\u0442\u0435\u0431\u0441\u043a\u043e\u0439 \u043e\u0431\u0441\u043b\u0430\u0441\u0442\u0438'
             ])),
             (n()(),
-            Ai(81, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(81, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               82,
               0,
               null,
@@ -19652,7 +19652,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               83,
               0,
               null,
@@ -19669,12 +19669,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(84, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(84, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u0416\u0421\u041f\u041a \u2116648'])),
             (n()(),
-            Ai(86, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(86, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               87,
               0,
               null,
@@ -19692,7 +19692,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               88,
               0,
               null,
@@ -19709,15 +19709,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(89, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(89, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0417\u0430\u0432\u043e\u0434 \u0432\u0438\u043d\u043e\u0433\u0440\u0430\u0434\u043d\u044b\u0445 \u0432\u0438\u043d'
             ])),
             (n()(),
-            Ai(91, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(91, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               92,
               0,
               null,
@@ -19735,7 +19735,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               93,
               0,
               null,
@@ -19752,15 +19752,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(94, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(94, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041e\u0442\u0434\u0435\u043b \u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u044f'
             ])),
             (n()(),
-            Ai(96, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(96, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               97,
               0,
               null,
@@ -19778,7 +19778,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               98,
               0,
               null,
@@ -19795,15 +19795,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(99, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(99, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0422\u0443\u0440\u0438\u0441\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u043e\u0440\u0442\u0430\u043b'
             ])),
             (n()(),
-            Ai(101, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(101, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               102,
               0,
               null,
@@ -19821,7 +19821,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               103,
               0,
               null,
@@ -19838,15 +19838,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(104, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(104, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041e\u041e\u041e "\u0412\u0438\u0432\u0430\u0421\u0442\u0440\u043e\u0439"'
             ])),
             (n()(),
-            Ai(106, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(106, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               107,
               0,
               null,
@@ -19864,7 +19864,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               108,
               0,
               null,
@@ -19881,13 +19881,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(109, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(109, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, ['\u0416\u0421\u041f\u041a "\u041e\u0437\u0435\u0440\u0446\u043e"'])),
             (n()(),
-            Ai(111, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(111, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               112,
               0,
               null,
@@ -19905,7 +19905,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               113,
               0,
               null,
@@ -19922,12 +19922,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(114, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(114, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['"\u0411\u0435\u043b\u0422\u0430\u043c\u043e"'])),
             (n()(),
-            Ai(116, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(116, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               117,
               0,
               null,
@@ -19945,7 +19945,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               118,
               0,
               null,
@@ -19962,15 +19962,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(119, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(119, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0442\u0435\u043a\u0441\u0442\u0438\u043b\u044c'
             ])),
             (n()(),
-            Ai(121, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(121, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               122,
               0,
               null,
@@ -19988,7 +19988,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               123,
               0,
               null,
@@ -20005,15 +20005,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(124, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(124, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041c\u0430\u0433\u0430\u0437\u0438\u043d \u0436\u0435\u043d\u0441\u043a\u0438\u0445 \u0441\u0443\u043e\u043c\u043a'
             ])),
             (n()(),
-            Ai(126, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(126, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               127,
               0,
               null,
@@ -20031,7 +20031,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               128,
               0,
               null,
@@ -20048,12 +20048,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(129, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(129, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u0416\u0421\u041f\u041a'])),
             (n()(),
-            Ai(131, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(131, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               132,
               0,
               null,
@@ -20071,7 +20071,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               133,
               0,
               null,
@@ -20088,15 +20088,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(134, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(134, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0421\u0430\u043b\u043e\u043d \u043a\u0440\u0430\u0441\u043e\u0442\u044b'
             ])),
             (n()(),
-            Ai(136, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(136, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               137,
               0,
               null,
@@ -20114,7 +20114,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               138,
               0,
               null,
@@ -20131,15 +20131,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(139, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(139, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0412\u0438\u0442\u0430\u043c\u0438\u043d\u043d\u044b\u0439 \u0437\u0430\u0432\u043e\u0434'
             ])),
             (n()(),
-            Ai(141, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(141, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               142,
               0,
               null,
@@ -20157,7 +20157,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               143,
               0,
               null,
@@ -20174,15 +20174,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(144, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(144, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0424\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0435 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b'
             ])),
             (n()(),
-            Ai(146, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(146, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               147,
               0,
               null,
@@ -20200,7 +20200,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               148,
               0,
               null,
@@ -20217,15 +20217,15 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(149, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(149, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0414\u0435\u043f\u0430\u0440\u0442\u0430\u043c\u0435\u043d\u0442 \u041e\u0445\u0440\u0430\u043d\u044b'
             ])),
             (n()(),
-            Ai(151, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(151, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               152,
               0,
               null,
@@ -20243,7 +20243,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               153,
               0,
               null,
@@ -20260,12 +20260,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(154, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(154, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u0422\u0414 "\u042d\u043b\u0438\u0441"'])),
             (n()(),
-            Ai(156, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(156, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               157,
               0,
               null,
@@ -20283,7 +20283,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               158,
               0,
               null,
@@ -20300,12 +20300,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(159, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(159, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u041c\u0438\u043d\u0441\u043a\u0442\u0440\u0430\u043d\u0441'])),
             (n()(),
-            Ai(161, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(161, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               162,
               0,
               null,
@@ -20323,7 +20323,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               163,
               0,
               null,
@@ -20340,12 +20340,12 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(164, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(164, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u041e\u041e\u041e "\u0411\u0435\u043b\u041b\u041f\u0417"'])),
             (n()(),
-            Ai(166, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
+            Mi(166, 0, null, null, 4, 'li', [['class', 'item']], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               167,
               0,
               null,
@@ -20363,7 +20363,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               168,
               0,
               null,
@@ -20380,7 +20380,7 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(169, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(169, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['ADANI']))
           ],
           null,
@@ -20398,7 +20398,7 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 1, 'app-customers', [], null, null, null, Bf, qf)),
+            (n()(), Mi(0, 0, null, null, 1, 'app-customers', [], null, null, null, Bf, qf)),
             Yl(1, 114688, null, 0, Hf, [], null, null)
           ],
           function(n, e) {
@@ -20414,7 +20414,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-clients', [], null, null, null, Wf, Kf)),
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-clients', [], null, null, null, Wf, Kf)),
                 Yl(1, 114688, null, 0, Gf, [], null, null)
               ],
               function(n, e) {
@@ -20446,24 +20446,24 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 23, 'div', [], null, null, null, null, null)),
-            (n()(), Ai(1, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(0, 0, null, null, 23, 'div', [], null, null, null, null, null)),
+            (n()(), Mi(1, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' IP-\u0432\u0438\u0434\u0435\u043e\u043a\u0430\u043c\u0435\u0440\u0430 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0431\u043e\u0439 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e, \u0432 \u043a\u043e\u0442\u043e\u0440\u043e\u043c \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0435\u0434\u0438\u043d\u044f\u044e\u0442\u0441\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043a\u0430\u043c\u0435\u0440\u044b \u0438 \u0434\u043e\u0441\u0442\u0438\u0436\u0435\u043d\u0438\u044f \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0433\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u044f. \u0414\u0440\u0443\u0433\u0438\u043c\u0438 \u0441\u043b\u043e\u0432\u0430\u043c\u0438, \u044d\u0442\u043e \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435 \u0432\u0438\u0434\u0435\u043e\u043a\u0430\u043c\u0435\u0440\u044b \u0438 \u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u0430. \u0412 \u0434\u0430\u043d\u043d\u044b\u0445 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430\u0445 \u043f\u043e\u0442\u043e\u043a \u0432\u0438\u0434\u0435\u043e \u043f\u0435\u0440\u0435\u0434\u0430\u0435\u0442\u0441\u044f \u043a \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044e \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e IP-\u043f\u0440\u043e\u0442\u043e\u043a\u043e\u043b\u0430 \u0432 \u0446\u0438\u0444\u0440\u043e\u0432\u043e\u043c \u0444\u043e\u0440\u043c\u0430\u0442\u0435. \u0422\u0430\u043a \u043a\u0430\u043a \u0432 \u044d\u0442\u043e\u043c \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0435 \u043f\u0440\u0438\u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f \u0441\u0435\u0442\u044c Ethernet, \u043a\u0430\u0436\u0434\u043e\u0439 \u043a\u0430\u043c\u0435\u0440\u0435 \u043f\u0440\u0438\u0441\u0432\u0430\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0430\u0434\u0440\u0435\u0441. \u0413\u043b\u0430\u0432\u043d\u043e\u0435 \u043f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u043e \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432 \u0434\u0430\u043d\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 \u2013 \u0432\u044b\u0441\u043e\u043a\u043e\u0435 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u043f\u0435\u0440\u0435\u0434\u0430\u0435\u0442\u0441\u044f \u043d\u0430 \u043c\u043e\u043d\u0438\u0442\u043e\u0440. '
             ])),
-            (n()(), Ai(3, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(3, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041d\u0430 \u0441\u0435\u0433\u043e\u0434\u043d\u044f\u0448\u043d\u0438\u0439 \u0434\u0435\u043d\u044c \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u0438 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432 \u0434\u043b\u044f \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u043f\u0440\u0435\u0434\u043b\u0430\u0433\u0430\u044e\u0442 \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044f\u043c \u0431\u043e\u043b\u044c\u0448\u043e\u0435 \u0440\u0430\u0437\u043d\u043e\u043e\u0431\u0440\u0430\u0437\u0438\u0435 \u043a\u0430\u043c\u0435\u0440, \u0440\u0430\u0437\u043e\u0431\u0440\u0430\u0442\u044c\u0441\u044f \u0432 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u044f\u0445 \u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u043f\u043e\u0434 \u0441\u0438\u043b\u0443 \u043d\u0435 \u043a\u0430\u0436\u0434\u043e\u043c\u0443 \u0447\u0435\u043b\u043e\u0432\u0435\u043a\u0443. \u0421 \u0443\u0447\u0435\u0442\u043e\u043c \u0448\u0438\u0440\u043e\u043a\u043e\u0433\u043e \u0430\u0441\u0441\u043e\u0440\u0442\u0438\u043c\u0435\u043d\u0442\u0430 \u043f\u0440\u043e\u0434\u0443\u043a\u0446\u0438\u0438 \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u0432\u044b\u0434\u0435\u043b\u0438\u0442\u044c \u043e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b, \u043d\u0430 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043d\u0443\u0436\u043d\u043e \u043e\u0440\u0438\u0435\u043d\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u0432 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0435 \u043f\u043e\u043a\u0443\u043f\u043e\u043a. '
             ])),
-            (n()(), Ai(5, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(5, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0427\u0442\u043e \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u0443\u0447\u0435\u0441\u0442\u044c \u043f\u0440\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0435 \u043a\u0430\u043c\u0435\u0440\u044b?'
             ])),
-            (n()(), Ai(7, 0, null, null, 3, 'p', [], null, null, null, null, null)),
-            (n()(), Ai(8, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(7, 0, null, null, 3, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(8, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041f\u043e\u043a\u0443\u043f\u043a\u0430 IP-\u043a\u0430\u043c\u0435\u0440 \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u0432 \u041c\u0438\u043d\u0441\u043a\u0435'
@@ -20472,14 +20472,14 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               ' \u0434\u043e\u043b\u0436\u043d\u0430 \u043e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043b\u044f\u0442\u044c\u0441\u044f \u0441 \u0443\u0447\u0435\u0442\u043e\u043c \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0445 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u043e\u0432: '
             ])),
-            (n()(), Ai(11, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(11, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0423\u0447\u0430\u0441\u0442\u043e\u043a, \u043d\u0430 \u043a\u043e\u0442\u043e\u0440\u043e\u043c \u043f\u043b\u0430\u043d\u0438\u0440\u0443\u0435\u0442\u0441\u044f \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043a\u0430\u043c\u0435\u0440\u0443 (\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u0435 \u0438\u043b\u0438 \u043d\u0430\u0440\u0443\u0436\u043d\u043e\u0435 \u0440\u0430\u0441\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432 \u2013 \u043e\u0442 \u044d\u0442\u043e\u0433\u043e \u0437\u0430\u0432\u0438\u0441\u0438\u0442 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0441\u0442\u044c \u0437\u0430\u0449\u0438\u0442\u044b \u043e\u0442 \u043c\u0435\u0445\u0430\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0438 \u043a\u043b\u0438\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043f\u043e\u0432\u0440\u0435\u0436\u0434\u0435\u043d\u0438\u0439). \u041a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u043f\u0435\u0440\u0435\u0434\u0430\u0435\u0442\u0441\u044f \u043d\u0430 \u043c\u043e\u043d\u0438\u0442\u043e\u0440 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f. \u0417\u0430\u0432\u0438\u0441\u0438\u0442 \u043e\u0442 \u0437\u0430\u0434\u0430\u0447\u0438, \u043d\u0430 \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u043d\u0430\u0446\u0435\u043b\u0435\u043d\u043e \u0443\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u0435\u043c\u043e\u0435 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e. \u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0441\u0442\u044c \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u044f \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0439 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f. '
             ])),
-            (n()(), Ai(13, 0, null, null, 4, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(13, 0, null, null, 4, 'p', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, [' \u0422\u0430\u043a\u0436\u0435 '])),
-            (n()(), Ai(15, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(15, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u043f\u0440\u0438\u043e\u0431\u0440\u0435\u0442\u0435\u043d\u0438\u0435'
@@ -20488,8 +20488,8 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               ' \u043a\u0430\u043c\u0435\u0440 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u043f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0441 \u0443\u0447\u0435\u0442\u043e\u043c \u0444\u043e\u0440\u043c\u0430\u0442\u0430 \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f. \u042d\u0442\u043e \u0434\u043e\u043b\u0436\u043d\u044b \u0431\u044b\u0442\u044c \u043d\u0430\u0438\u0431\u043e\u043b\u0435\u0435 \u0440\u0430\u0441\u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0435\u043d\u043d\u044b\u0435 \u0444\u043e\u0440\u043c\u0430\u0442\u044b, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043c\u043e\u0436\u043d\u043e \u0440\u0430\u0441\u043f\u043e\u0437\u043d\u0430\u0442\u044c \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0433\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u044f. \u041d\u0435 \u043b\u0438\u0448\u043d\u0435\u0439 \u0431\u0443\u0434\u0435\u0442 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043a\u0430\u043c\u0435\u0440\u044b \u043d\u0430 \u043d\u0435\u0441\u0430\u043d\u043a\u0446\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e\u0435 \u0432\u043c\u0435\u0448\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u043f\u043e\u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u0445 \u043b\u0438\u0447\u043d\u043e\u0441\u0442\u0435\u0439. '
             ])),
-            (n()(), Ai(18, 0, null, null, 3, 'p', [], null, null, null, null, null)),
-            (n()(), Ai(19, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(18, 0, null, null, 3, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(19, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u044f IP-\u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f'
@@ -20499,7 +20499,7 @@ function _createClass(n, e, t) {
               ' \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u0430 \u0441 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435\u043c \u043f\u0440\u043e\u0434\u0443\u043a\u0446\u0438\u0438 \u043d\u0430\u0448\u0435\u0439 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438. \u0423 \u043d\u0430\u0441 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u044b \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u044b\u0435 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430 \u0438\u0437\u0432\u0435\u0441\u0442\u043d\u044b\u0445 \u0431\u0440\u0435\u043d\u0434\u043e\u0432. '
             ])),
             (n()(),
-            Ai(
+            Mi(
               22,
               0,
               null,
@@ -20528,7 +20528,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -20543,7 +20543,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -20558,15 +20558,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041a\u0430\u043a \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u0432\u044b\u0431\u0440\u0430\u0442\u044c IP \u043a\u0430\u043c\u0435\u0440\u044b'
             ])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -20580,13 +20580,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(6, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(6, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' IP-\u0432\u0438\u0434\u0435\u043e\u043a\u0430\u043c\u0435\u0440\u0430 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0431\u043e\u0439 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e, \u0432 \u043a\u043e\u0442\u043e\u0440\u043e\u043c \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0435\u0434\u0438\u043d\u044f\u044e\u0442\u0441\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043a\u0430\u043c\u0435\u0440\u044b \u0438 \u0434\u043e\u0441\u0442\u0438\u0436\u0435\u043d\u0438\u044f \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0433\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u044f. '
             ])),
             (n()(),
-            Ai(
+            Mi(
               8,
               0,
               null,
@@ -20604,7 +20604,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               9,
               0,
               null,
@@ -20654,28 +20654,28 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 31, 'div', [], null, null, null, null, null)),
-            (n()(), Ai(1, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(0, 0, null, null, 31, 'div', [], null, null, null, null, null)),
+            (n()(), Mi(1, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0423\u0447\u0438\u0442\u044b\u0432\u0430\u044f \u0442\u043e\u0442 \u0444\u0430\u043a\u0442, \u0447\u0442\u043e \u0434\u0430\u0447\u0430 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0436\u0438\u0432\u0430\u043d\u0438\u044f, \u043f\u043e\u0434\u0431\u043e\u0440 \u0438 \u043f\u0440\u0438\u043e\u0431\u0440\u0435\u0442\u0435\u043d\u0438\u0435 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043e\u0447\u0435\u043d\u044c \u0432\u0430\u0436\u043d\u043e\u0439 \u0437\u0430\u0434\u0430\u0447\u0435\u0439 \u0434\u043b\u044f \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0432\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u0430 \u0437\u0430\u0433\u043e\u0440\u043e\u0434\u043d\u043e\u0433\u043e \u0434\u043e\u043c\u0430. \u0427\u0430\u0449\u0435 \u0432\u0441\u0435\u0433\u043e \u043f\u043e\u0434\u0431\u0438\u0440\u0430\u0435\u0442\u0441\u044f \u0442\u043e\u0442 \u0432\u0430\u0440\u0438\u0430\u043d\u0442, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0432\u0430\u0435\u0442 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u043f\u0440\u043e\u0441\u043c\u0430\u0442\u0440\u0438\u0432\u0430\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u0438 \u043f\u043e \u043f\u0440\u0438\u0435\u0437\u0434\u0435 \u0447\u0435\u043b\u043e\u0432\u0435\u043a\u0430 \u043d\u0430 \u0434\u0430\u0447\u0443. \u0411\u0435\u0437\u0443\u0441\u043b\u043e\u0432\u043d\u043e, \u0442\u0430\u043a\u0438\u043c \u043e\u0431\u0440\u0430\u0437\u043e\u043c \u043d\u0435 \u0443\u0434\u0430\u0435\u0442\u0441\u044f \u043e\u0442\u0440\u0435\u0430\u0433\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043d\u0430 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044e \u0432 \u0441\u0440\u043e\u0447\u043d\u043e\u043c \u043f\u043e\u0440\u044f\u0434\u043a\u0435, \u043e\u0434\u043d\u0430\u043a\u043e \u043d\u0435\u043f\u0440\u0430\u0432\u043e\u043c\u0435\u0440\u043d\u044b\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043b\u044e\u0434\u0435\u0439 \u0431\u0443\u0434\u0443\u0442 \u0437\u0430\u0444\u0438\u043a\u0441\u0438\u0440\u043e\u0432\u0430\u043d\u044b \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043a\u0430\u043c\u0435\u0440\u044b. '
             ])),
-            (n()(), Ai(3, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(3, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044e\u0442 \u0434\u0440\u0443\u0433\u0438\u0435 \u0432\u0430\u0440\u0438\u0430\u043d\u0442\u044b \u0441\u0438\u0441\u0442\u0435\u043c, \u043f\u0440\u0435\u0434\u043f\u043e\u043b\u0430\u0433\u0430\u044e\u0449\u0438\u0435 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u0440\u0435\u0430\u0433\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u043d\u0430 \u0432\u043e\u0437\u043d\u0438\u043a\u0430\u044e\u0449\u0438\u0435 \u043d\u0435\u043f\u0440\u0435\u0434\u0432\u0438\u0434\u0435\u043d\u043d\u044b\u0435 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438. \u0412 \u0434\u0430\u043d\u043d\u043e\u043c \u0441\u043b\u0443\u0447\u0430\u0435 \u0441\u0440\u043e\u0447\u043d\u043e\u0441\u0442\u044c \u0440\u0435\u0430\u043a\u0446\u0438\u0438 \u0445\u043e\u0437\u044f\u0438\u043d\u0430 \u0434\u0430\u0447\u0438 \u0431\u0443\u0434\u0435\u0442 \u0437\u0430\u0432\u0438\u0441\u0435\u0442\u044c \u0438\u0441\u043a\u043b\u044e\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u043e\u0442 \u0434\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u0440\u0430\u0441\u0441\u0442\u043e\u044f\u043d\u0438\u044f \u0434\u043e \u0437\u0430\u0433\u043e\u0440\u043e\u0434\u043d\u043e\u0433\u043e \u043e\u0431\u044a\u0435\u043a\u0442\u0430 \u0438 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u0438\u0431\u044b\u0442\u044c \u043d\u0430 \u043c\u0435\u0441\u0442\u043e \u0432 \u043b\u044e\u0431\u043e\u0435 \u0432\u0440\u0435\u043c\u044f. '
             ])),
-            (n()(), Ai(5, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
+            (n()(), Mi(5, 0, null, null, 1, 'h3', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041d\u0430 \u0447\u0442\u043e \u043e\u0431\u0440\u0430\u0442\u0438\u0442\u044c \u0432\u043d\u0438\u043c\u0430\u043d\u0438\u0435 \u043f\u0440\u0438 \u0432\u044b\u0431\u043e\u0440\u0435 \u043a\u0430\u043c\u0435\u0440?'
             ])),
-            (n()(), Ai(7, 0, null, null, 4, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(7, 0, null, null, 4, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041f\u0440\u0438 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0441\u0442\u0438 \u043f\u043e\u0434\u043e\u0431\u0440\u0430\u0442\u044c '
             ])),
-            (n()(), Ai(9, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(9, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0438 \u0432\u0438\u0434\u0435\u043e\u043a\u0430\u043c\u0435\u0440\u044b'
@@ -20684,8 +20684,8 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               ' \u0434\u043b\u044f \u0434\u0430\u0447\u0438 \u043b\u0443\u0447\u0448\u0435 \u0432\u0441\u0435\u0433\u043e \u043e\u0442\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0440\u0435\u0434\u043f\u043e\u0447\u0442\u0435\u043d\u0438\u0435 \u0433\u043e\u0442\u043e\u0432\u044b\u043c \u0440\u0435\u0448\u0435\u043d\u0438\u044f\u043c, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0442\u043b\u0438\u0447\u0430\u044e\u0442\u0441\u044f \u043f\u0440\u043e\u0441\u0442\u043e\u0442\u043e\u0439 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u0438 \u0434\u0435\u043c\u043e\u043a\u0440\u0430\u0442\u0438\u0447\u043d\u043e\u0439 \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c\u044e. '
             ])),
-            (n()(), Ai(12, 0, null, null, 3, 'p', [], null, null, null, null, null)),
-            (n()(), Ai(13, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(12, 0, null, null, 3, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(13, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0412\u044b\u0431\u043e\u0440 \u0441\u0438\u0441\u0442\u0435\u043c \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u0434\u043b\u044f \u0434\u0430\u0447\u0438'
@@ -20694,33 +20694,33 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               ' \u043a\u0440\u0430\u0439\u043d\u0435 \u0432\u0430\u0436\u043d\u043e \u043e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0438\u0442\u044c \u0441 \u0443\u0447\u0435\u0442\u043e\u043c \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0445 \u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043a: '
             ])),
-            (n()(), Ai(16, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(16, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' - \u043d\u0430\u043b\u0438\u0447\u0438\u0435 \u0430\u043d\u0442\u0438\u0432\u0430\u043d\u0434\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u043e\u043a\u0440\u044b\u0442\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u0434\u0435\u043b\u0430\u0435\u0442 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e \u0443\u0441\u0442\u043e\u0439\u0447\u0438\u0432\u044b\u043c \u043a \u0432\u043d\u0435\u0448\u043d\u0438\u043c \u043f\u043e\u0432\u0440\u0435\u0436\u0434\u0435\u043d\u0438\u044f\u043c; '
             ])),
-            (n()(), Ai(18, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(18, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '- \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e, \u043f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0449\u0430\u044e\u0449\u0435\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u0431\u043b\u0438\u043a\u043e\u0432 \u043e\u0442 \u0441\u043e\u043b\u043d\u0446\u0430 \u043d\u0430 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f;'
             ])),
-            (n()(), Ai(20, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(20, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '- \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0437\u0430\u043f\u0438\u0441\u0438 \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f \u0432 \u043d\u043e\u0447\u043d\u043e\u0435 \u0432\u0440\u0435\u043c\u044f \u0441\u0443\u0442\u043e\u043a;'
             ])),
-            (n()(), Ai(22, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(22, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' - \u043d\u0430\u043b\u0438\u0447\u0438\u0435 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0433\u043e \u0443\u0433\u043b\u0430 \u043e\u0431\u0437\u043e\u0440\u0430 \u043a\u0430\u043c\u0435\u0440\u044b \u0438 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u043e\u0432 (\u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0441\u0442\u0438 \u043e\u0442 \u043f\u043e\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u043d\u043e\u0439 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 \u043f\u043b\u043e\u0449\u0430\u0434\u0438, \u043a\u043e\u0442\u043e\u0440\u0443\u044e \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u043e\u0445\u0432\u0430\u0442\u0438\u0442\u044c \u043f\u0440\u0438 \u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u0438). '
             ])),
-            (n()(), Ai(24, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(24, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u041a\u0440\u043e\u043c\u0435 \u0442\u043e\u0433\u043e, \u043f\u0440\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0435 \u0442\u0430\u043a\u0438\u0445 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432 \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u0432\u044b\u0431\u0440\u0430\u0442\u044c \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u0431\u0443\u0434\u0435\u0442 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e \u0434\u043b\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430. \u0417\u0430 \u044d\u0442\u043e \u043e\u0442\u0432\u0435\u0447\u0430\u0435\u0442 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u044f (\u0430\u043d\u0430\u043b\u043e\u0433\u043e\u0432\u044b\u0435 \u043b\u0438\u0431\u043e \u0446\u0438\u0444\u0440\u043e\u0432\u044b\u0435 \u043c\u043e\u0434\u0435\u043b\u0438 \u043a\u0430\u043c\u0435\u0440). '
             ])),
-            (n()(), Ai(26, 0, null, null, 3, 'p', [], null, null, null, null, null)),
-            (n()(), Ai(27, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
+            (n()(), Mi(26, 0, null, null, 3, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(27, 0, null, null, 1, 'strong', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041f\u0440\u043e\u0434\u0430\u0436\u0430 \u043a\u0430\u043c\u0435\u0440 \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u0432 \u041c\u0438\u043d\u0441\u043a\u0435'
@@ -20730,7 +20730,7 @@ function _createClass(n, e, t) {
               ' \u2013 \u043e\u0441\u043d\u043e\u0432\u043d\u043e\u0435 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0435\u044f\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438 \u043d\u0430\u0448\u0435\u0439 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438. \u0423 \u043d\u0430\u0441 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u044b \u0440\u0430\u0437\u043b\u0438\u0447\u043d\u044b\u0435 \u043c\u043e\u0434\u0435\u043b\u0438 \u0441\u0438\u0441\u0442\u0435\u043c, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0431\u0443\u0434\u0443\u0442 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u043f\u043e\u0442\u0440\u0435\u0431\u043d\u043e\u0441\u0442\u044f\u043c \u0432\u0441\u0435\u0445 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0439 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432. '
             ])),
             (n()(),
-            Ai(
+            Mi(
               30,
               0,
               null,
@@ -20759,7 +20759,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -20774,7 +20774,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -20789,15 +20789,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u041a\u0430\u043a \u0432\u044b\u0431\u0440\u0430\u0442\u044c \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u0434\u043b\u044f \u0434\u0430\u0447\u0438'
             ])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -20811,13 +20811,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(6, 0, null, null, 1, 'p', [], null, null, null, null, null)),
+            (n()(), Mi(6, 0, null, null, 1, 'p', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               ' \u0423\u0447\u0438\u0442\u044b\u0432\u0430\u044f \u0442\u043e\u0442 \u0444\u0430\u043a\u0442, \u0447\u0442\u043e \u0434\u0430\u0447\u0430 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0436\u0438\u0432\u0430\u043d\u0438\u044f, \u043f\u043e\u0434\u0431\u043e\u0440 \u0438 \u043f\u0440\u0438\u043e\u0431\u0440\u0435\u0442\u0435\u043d\u0438\u0435 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0432\u0438\u0434\u0435\u043e\u043d\u0430\u0431\u043b\u044e\u0434\u0435\u043d\u0438\u044f \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043e\u0447\u0435\u043d\u044c \u0432\u0430\u0436\u043d\u043e\u0439 \u0437\u0430\u0434\u0430\u0447\u0435\u0439 \u0434\u043b\u044f \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0432\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u0430 \u0437\u0430\u0433\u043e\u0440\u043e\u0434\u043d\u043e\u0433\u043e \u0434\u043e\u043c\u0430. '
             ])),
             (n()(),
-            Ai(
+            Mi(
               8,
               0,
               null,
@@ -20835,7 +20835,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               9,
               0,
               null,
@@ -20878,7 +20878,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -20894,7 +20894,7 @@ function _createClass(n, e, t) {
             )),
             Yl(1, 114688, null, 0, Qf, [], null, null),
             (n()(),
-            Ai(
+            Mi(
               2,
               0,
               null,
@@ -20923,7 +20923,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-articles', [], null, null, null, id, rd)),
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-articles', [], null, null, null, id, rd)),
                 Yl(1, 114688, null, 0, ld, [], null, null)
               ],
               function(n, e) {
@@ -20947,7 +20947,7 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 1, 'app-brands-sm', [], null, null, null, vf, pf)),
+            (n()(), Mi(0, 0, null, null, 1, 'app-brands-sm', [], null, null, null, vf, pf)),
             Yl(1, 114688, null, 0, df, [], null, null)
           ],
           function(n, e) {
@@ -20964,7 +20964,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-brands', [], null, null, null, sd, ad)),
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-brands', [], null, null, null, sd, ad)),
                 Yl(1, 114688, null, 0, od, [], null, null)
               ],
               function(n, e) {
@@ -21366,7 +21366,7 @@ function _createClass(n, e, t) {
           [
             Vi(402653184, 1, { mapContainer: 0 }),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               [
@@ -21424,7 +21424,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -21439,7 +21439,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -21454,15 +21454,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0421\u0445\u0435\u043c\u0430 \u0440\u0430\u0441\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u044f'
             ])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -21476,7 +21476,7 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(6, 0, null, null, 12, 'angular-yandex-map', [], null, null, null, _d, gd)),
+            (n()(), Mi(6, 0, null, null, 12, 'angular-yandex-map', [], null, null, null, _d, gd)),
             Yl(
               7,
               114688,
@@ -21493,7 +21493,7 @@ function _createClass(n, e, t) {
             Vi(603979776, 4, { controls: 1 }),
             zi(12, 2),
             (n()(),
-            Ai(13, 0, null, null, 2, 'angular-yandex-placemark', [], null, null, null, yd, md)),
+            Mi(13, 0, null, null, 2, 'angular-yandex-placemark', [], null, null, null, yd, md)),
             Yl(
               14,
               114688,
@@ -21506,7 +21506,7 @@ function _createClass(n, e, t) {
             ),
             zi(15, 2),
             (n()(),
-            Ai(16, 0, null, null, 2, 'angular-yandex-placemark', [], null, null, null, yd, md)),
+            Mi(16, 0, null, null, 2, 'angular-yandex-placemark', [], null, null, null, yd, md)),
             Yl(
               17,
               114688,
@@ -21575,8 +21575,8 @@ function _createClass(n, e, t) {
             e
           );
         })(q),
-        xd = new Pn('NgValueAccessor'),
-        Od = new Pn('CompositionEventMode'),
+        xd = new Sn('NgValueAccessor'),
+        Od = new Sn('CompositionEventMode'),
         Ed = (function() {
           function n(e, t, l) {
             var r;
@@ -21644,7 +21644,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Sd = (function() {
+        Pd = (function() {
           function n() {
             _classCallCheck(this, n);
           }
@@ -21762,7 +21762,7 @@ function _createClass(n, e, t) {
             n
           );
         })(),
-        Pd = (function(n) {
+        Sd = (function(n) {
           function e() {
             return (
               _classCallCheck(this, e),
@@ -21787,11 +21787,11 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(Sd);
+        })(Pd);
       function Td() {
         throw new Error('unimplemented');
       }
-      var Ad = (function(n) {
+      var Md = (function(n) {
           function e() {
             var n;
             return (
@@ -21825,8 +21825,8 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(Sd),
-        Md = (function() {
+        })(Pd),
+        Ad = (function() {
           function n(e) {
             _classCallCheck(this, n), (this._cd = e);
           }
@@ -21886,7 +21886,7 @@ function _createClass(n, e, t) {
             );
           }
           return _inherits(e, n), e;
-        })(Md),
+        })(Ad),
         Id = (function(n) {
           function e(n) {
             return (
@@ -21895,11 +21895,11 @@ function _createClass(n, e, t) {
             );
           }
           return _inherits(e, n), e;
-        })(Md);
+        })(Ad);
       function Nd(n) {
         return null == n || 0 === n.length;
       }
-      var Vd = new Pn('NgValidators'),
+      var Vd = new Sn('NgValidators'),
         Dd = /^(?=.{1,254}$)(?=.{1,64}@)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
         jd = (function() {
           function n() {
@@ -22624,7 +22624,7 @@ function _createClass(n, e, t) {
               {
                 key: 'ngOnInit',
                 value: function() {
-                  (this._control = this._injector.get(Ad)),
+                  (this._control = this._injector.get(Md)),
                     this._checkName(),
                     this._registry.add(this._control, this);
                 }
@@ -23676,7 +23676,7 @@ function _createClass(n, e, t) {
             e
           );
         })(ip),
-        sp = new Pn('NgFormSelectorWarning'),
+        sp = new Sn('NgFormSelectorWarning'),
         cp = (function(n) {
           function e() {
             return (
@@ -23733,11 +23733,11 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(Pd),
+        })(Sd),
         hp = function n() {
           _classCallCheck(this, n);
         },
-        fp = new Pn('NgModelWithFormControlWarning'),
+        fp = new Sn('NgModelWithFormControlWarning'),
         dp = (function(n) {
           function e(n, t) {
             var l;
@@ -23933,7 +23933,7 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(Pd),
+        })(Sd),
         pp = (function(n) {
           function e(n, t, l) {
             var r;
@@ -24023,7 +24023,7 @@ function _createClass(n, e, t) {
             ]),
             e
           );
-        })(Pd);
+        })(Sd);
       function gp(n) {
         return !(n instanceof pp || n instanceof dp || n instanceof vp);
       }
@@ -24172,7 +24172,7 @@ function _createClass(n, e, t) {
               ]),
               e
             );
-          })(Ad))._ngModelWarningSentOnce = !1),
+          })(Md))._ngModelWarningSentOnce = !1),
           _p),
         yp = (function() {
           function n() {
@@ -24363,7 +24363,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -24378,7 +24378,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -24393,15 +24393,15 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0417\u0410\u0414\u0410\u0419\u0422\u0415 \u0412\u041e\u041f\u0420\u041e\u0421\u042b'
             ])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -24450,10 +24450,10 @@ function _createClass(n, e, t) {
               { form: [0, 'form'] },
               null
             ),
-            $l(2048, null, Pd, null, [dp]),
-            Yl(9, 16384, null, 0, Id, [[4, Pd]], null, null),
+            $l(2048, null, Sd, null, [dp]),
+            Yl(9, 16384, null, 0, Id, [[4, Sd]], null, null),
             (n()(),
-            Ai(
+            Mi(
               10,
               0,
               null,
@@ -24467,9 +24467,9 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(11, 0, null, null, 3, 'label', [], null, null, null, null, null)),
+            (n()(), Mi(11, 0, null, null, 3, 'label', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               12,
               0,
               null,
@@ -24484,7 +24484,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               13,
               0,
               null,
@@ -24500,7 +24500,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, [' \u0418\u043c\u044f '])),
             (n()(),
-            Ai(
+            Mi(
               15,
               0,
               null,
@@ -24570,7 +24570,7 @@ function _createClass(n, e, t) {
               0,
               mp,
               [
-                [3, Pd],
+                [3, Sd],
                 [6, Vd],
                 [8, null],
                 [6, xd],
@@ -24579,11 +24579,11 @@ function _createClass(n, e, t) {
               { name: [0, 'name'] },
               null
             ),
-            $l(2048, null, Ad, null, [mp]),
-            Yl(22, 16384, null, 0, Rd, [[4, Ad]], null, null),
-            (n()(), Ai(23, 0, null, null, 3, 'label', [], null, null, null, null, null)),
+            $l(2048, null, Md, null, [mp]),
+            Yl(22, 16384, null, 0, Rd, [[4, Md]], null, null),
+            (n()(), Mi(23, 0, null, null, 3, 'label', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               24,
               0,
               null,
@@ -24598,7 +24598,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               25,
               0,
               null,
@@ -24614,7 +24614,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, [' Email '])),
             (n()(),
-            Ai(
+            Mi(
               27,
               0,
               null,
@@ -24684,7 +24684,7 @@ function _createClass(n, e, t) {
               0,
               mp,
               [
-                [3, Pd],
+                [3, Sd],
                 [6, Vd],
                 [8, null],
                 [6, xd],
@@ -24693,11 +24693,11 @@ function _createClass(n, e, t) {
               { name: [0, 'name'] },
               null
             ),
-            $l(2048, null, Ad, null, [mp]),
-            Yl(34, 16384, null, 0, Rd, [[4, Ad]], null, null),
-            (n()(), Ai(35, 0, null, null, 3, 'label', [], null, null, null, null, null)),
+            $l(2048, null, Md, null, [mp]),
+            Yl(34, 16384, null, 0, Rd, [[4, Md]], null, null),
+            (n()(), Mi(35, 0, null, null, 3, 'label', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               36,
               0,
               null,
@@ -24712,7 +24712,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               37,
               0,
               null,
@@ -24728,7 +24728,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, [' \u0422\u0435\u043c\u0430 '])),
             (n()(),
-            Ai(
+            Mi(
               39,
               0,
               null,
@@ -24798,7 +24798,7 @@ function _createClass(n, e, t) {
               0,
               mp,
               [
-                [3, Pd],
+                [3, Sd],
                 [6, Vd],
                 [8, null],
                 [6, xd],
@@ -24807,10 +24807,10 @@ function _createClass(n, e, t) {
               { name: [0, 'name'] },
               null
             ),
-            $l(2048, null, Ad, null, [mp]),
-            Yl(46, 16384, null, 0, Rd, [[4, Ad]], null, null),
+            $l(2048, null, Md, null, [mp]),
+            Yl(46, 16384, null, 0, Rd, [[4, Md]], null, null),
             (n()(),
-            Ai(
+            Mi(
               47,
               0,
               null,
@@ -24824,13 +24824,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(48, 0, null, null, 1, 'label', [], null, null, null, null, null)),
+            (n()(), Mi(48, 0, null, null, 1, 'label', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0412\u0430\u0448\u0435 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435'
             ])),
             (n()(),
-            Ai(
+            Mi(
               50,
               0,
               null,
@@ -24901,7 +24901,7 @@ function _createClass(n, e, t) {
               0,
               mp,
               [
-                [3, Pd],
+                [3, Sd],
                 [6, Vd],
                 [8, null],
                 [6, xd],
@@ -24910,10 +24910,10 @@ function _createClass(n, e, t) {
               { name: [0, 'name'] },
               null
             ),
-            $l(2048, null, Ad, null, [mp]),
-            Yl(57, 16384, null, 0, Rd, [[4, Ad]], null, null),
+            $l(2048, null, Md, null, [mp]),
+            Yl(57, 16384, null, 0, Rd, [[4, Md]], null, null),
             (n()(),
-            Ai(
+            Mi(
               58,
               0,
               null,
@@ -25008,10 +25008,10 @@ function _createClass(n, e, t) {
           }
         );
       }
-      var Sp = function n() {
+      var Pp = function n() {
           _classCallCheck(this, n);
         },
-        Pp = Ht({
+        Sp = Ht({
           encapsulation: 0,
           styles: [
             [
@@ -25025,7 +25025,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -25040,7 +25040,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -25055,12 +25055,12 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
+            Mi(2, 0, null, null, 2, 'h2', [['class', 'title']], null, null, null, null, null)),
             (n()(),
-            Ai(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
+            Mi(3, 0, null, null, 1, 'span', [['class', 'text']], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u041a\u041e\u041d\u0422\u0410\u041a\u0422\u042b'])),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -25075,7 +25075,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               6,
               0,
               null,
@@ -25090,7 +25090,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               7,
               0,
               null,
@@ -25108,7 +25108,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               8,
               0,
               null,
@@ -25123,7 +25123,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               9,
               0,
               null,
@@ -25137,10 +25137,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(10, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
-            (n()(), Ai(11, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(10, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
+            (n()(), Mi(11, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               12,
               0,
               null,
@@ -25155,9 +25155,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, ['+375 17 241-08-08'])),
-            (n()(), Ai(14, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(14, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               15,
               0,
               null,
@@ -25173,7 +25173,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, ['+375 17 337-08-08'])),
             (n()(),
-            Ai(
+            Mi(
               17,
               0,
               null,
@@ -25188,7 +25188,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               18,
               0,
               null,
@@ -25206,7 +25206,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               19,
               0,
               null,
@@ -25221,7 +25221,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               20,
               0,
               null,
@@ -25235,10 +25235,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(21, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
-            (n()(), Ai(22, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(21, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
+            (n()(), Mi(22, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               23,
               0,
               null,
@@ -25253,9 +25253,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, ['+375 29 337-30-30'])),
-            (n()(), Ai(25, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(25, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               26,
               0,
               null,
@@ -25271,7 +25271,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, ['+375 29 737-20-23'])),
             (n()(),
-            Ai(
+            Mi(
               28,
               0,
               null,
@@ -25286,7 +25286,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               29,
               0,
               null,
@@ -25304,7 +25304,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               30,
               0,
               null,
@@ -25319,7 +25319,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               31,
               0,
               null,
@@ -25333,10 +25333,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(32, 0, null, null, 1, 'span', [], null, null, null, null, null)),
+            (n()(), Mi(32, 0, null, null, 1, 'span', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['info@nabludenie.by'])),
             (n()(),
-            Ai(
+            Mi(
               34,
               0,
               null,
@@ -25351,7 +25351,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               35,
               0,
               null,
@@ -25369,7 +25369,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               36,
               0,
               null,
@@ -25384,7 +25384,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               37,
               0,
               null,
@@ -25398,10 +25398,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(38, 0, null, null, 1, 'span', [], null, null, null, null, null)),
+            (n()(), Mi(38, 0, null, null, 1, 'span', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['mihail.dam'])),
             (n()(),
-            Ai(
+            Mi(
               40,
               0,
               null,
@@ -25416,7 +25416,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               41,
               0,
               null,
@@ -25431,7 +25431,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               42,
               0,
               null,
@@ -25446,7 +25446,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               43,
               0,
               null,
@@ -25460,7 +25460,7 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(44, 0, null, null, 1, 'span', [], null, null, null, null, null)),
+            (n()(), Mi(44, 0, null, null, 1, 'span', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0443\u043b. \u0411\u0438\u0440\u044e\u0437\u043e\u0432\u0430 4, 3-\u0439 \u044d\u0442\u0430\u0436'
@@ -25470,10 +25470,10 @@ function _createClass(n, e, t) {
           null
         );
       }
-      var Ap = function n() {
+      var Mp = function n() {
           _classCallCheck(this, n);
         },
-        Mp = Ht({
+        Ap = Ht({
           encapsulation: 0,
           styles: [
             [
@@ -25486,12 +25486,12 @@ function _createClass(n, e, t) {
         return Gi(
           0,
           [
-            (n()(), Ai(0, 0, null, null, 1, 'app-map-yandex', [], null, null, null, bd, kd)),
+            (n()(), Mi(0, 0, null, null, 1, 'app-map-yandex', [], null, null, null, bd, kd)),
             Yl(1, 114688, null, 0, Cd, [], null, null),
-            (n()(), Ai(2, 0, null, null, 1, 'app-question-form', [], null, null, null, Ep, Op)),
+            (n()(), Mi(2, 0, null, null, 1, 'app-question-form', [], null, null, null, Ep, Op)),
             Yl(3, 114688, null, 0, xp, [], null, null),
-            (n()(), Ai(4, 0, null, null, 1, 'app-contact-data', [], null, null, null, Tp, Pp)),
-            Yl(5, 49152, null, 0, Sp, [], null, null)
+            (n()(), Mi(4, 0, null, null, 1, 'app-contact-data', [], null, null, null, Tp, Sp)),
+            Yl(5, 49152, null, 0, Pp, [], null, null)
           ],
           function(n, e) {
             n(e, 1, 0), n(e, 3, 0);
@@ -25501,13 +25501,13 @@ function _createClass(n, e, t) {
       }
       var Ip = El(
           'app-page-contacts',
-          Ap,
+          Mp,
           function(n) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-page-contacts', [], null, null, null, Rp, Mp)),
-                Yl(1, 49152, null, 0, Ap, [], null, null)
+                (n()(), Mi(0, 0, null, null, 1, 'app-page-contacts', [], null, null, null, Rp, Ap)),
+                Yl(1, 49152, null, 0, Mp, [], null, null)
               ],
               null,
               null
@@ -25534,7 +25534,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -25548,10 +25548,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(1, 0, null, null, 1, 'h1', [['hidden', '']], null, null, null, null, null)),
+            (n()(), Mi(1, 0, null, null, 1, 'h1', [['hidden', '']], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['\u0414\u041c\u0414 C\u0438\u0441\u0442\u0435\u043c\u0441'])),
             (n()(),
-            Ai(
+            Mi(
               3,
               0,
               null,
@@ -25566,7 +25566,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               4,
               0,
               null,
@@ -25581,7 +25581,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -25599,7 +25599,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               6,
               0,
               null,
@@ -25614,7 +25614,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               7,
               0,
               null,
@@ -25629,7 +25629,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               8,
               0,
               null,
@@ -25643,9 +25643,9 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(9, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(9, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               10,
               0,
               null,
@@ -25663,9 +25663,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, ['+375 29 337-30-30'])),
-            (n()(), Ai(12, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(12, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               13,
               0,
               null,
@@ -25683,9 +25683,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, ['+375 29 737-20-23'])),
-            (n()(), Ai(15, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(15, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               16,
               0,
               null,
@@ -25704,7 +25704,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, ['+375 17 241-08-08'])),
             (n()(),
-            Ai(
+            Mi(
               18,
               0,
               null,
@@ -25719,7 +25719,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               19,
               0,
               null,
@@ -25746,7 +25746,7 @@ function _createClass(n, e, t) {
             Yl(20, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(21, 1),
             (n()(),
-            Ai(
+            Mi(
               22,
               0,
               null,
@@ -25764,7 +25764,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               23,
               0,
               null,
@@ -25779,7 +25779,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               24,
               0,
               null,
@@ -25793,9 +25793,9 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(25, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(25, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               26,
               0,
               null,
@@ -25813,7 +25813,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               27,
               0,
               null,
@@ -25828,7 +25828,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               28,
               0,
               null,
@@ -25843,9 +25843,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, [' mihail.dam '])),
-            (n()(), Ai(30, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(30, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               31,
               0,
               null,
@@ -25863,7 +25863,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               32,
               0,
               null,
@@ -25878,7 +25878,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               33,
               0,
               null,
@@ -25893,9 +25893,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, [' info@nabludenie.by '])),
-            (n()(), Ai(35, 0, null, null, 6, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(35, 0, null, null, 6, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               36,
               0,
               null,
@@ -25922,7 +25922,7 @@ function _createClass(n, e, t) {
             Yl(37, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(38, 1),
             (n()(),
-            Ai(
+            Mi(
               39,
               0,
               null,
@@ -25937,7 +25937,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               40,
               0,
               null,
@@ -25956,7 +25956,7 @@ function _createClass(n, e, t) {
               ' \u0443\u043b.\u0411\u0438\u0440\u044e\u0437\u043e\u0432\u0430 4, 3-\u0439 \u044d\u0442\u0430\u0436 '
             ])),
             (n()(),
-            Ai(
+            Mi(
               42,
               0,
               null,
@@ -25971,7 +25971,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               43,
               0,
               null,
@@ -25986,7 +25986,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               44,
               0,
               null,
@@ -26001,7 +26001,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               45,
               0,
               null,
@@ -26015,9 +26015,9 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(46, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(46, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               47,
               0,
               null,
@@ -26044,9 +26044,9 @@ function _createClass(n, e, t) {
             Yl(48, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(49, 1),
             (n()(), Hi(-1, null, ['\u041a\u0410\u0422\u0410\u041b\u041e\u0413'])),
-            (n()(), Ai(51, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(51, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               52,
               0,
               null,
@@ -26073,9 +26073,9 @@ function _createClass(n, e, t) {
             Yl(53, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(54, 1),
             (n()(), Hi(-1, null, ['\u041e \u041a\u041e\u041c\u041f\u0410\u041d\u0418\u0418'])),
-            (n()(), Ai(56, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(56, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               57,
               0,
               null,
@@ -26105,9 +26105,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0422\u0415\u0425.\u041f\u041e\u0414\u0414\u0415\u0420\u0416\u041a\u0410'
             ])),
-            (n()(), Ai(61, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(61, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               62,
               0,
               null,
@@ -26134,9 +26134,9 @@ function _createClass(n, e, t) {
             Yl(63, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(64, 1),
             (n()(), Hi(-1, null, ['\u041a\u041b\u0418\u0415\u041d\u0422\u042b'])),
-            (n()(), Ai(66, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(66, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               67,
               0,
               null,
@@ -26163,9 +26163,9 @@ function _createClass(n, e, t) {
             Yl(68, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(69, 1),
             (n()(), Hi(-1, null, ['\u0421\u0422\u0410\u0422\u042c\u0418'])),
-            (n()(), Ai(71, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(71, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               72,
               0,
               null,
@@ -26192,9 +26192,9 @@ function _createClass(n, e, t) {
             Yl(73, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(74, 1),
             (n()(), Hi(-1, null, ['\u0411\u0420\u0415\u041d\u0414\u042b'])),
-            (n()(), Ai(76, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(76, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               77,
               0,
               null,
@@ -26222,7 +26222,7 @@ function _createClass(n, e, t) {
             zi(79, 1),
             (n()(), Hi(-1, null, ['\u041a\u041e\u041d\u0422\u0410\u041a\u0422\u042b'])),
             (n()(),
-            Ai(
+            Mi(
               81,
               0,
               null,
@@ -26238,7 +26238,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, ['\u043f\u0440\u0430\u0439\u0441'])),
             (n()(),
-            Ai(
+            Mi(
               83,
               0,
               null,
@@ -26253,7 +26253,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               84,
               0,
               null,
@@ -26275,7 +26275,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               85,
               0,
               null,
@@ -26290,7 +26290,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               86,
               0,
               null,
@@ -26305,7 +26305,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               87,
               0,
               null,
@@ -26363,7 +26363,7 @@ function _createClass(n, e, t) {
           encapsulation: 0,
           styles: [
             [
-              '[_nghost-%COMP%]{display:block}a[_ngcontent-%COMP%]{color:#fff;padding:5px 0}a[_ngcontent-%COMP%]:hover{color:#ff4800}li[_ngcontent-%COMP%]{display:-webkit-box;display:flex;-webkit-box-align:end;align-items:flex-end}.svg[_ngcontent-%COMP%]{width:22px;height:22px;fill:#fff;margin-right:10px}.svg__letter[_ngcontent-%COMP%], .svg__location_pin[_ngcontent-%COMP%], .svg__skype_logo[_ngcontent-%COMP%]{height:17px}.item__svg_box[_ngcontent-%COMP%]{display:-webkit-box;display:flex}.footer__top_line[_ngcontent-%COMP%]{height:45px;background:#ff4800}.footer__container[_ngcontent-%COMP%]{display:grid;grid-template-columns:minmax(20px,auto) minmax(230px,290px) minmax(230px,870px) minmax(20px,auto);background:#444645;padding:45px 0}.footer__container[_ngcontent-%COMP%]   .container__contacts[_ngcontent-%COMP%]{grid-column:2}.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{grid-column:3;display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-flow:column wrap;height:100%;max-height:160px}.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{margin-right:10px}@media (max-width:950px){.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{max-height:220px}}@media (max-width:750px){.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{max-height:unset}}@media (max-width:540px){.footer__container[_ngcontent-%COMP%]{grid-template-columns:auto}.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{display:none}}.footer__bottom[_ngcontent-%COMP%]{display:grid;grid-template-columns:minmax(20px,auto) minmax(auto,1170px) minmax(20px,auto);font-size:13px;padding:10px 0;color:#fff;background:#373737;border-top:1px solid #383938;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}.footer__bottom[_ngcontent-%COMP%]   .bottom__wrapper[_ngcontent-%COMP%]{grid-column:2}.footer__bottom[_ngcontent-%COMP%]   .bottom__text[_ngcontent-%COMP%]{color:#ccc;padding:0;margin:5px 0}'
+              '[_nghost-%COMP%]{display:block}a[_ngcontent-%COMP%]{color:#fff;padding:5px 0}a[_ngcontent-%COMP%]:hover{color:#ff4800}li[_ngcontent-%COMP%]{display:-webkit-box;display:flex;-webkit-box-align:end;align-items:flex-end}.svg[_ngcontent-%COMP%]{width:22px;height:22px;fill:#fff;margin-right:10px}.svg__letter[_ngcontent-%COMP%], .svg__location_pin[_ngcontent-%COMP%], .svg__skype_logo[_ngcontent-%COMP%]{height:17px}.item__svg_box[_ngcontent-%COMP%]{display:-webkit-box;display:flex}.footer__top_line[_ngcontent-%COMP%]{height:45px;background:#ff4800}@media (max-width:540px){.footer__top_line[_ngcontent-%COMP%]{display:none}}.footer__container[_ngcontent-%COMP%]{display:grid;grid-template-columns:minmax(20px,auto) minmax(230px,290px) minmax(230px,870px) minmax(20px,auto);background:#444645;padding:45px 0}.footer__container[_ngcontent-%COMP%]   .container__contacts[_ngcontent-%COMP%]{grid-column:2}.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{grid-column:3;display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-flow:column wrap;height:100%;max-height:160px}.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{margin-right:10px}@media (max-width:950px){.footer__top_line[_ngcontent-%COMP%]{height:5px}.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{max-height:220px}}@media (max-width:750px){.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{max-height:unset}}@media (max-width:540px){.footer__container[_ngcontent-%COMP%]{grid-template-columns:auto}.footer__container[_ngcontent-%COMP%]   .container__catalog_list[_ngcontent-%COMP%]{display:none}}.footer__bottom[_ngcontent-%COMP%]{display:grid;grid-template-columns:minmax(20px,auto) minmax(auto,1170px) minmax(20px,auto);font-size:13px;padding:10px 0;color:#fff;background:#373737;border-top:1px solid #383938;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}.footer__bottom[_ngcontent-%COMP%]   .bottom__wrapper[_ngcontent-%COMP%]{grid-column:2}.footer__bottom[_ngcontent-%COMP%]   .bottom__text[_ngcontent-%COMP%]{color:#ccc;padding:0;margin:5px 0}'
             ]
           ],
           data: {}
@@ -26373,7 +26373,7 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(
+            Mi(
               0,
               0,
               null,
@@ -26388,7 +26388,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               1,
               0,
               null,
@@ -26403,7 +26403,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               2,
               0,
               null,
@@ -26418,7 +26418,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               3,
               0,
               null,
@@ -26433,7 +26433,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               4,
               0,
               null,
@@ -26448,7 +26448,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               5,
               0,
               null,
@@ -26466,7 +26466,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               6,
               0,
               null,
@@ -26481,7 +26481,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               7,
               0,
               null,
@@ -26495,10 +26495,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(8, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
-            (n()(), Ai(9, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(8, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
+            (n()(), Mi(9, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               10,
               0,
               null,
@@ -26513,9 +26513,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, ['+375 17 241-08-08'])),
-            (n()(), Ai(12, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(12, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               13,
               0,
               null,
@@ -26531,7 +26531,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, ['+375 17 337-08-08'])),
             (n()(),
-            Ai(
+            Mi(
               15,
               0,
               null,
@@ -26546,7 +26546,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               16,
               0,
               null,
@@ -26564,7 +26564,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               17,
               0,
               null,
@@ -26579,7 +26579,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               18,
               0,
               null,
@@ -26593,10 +26593,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(19, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
-            (n()(), Ai(20, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(19, 0, null, null, 6, 'ul', [], null, null, null, null, null)),
+            (n()(), Mi(20, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               21,
               0,
               null,
@@ -26611,9 +26611,9 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(), Hi(-1, null, ['+375 29 337-30-30'])),
-            (n()(), Ai(23, 0, null, null, 2, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(23, 0, null, null, 2, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               24,
               0,
               null,
@@ -26629,7 +26629,7 @@ function _createClass(n, e, t) {
             )),
             (n()(), Hi(-1, null, ['+375 29 737-20-23'])),
             (n()(),
-            Ai(
+            Mi(
               26,
               0,
               null,
@@ -26644,7 +26644,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               27,
               0,
               null,
@@ -26662,7 +26662,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               28,
               0,
               null,
@@ -26677,7 +26677,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               29,
               0,
               null,
@@ -26691,10 +26691,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(30, 0, null, null, 1, 'span', [], null, null, null, null, null)),
+            (n()(), Mi(30, 0, null, null, 1, 'span', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['info@nabludenie.by'])),
             (n()(),
-            Ai(
+            Mi(
               32,
               0,
               null,
@@ -26709,7 +26709,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               33,
               0,
               null,
@@ -26727,7 +26727,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               34,
               0,
               null,
@@ -26742,7 +26742,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               35,
               0,
               null,
@@ -26756,10 +26756,10 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(36, 0, null, null, 1, 'span', [], null, null, null, null, null)),
+            (n()(), Mi(36, 0, null, null, 1, 'span', [], null, null, null, null, null)),
             (n()(), Hi(-1, null, ['mihail.dam'])),
             (n()(),
-            Ai(
+            Mi(
               38,
               0,
               null,
@@ -26774,7 +26774,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               39,
               0,
               null,
@@ -26801,7 +26801,7 @@ function _createClass(n, e, t) {
             Yl(40, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(41, 1),
             (n()(),
-            Ai(
+            Mi(
               42,
               0,
               null,
@@ -26816,7 +26816,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               43,
               0,
               null,
@@ -26830,13 +26830,13 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(44, 0, null, null, 1, 'span', [], null, null, null, null, null)),
+            (n()(), Mi(44, 0, null, null, 1, 'span', [], null, null, null, null, null)),
             (n()(),
             Hi(-1, null, [
               '\u0443\u043b. \u0411\u0438\u0440\u044e\u0437\u043e\u0432\u0430 4, 3-\u0439 \u044d\u0442\u0430\u0436'
             ])),
             (n()(),
-            Ai(
+            Mi(
               46,
               0,
               null,
@@ -26850,9 +26850,9 @@ function _createClass(n, e, t) {
               null,
               null
             )),
-            (n()(), Ai(47, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(47, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               48,
               0,
               null,
@@ -26879,9 +26879,9 @@ function _createClass(n, e, t) {
             Yl(49, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(50, 1),
             (n()(), Hi(-1, null, ['IP-\u043a\u0430\u043c\u0435\u0440\u044b'])),
-            (n()(), Ai(52, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(52, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               53,
               0,
               null,
@@ -26908,9 +26908,9 @@ function _createClass(n, e, t) {
             Yl(54, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(55, 1),
             (n()(), Hi(-1, null, ['AHD \u043a\u0430\u043c\u0435\u0440\u044b'])),
-            (n()(), Ai(57, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(57, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               58,
               0,
               null,
@@ -26940,9 +26940,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0412\u0438\u0434\u0435\u043e\u0434\u043e\u043c\u043e\u0444\u043e\u043d\u044b'
             ])),
-            (n()(), Ai(62, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(62, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               63,
               0,
               null,
@@ -26969,9 +26969,9 @@ function _createClass(n, e, t) {
             Yl(64, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(65, 1),
             (n()(), Hi(-1, null, ['\u0423\u0434\u043b\u0438\u043d\u0438\u0442\u0435\u043b\u0438'])),
-            (n()(), Ai(67, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(67, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               68,
               0,
               null,
@@ -26998,9 +26998,9 @@ function _createClass(n, e, t) {
             Yl(69, 671744, null, 0, Nh, [Ih, xc, eo], { routerLink: [0, 'routerLink'] }, null),
             zi(70, 1),
             (n()(), Hi(-1, null, ['\u0423\u043c\u043d\u044b\u0439 \u0434\u043e\u043c'])),
-            (n()(), Ai(72, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(72, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               73,
               0,
               null,
@@ -27030,9 +27030,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0411\u043b\u043e\u043a\u0438 \u043f\u0438\u0442\u0430\u043d\u0438\u044f'
             ])),
-            (n()(), Ai(77, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(77, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               78,
               0,
               null,
@@ -27062,9 +27062,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0410\u043a\u0441\u0435\u0441\u0441\u0443\u0430\u0440\u044b \u0421\u041a\u0423\u0414'
             ])),
-            (n()(), Ai(82, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(82, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               83,
               0,
               null,
@@ -27094,9 +27094,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               'GSM \u0441\u0438\u0433\u043d\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f'
             ])),
-            (n()(), Ai(87, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(87, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               88,
               0,
               null,
@@ -27126,9 +27126,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0420\u043e\u0415 \u043a\u043e\u043c\u043c\u0443\u0442\u0430\u0442\u043e\u0440\u044b'
             ])),
-            (n()(), Ai(92, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(92, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               93,
               0,
               null,
@@ -27158,9 +27158,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               'IP-\u0412\u0438\u0434\u0435\u043e\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440\u044b'
             ])),
-            (n()(), Ai(97, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(97, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               98,
               0,
               null,
@@ -27190,9 +27190,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               'AHD \u0432\u0438\u0434\u0435\u043e\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440\u044b'
             ])),
-            (n()(), Ai(102, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(102, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               103,
               0,
               null,
@@ -27223,9 +27223,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0417\u0430\u043c\u043a\u0438, \u0437\u0430\u0449\u0435\u043b\u043a\u0438, \u0434\u043e\u0432\u043e\u0434\u0447\u0438\u043a\u0438'
             ])),
-            (n()(), Ai(107, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(107, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               108,
               0,
               null,
@@ -27256,9 +27256,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0418\u043d\u0436\u0435\u043a\u0442\u043e\u0440\u044b \u0438 \u0441\u043f\u043b\u0438\u0442\u0442\u0435\u0440\u044b'
             ])),
-            (n()(), Ai(112, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(112, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               113,
               0,
               null,
@@ -27289,9 +27289,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0410\u043a\u0441\u0435\u0441\u0441\u0443\u0430\u0440\u044b \u0438 \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u044b'
             ])),
-            (n()(), Ai(117, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(117, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               118,
               0,
               null,
@@ -27322,9 +27322,9 @@ function _createClass(n, e, t) {
             Hi(-1, null, [
               '\u0423\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430 \u0440\u0430\u0434\u0438\u043e\u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f'
             ])),
-            (n()(), Ai(122, 0, null, null, 4, 'li', [], null, null, null, null, null)),
+            (n()(), Mi(122, 0, null, null, 4, 'li', [], null, null, null, null, null)),
             (n()(),
-            Ai(
+            Mi(
               123,
               0,
               null,
@@ -27353,7 +27353,7 @@ function _createClass(n, e, t) {
             zi(125, 1),
             (n()(), Hi(-1, null, ['\u0411\u0440\u0435\u043d\u0434\u044b'])),
             (n()(),
-            Ai(
+            Mi(
               127,
               0,
               null,
@@ -27368,7 +27368,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               128,
               0,
               null,
@@ -27383,7 +27383,7 @@ function _createClass(n, e, t) {
               null
             )),
             (n()(),
-            Ai(
+            Mi(
               129,
               0,
               null,
@@ -27402,7 +27402,7 @@ function _createClass(n, e, t) {
               '\xa9 2013- 2020. \u0412\u0441\u0435 \u043f\u0440\u0430\u0432\u0430 - free.'
             ])),
             (n()(),
-            Ai(
+            Mi(
               131,
               0,
               null,
@@ -27492,13 +27492,13 @@ function _createClass(n, e, t) {
           0,
           [
             (n()(),
-            Ai(0, 0, null, null, 4, 'div', [['class', 'content']], null, null, null, null, null)),
-            (n()(), Ai(1, 0, null, null, 1, 'app-header', [], null, null, null, Dp, Vp)),
+            Mi(0, 0, null, null, 4, 'div', [['class', 'content']], null, null, null, null, null)),
+            (n()(), Mi(1, 0, null, null, 1, 'app-header', [], null, null, null, Dp, Vp)),
             Yl(2, 49152, null, 0, Np, [], null, null),
             (n()(),
-            Ai(3, 16777216, null, null, 1, 'router-outlet', [], null, null, null, null, null)),
+            Mi(3, 16777216, null, null, 1, 'router-outlet', [], null, null, null, null, null)),
             Yl(4, 212992, null, 0, Lh, [jh, Et, Je, [8, null], Oe], null, null),
-            (n()(), Ai(5, 0, null, null, 1, 'app-footer', [], null, null, null, Up, Lp)),
+            (n()(), Mi(5, 0, null, null, 1, 'app-footer', [], null, null, null, Up, Lp)),
             Yl(6, 114688, null, 0, jp, [], null, null)
           ],
           function(n, e) {
@@ -27514,7 +27514,7 @@ function _createClass(n, e, t) {
             return Gi(
               0,
               [
-                (n()(), Ai(0, 0, null, null, 1, 'app-root', [], null, null, null, zp, Fp)),
+                (n()(), Mi(0, 0, null, null, 1, 'app-root', [], null, null, null, zp, Fp)),
                 Yl(1, 49152, null, 0, Ju, [], null, null)
               ],
               null,
@@ -27583,7 +27583,7 @@ function _createClass(n, e, t) {
           return (function(n) {
             for (var e = {}, t = [], l = !1, r = 0; r < n.length; r++) {
               var i = n[r];
-              i.token === Se && !0 === i.value && (l = !0),
+              i.token === Pe && !0 === i.value && (l = !0),
                 1073741824 & i.flags && t.push(i.token),
                 (i.index = r),
                 (e[zt(i.token)] = i);
@@ -27593,7 +27593,7 @@ function _createClass(n, e, t) {
             yl(512, Je, Xe, [[8, [sf, Ef, If, jf, zf, Zf, ud, hd, Ip, Hp]], [3, Je], Un]),
             yl(5120, Tr, Ei, [[3, Tr]]),
             yl(4608, so, co, [Tr, [2, ao]]),
-            yl(5120, fr, Si, [Kr]),
+            yl(5120, fr, Pi, [Kr]),
             yl(5120, br, wr, []),
             yl(5120, yt, xi, []),
             yl(5120, Ct, Oi, []),
@@ -27606,11 +27606,11 @@ function _createClass(n, e, t) {
               function(n, e, t, l, r, i, u, o) {
                 return [new Ja(n, e, t), new us(l), new ls(r, i, u, o)];
               },
-              [_o, Kr, Er, _o, _o, ns, Pr, [2, es]]
+              [_o, Kr, Er, _o, _o, ns, Sr, [2, es]]
             ),
-            yl(4608, Aa, Aa, [Ta, Kr]),
+            yl(4608, Ma, Ma, [Ta, Kr]),
             yl(135680, Ia, Ia, [_o]),
-            yl(4608, La, La, [Aa, Ia, br]),
+            yl(4608, La, La, [Ma, Ia, br]),
             yl(6144, rt, null, [La]),
             yl(6144, Ra, null, [Ia]),
             yl(4608, ni, ni, [Kr]),
@@ -27623,7 +27623,7 @@ function _createClass(n, e, t) {
             yl(5120, uf, rf, [tf]),
             yl(
               5120,
-              Sr,
+              Pr,
               function(n) {
                 return [n];
               },
@@ -27648,19 +27648,19 @@ function _createClass(n, e, t) {
               function(n, e) {
                 return [
                   ((t = n),
-                  Ea('probe', Pa),
+                  Ea('probe', Sa),
                   Ea(
                     'coreTokens',
                     Object.assign(
                       {},
-                      Sa,
+                      Pa,
                       (t || []).reduce(function(n, e) {
                         return (n[e.name] = e.token), n;
                       }, {})
                     )
                   ),
                   function() {
-                    return Pa;
+                    return Sa;
                   }),
                   lf(e)
                 ];
@@ -27669,8 +27669,8 @@ function _createClass(n, e, t) {
               [[2, ri], tf]
             ),
             yl(512, kr, kr, [[2, Cr]]),
-            yl(131584, ci, ci, [Kr, Pr, Te, Zn, Je, kr]),
-            yl(1073742336, Pi, Pi, [ci]),
+            yl(131584, ci, ci, [Kr, Sr, Te, Zn, Je, kr]),
+            yl(1073742336, Si, Si, [ci]),
             yl(1073742336, _s, _s, [[3, _s]]),
             yl(1024, Kh, Jh, [[3, Ih]]),
             yl(512, tc, lc, []),
@@ -27687,19 +27687,19 @@ function _createClass(n, e, t) {
                 return [
                   [
                     { path: '', component: wf },
-                    { path: 'catalog', component: Af },
+                    { path: 'catalog', component: Mf },
                     { path: 'about', component: Nf },
                     { path: 'support', component: Lf },
                     { path: 'clients', component: Gf },
                     { path: 'articles', component: ld },
                     { path: 'brands', component: od },
-                    { path: 'contacts', component: Ap }
+                    { path: 'contacts', component: Mp }
                   ]
                 ];
               },
               []
             ),
-            yl(1024, Ih, nf, [ci, tc, jh, lo, Te, fi, jr, Eh, Gh, [2, Ph], [2, xh]]),
+            yl(1024, Ih, nf, [ci, tc, jh, lo, Te, fi, jr, Eh, Gh, [2, Sh], [2, xh]]),
             yl(1073742336, Qh, Qh, [
               [2, Kh],
               [2, Ih]
@@ -27727,7 +27727,7 @@ function _createClass(n, e, t) {
             yl(1073742336, iv, iv, []),
             yl(1073742336, uv, uv, []),
             yl(1073742336, $u, $u, []),
-            yl(256, Se, !0, []),
+            yl(256, Pe, !0, []),
             yl(256, 'API_KEY', '7f51d984-8723-4f7a-83a0-14ef48da9470', [])
           ]);
         });
