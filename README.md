@@ -1,6 +1,12 @@
 # AngularNabludenieBy
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+- https://domovikx.github.io/angular-nabludenie-by/dist/angular-nabludenie-by/      
+- https://nabludenie.by/ - site template
+
+This project has been completed as a course project   
+Author student IS-17 - Ivanovsky Ilya   
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.   
 
 ## Development server
 
