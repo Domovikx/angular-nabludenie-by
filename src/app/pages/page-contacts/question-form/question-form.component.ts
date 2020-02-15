@@ -9,10 +9,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class QuestionFormComponent {
   public formQuestion: FormGroup;
 
-  constructor() {
-    //
-  }
-
   ngOnInit(): void {
     this.createForm();
   }

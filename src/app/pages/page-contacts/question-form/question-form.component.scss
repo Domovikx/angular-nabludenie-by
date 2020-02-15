@@ -3,6 +3,10 @@
 .section {
   max-width: 1200px;
   margin: 0 auto 20px;
+
+  @media (max-width: 540px) {
+    margin: 0;
+  }
 }
 
 .title-wrapper {
@@ -81,6 +85,32 @@ label {
   .item--message {
     grid-column: 2;
     display: grid;
+  }
+
+  @media (max-width: 850px) {
+    grid-template-columns: 1fr 2fr;
+    padding: 0 10px;
+
+    .item--fieldset {
+      grid-template-columns: auto;
+      padding: 0;
+    }
+    .form__label {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: auto;
+
+    .item--fieldset,
+    .item--message {
+      grid-column: 1;
+    }
+
+    .form__input {
+      padding: 10px 6px;
+    }
   }
 }
 

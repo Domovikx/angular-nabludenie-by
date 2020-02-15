@@ -59,7 +59,11 @@ img {
 }
 
 .container__contacts {
-  padding-left: 20px;
+  padding: 0 0 0 20px;
+
+  @media (max-width: 850px) {
+    padding: 0 10px;
+  }
 }
 
 .catalog_list {

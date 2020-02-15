@@ -7,33 +7,51 @@
 
   <form [formGroup]="formQuestion" class="form">
     <div class="form__item item item--fieldset">
-      <label>
-        <svg class="svg__user svg">
+      <label class="form__label label">
+        <svg class="label__svg svg__user svg">
           <use xlink:href="assets/svg/sprite.svg#svg__user"></use>
         </svg>
-        Имя
+        <span class="label__text">Имя</span>
       </label>
-      <input type="text" formControlName="formName" placeholder="Имя *" required />
+      <input
+        class="form__input input"
+        type="text"
+        formControlName="formName"
+        placeholder="Имя *"
+        required
+      />
 
-      <label>
-        <svg class="svg__letter svg">
+      <label class="form__label label">
+        <svg class="label__svg svg__letter svg">
           <use xlink:href="assets/svg/sprite.svg#svg__letter"></use>
         </svg>
-        Email
+        <span class="label__text">Email</span>
       </label>
-      <input type="email" formControlName="formEmail" placeholder="Email *" required />
+      <input
+        class="form__input input"
+        type="email"
+        formControlName="formEmail"
+        placeholder="Email *"
+        required
+      />
 
-      <label>
-        <svg class="svg__newspaper svg">
+      <label class="form__label label">
+        <svg class="label__svg svg__newspaper svg">
           <use xlink:href="assets/svg/sprite.svg#svg__newspaper"></use>
         </svg>
-        Тема
+        <span class="label__text">Тема</span>
       </label>
-      <input type="text" formControlName="formTopic" placeholder="Тема *" required />
+      <input
+        class="form__input input"
+        type="text"
+        formControlName="formTopic"
+        placeholder="Тема *"
+        required
+      />
     </div>
 
     <div class="form__item item item--message">
-      <label>Ваше сообщение</label>
+      <label class="form__label label">Ваше сообщение</label>
       <textarea
         class="textarea"
         type="text"

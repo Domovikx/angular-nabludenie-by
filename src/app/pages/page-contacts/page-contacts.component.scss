@@ -18,3 +18,13 @@ app-question-form {
 app-contact-data {
   grid-column: 3;
 }
+
+@media (max-width: 850px) {
+  app-contact-data {
+    display: none;
+  }
+
+  app-question-form {
+    grid-column: 1 / span 3;
+  }
+}
