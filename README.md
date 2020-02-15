@@ -1,6 +1,12 @@
 # AngularNabludenieBy
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+- https://domovikx.github.io/angular-nabludenie-by/dist/angular-nabludenie-by/      
+- https://nabludenie.by/ - site template
+
+This project has been completed as a course project   
+Author student IS-17 - Ivanovsky Ilya   
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.   
 
 ## Development server
 
@@ -13,9 +19,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-- деплой делаем так:  
-  \$ ng build --prod --build-optimizer --base-href ./
 
 деплой - https://progtask.ru/deploy-angular-github-pages/
 деплой как я делал
@@ -32,20 +35,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 - ng add angular-cli-ghpages
 - ng deploy - ждем, файлы будут на гите
-  правильно сделать не получилось, белый экран  
-  план Б нам нужна папка DIST в ней файлы проекта  
+  правильно сделать не получилось, план Б нам нужна папка DIST в ней файлы проекта  
   .gitignore - удалить /DIST и закидываем
-- опять делаем ветку gh-pages
-- опять белый экран, возможно всё работает, просто надо подождать - гита...  
-  https://domovikx.github.io/angular-nabludenie-by/dist/angular-nabludenie-by/  
-  должно работать отсюда
-- получилось запустить когда поставил вручную указал путь
-  <base href="./"> в файле index.html   
-  $ ng build --prod --build-optimizer --base-href ./
-  теперь не работают картинки, всё остальное работает   
-  нужно поменять пути во всех картинках с относительного на абсолютные !
-
-ng build --prod --build-optimizer --base-href /test/
 
 ## Running unit tests
 
